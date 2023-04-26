@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\HomepageController;
+use App\Http\Controllers\Front\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('front.homepage');
-});
+Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+Route::get('/about', [HomepageController::class, 'about'])->name('about');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
