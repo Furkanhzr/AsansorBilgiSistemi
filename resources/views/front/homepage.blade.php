@@ -180,7 +180,7 @@
                             <div class="client-meta">
                                 <h3>Muhammed Atmaca <span>Takım Üyesi</span></h3>
                                 <p class="testimonial-body">
-                                    " herkese salam 33 yaşım var reyal amcık ve göt emirem yalıyram gadını dilimlen boşaltıram masaj edirem bütün hidmetler pulsuzdur reyal isteyen hanımlar buyrup vatsap nömreme yaza ve zenk edebilersiniz vatsap nömremi deyirem nul elli bir beş yüz altmış altı kırk beş yetmiş iki bir daha tekrir ediyrem nul elli bir beş yüz altmış altı kırk beş yetmiş iki reyal isteyen hanımlar buyrup yaza ve zenk edebilersiniz hiçbir hanım korkmasın utanmasın bu hagigettir "
+                                    " Merhaba, ben Muhammed Atmaca Fırat Üniversitesi Yazılım Mühendisliği meznuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>
