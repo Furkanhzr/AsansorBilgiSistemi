@@ -1,4 +1,11 @@
-/*Template Name: Fruitkha - Responsive Bootstrap4 Shop TemplateTemplate URI: Description: Bootstrap template for fruits or any other kind of shopAuthor: Imran HossainAuthor URI: https://imransdesign.com/Version: 1.0*/
+/*
+Template Name: Fruitkha - Responsive Bootstrap4 Shop Template
+Template URI:
+Description: Bootstrap template for fruits or any other kind of shop
+Author: Imran Hossain
+Author URI: https://imransdesign.com/
+Version: 1.0
+*/
 /* -----------------------------------------------------------------------------
 
 # Base - Genral & Typography
@@ -514,10 +521,11 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
 
 ----------------------------------------------------------------------------- */
 ul.navbar-nav li.nav-item a.nav-link, ul.navbar-nav li.nav-item.active a.nav-link {
-  color: #051922;
+  color: rgb(5, 25, 34);
 }
 
 .top-header-area {
+  background-color: rgba(5, 25, 34, 0.82);
   position: absolute;
   z-index: 999;
   width: 100%;
@@ -627,11 +635,11 @@ ul.sub-menu li:last-child {
 }
 
 .mean-container a.meanmenu-reveal {
-  color: #051922;
+  color: rgb(5, 25, 34);
 }
 
 .mean-container a.meanmenu-reveal span {
-  background-color: #051922;
+  background-color: rgb(5, 25, 34);
 }
 
 .mean-container .mean-nav ul li a {
@@ -668,7 +676,7 @@ nav.mean-nav > ul > li:first-child > a {
 }
 
 .top-header-area.sepherate-header ul li > a, .top-header-area.sepherate-header .header-icons a {
-  color: #051922;
+  color: rgb(5, 25, 34);
 }
 
 nav.main-menu ul ul.sub-menu li {
@@ -715,7 +723,7 @@ nav.main-menu li a {
 }
 
 .sticky-wrapper.is-sticky .top-header-area {
-  background-color: #051922;
+  background-color: rgb(5, 25, 34);
   padding: 15px 0;
 }
 
@@ -734,7 +742,7 @@ ul.navbar-nav {
   left: 0;
   top: 0;
   z-index: 5555;
-  background-color: #051922;
+  background-color: rgb(5, 25, 34);
   width: 100%;
   height: 100%;
   text-align: center;

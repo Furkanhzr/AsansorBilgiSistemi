@@ -43,7 +43,7 @@
 <!--PreLoader Ends-->
 
 <!-- header -->
-<div class="top-header-area" id="sticker">
+<div class="top-header-area" id="sticker" >
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-sm-12 text-center">
@@ -51,7 +51,7 @@
                     <!-- logo -->
                     <div class="site-logo">
                         <a href="{{route('homepage')}}">
-                            <img src="{{asset('template')}}/assets/img/logo.png" alt="">
+                            <img src="{{asset('images')}}/company_logo.png" style="width: 100px; height: 75px;" alt="">
                         </a>
                     </div>
                     <!-- logo -->
@@ -59,34 +59,23 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="{{ Request::segment(1) == '' ? 'current-list-item' : '' }}"><a href="{{route('homepage')}}">Home</a></li>
-                            <li class="{{ Request::segment(1) == 'about' ? 'current-list-item' : '' }}"><a href="{{route('about')}}">About</a></li>
-                            <li><a href="#">Pages</a>
+                            <li class="{{ Request::segment(1) == '' ? 'current-list-item' : '' }}"><a href="{{route('homepage')}}">Anasayfa</a></li>
+                            <li><a href="#">Ürünlerimiz</a>
                                 <ul class="sub-menu">
-                                    <li><a href="404.html">404 page</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="checkout.html">Check Out</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="404.html">İnsan Asansörleri</a></li>
+                                    <li><a href="about.html">Yük Asansörleri</a></li>
+                                    <li><a href="cart.html">Hidrolik Asansörler</a></li>
+                                    <li><a href="checkout.html">Otomatik Asansörler</a></li>
+                                    <li><a href="contact.html">Sedye Asansörleri</a></li>
+                                    <li><a href="news.html">Yemek Asansörü</a></li>
+                                    <li><a href="shop.html">Araç Asansörleri</a></li>
                                 </ul>
                             </li>
-                            <li><a href="news.html">News</a>
-                                <ul class="sub-menu">
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="single-news.html">Single News</a></li>
-                                </ul>
-                            </li>
-                            <li class="{{ Request::segment(1) == 'contact' ? 'current-list-item' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
-                            <li><a href="shop.html">Shop</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="checkout.html">Check Out</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="#">Referanslarımız</a></li>
+                            <li><a href="#">Hikayelerimiz</a></li>
+
+                            <li class="{{ Request::segment(1) == 'about' ? 'current-list-item' : '' }}"><a href="{{route('about')}}">Hakkımızda</a></li>
+                            <li class="{{ Request::segment(1) == 'contact' ? 'current-list-item' : '' }}"><a href="{{route('contact')}}">İletişim</a></li>
                             <li>
                                 <div class="header-icons">
                                     <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
@@ -113,9 +102,9 @@
                 <span class="close-btn"><i class="fas fa-window-close"></i></span>
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
-                        <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
-                        <button type="submit">Search <i class="fas fa-search"></i></button>
+                        <h3>Arama Yap:</h3>
+                        <input type="text" placeholder="Giriniz" style="opacity: 50%">
+                        <button type="submit">Ara <i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -160,36 +149,35 @@
         <div class="row">
             <div class="col-lg-3 col-md-6">
                 <div class="footer-box about-widget">
-                    <h2 class="widget-title">About us</h2>
-                    <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+                    <h2 class="widget-title">Hakkımızda</h2>
+                    <p>Aker Asansör, ’’Kaliteli Asansör Kabin Üretimi’’ ve ’’Her Zaman Müşteri Memnuniyeti’’ politikalarını daima en üst hedefi olarak görmüştür.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-box get-in-touch">
-                    <h2 class="widget-title">Get in Touch</h2>
+                    <h2 class="widget-title">Bize Ulaş</h2>
                     <ul>
-                        <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-                        <li>support@fruitkha.com</li>
+                        <li>34/8, İş Merkezi, Merkez, Elazığ.</li>
+                        <li>support@akerasansor.com</li>
                         <li>+00 111 222 3333</li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-box pages">
-                    <h2 class="widget-title">Pages</h2>
+                    <h2 class="widget-title">Sayfalar</h2>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Shop</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{{route('homepage')}}">Anasayfa</a></li>
+                        <li><a href="services.html">Ürünlerimiz</a></li>
+                        <li><a href="{{route('about')}}">Hakkımızda</a></li>
+                        <li><a href="{{route('contact')}}">İletişim</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-box subscribe">
-                    <h2 class="widget-title">Subscribe</h2>
-                    <p>Subscribe to our mailing list to get the latest updates.</p>
+                    <h2 class="widget-title">Abone Ol</h2>
+                    <p>Fırsatlardan haberdar olmak için mail adresinizi giriniz.</p>
                     <form action="index.html">
                         <input type="email" placeholder="Email">
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
@@ -206,7 +194,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-12">
-                <p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+                <p>Copyrights &copy; 2023 - <a href="https://imransdesign.com/">Furkan, Muhammed, Yunus</a>,  Bütün Haklar Saklıdır.</p>
             </div>
             <div class="col-lg-6 text-right col-md-12">
                 <div class="social-icons">

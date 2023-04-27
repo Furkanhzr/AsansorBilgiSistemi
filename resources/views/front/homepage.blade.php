@@ -3,16 +3,17 @@
 @section('content')
     <!-- hero area -->
     <div class="hero-area hero-bg">
+        <img src="{{asset('images')}}/elevtor1.jpg" style="width: 100%; height: 100%; position: absolute">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 offset-lg-2 text-center">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
-                            <p class="subtitle">Fresh & Organic</p>
-                            <h1>Delicious Seasonal Fruits</h1>
+                            <p class="subtitle">Sağlam & Güvenli</p>
+                            <h1>Yeni Nesil Asansörler</h1>
                             <div class="hero-btns">
-                                <a href="shop.html" class="boxed-btn">Fruit Collection</a>
-                                <a href="contact.html" class="bordered-btn">Contact Us</a>
+                                <a href="shop.html" class="boxed-btn">Katalog</a>
+                                <a href="{{route('contact')}}" class="bordered-btn">İletişime Geçin</a>
                             </div>
                         </div>
                     </div>
@@ -33,8 +34,8 @@
                             <i class="fas fa-shipping-fast"></i>
                         </div>
                         <div class="content">
-                            <h3>Free Shipping</h3>
-                            <p>When order over $75</p>
+                            <h3>Aynı Hafta Kurulum</h3>
+                            <p>Hızlı Kurulum !</p>
                         </div>
                     </div>
                 </div>
@@ -44,8 +45,8 @@
                             <i class="fas fa-phone-volume"></i>
                         </div>
                         <div class="content">
-                            <h3>24/7 Support</h3>
-                            <p>Get support all day</p>
+                            <h3>7/24 Destek</h3>
+                            <p>Tüm gün destek al !</p>
                         </div>
                     </div>
                 </div>
@@ -55,8 +56,8 @@
                             <i class="fas fa-sync"></i>
                         </div>
                         <div class="content">
-                            <h3>Refund</h3>
-                            <p>Get refund within 3 days!</p>
+                            <h3>Geri Dönüş</h3>
+                            <p>Gün içinde geri dönüş al !</p>
                         </div>
                     </div>
                 </div>
@@ -72,8 +73,8 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <div class="section-title">
-                        <h3><span class="orange-text">Our</span> Products</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+                        <h3><span class="orange-text">Yeni</span> Ürünlerimiz</h3>
+                        <p>Bu kısımda en çok tercih edilen ve yeni çıkan asansör modelleri bulunmaktadır.</p>
                     </div>
                 </div>
             </div>
@@ -82,31 +83,31 @@
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="single-product-item">
                         <div class="product-image">
-                            <a href="single-product.html"><img src="{{asset('template')}}/assets/img/products/product-img-1.jpg" alt=""></a>
+                            <a href="single-product.html"><img src="{{asset('images')}}/elv1.jpg" style="width: 260px; height: 261px; margin-bottom: 20px;" alt=""></a>
                         </div>
-                        <h3>Strawberry</h3>
-                        <p class="product-price"><span>Per Kg</span> 85$ </p>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                        <h3>İnsan Asansörleri</h3>
+                        <p class="product-price"><span>Fiyat</span> 12.000 TL </p>
+                        <a href="cart.html" class="cart-btn"><i class="fas fa-search"></i> İncele</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="single-product-item">
                         <div class="product-image">
-                            <a href="single-product.html"><img src="{{asset('template')}}/assets/img/products/product-img-2.jpg" alt=""></a>
+                            <a href="single-product.html"><img src="{{asset('images')}}/elv2.jpg" style="width: 260px; height: 261px; margin-bottom: 20px;" alt=""></a>
                         </div>
-                        <h3>Berry</h3>
-                        <p class="product-price"><span>Per Kg</span> 70$ </p>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                        <h3>Yük Asansörleri</h3>
+                        <p class="product-price"><span>Fiyat</span> 18.000 TL </p>
+                        <a href="cart.html" class="cart-btn"><i class="fas fa-search"></i> İncele</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
                     <div class="single-product-item">
                         <div class="product-image">
-                            <a href="single-product.html"><img src="{{asset('template')}}/assets/img/products/product-img-3.jpg" alt=""></a>
+                            <a href="single-product.html"><img src="{{asset('images')}}/elv3.jpg" style="width: 260px; height: 261px; margin-bottom: 20px;" alt=""></a>
                         </div>
-                        <h3>Lemon</h3>
-                        <p class="product-price"><span>Per Kg</span> 35$ </p>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                        <h3>Hidrolik Asansörler</h3>
+                        <p class="product-price"><span>Fiyat</span> 15.000 TL </p>
+                        <a href="cart.html" class="cart-btn"><i class="fas fa-search"></i> İncele</a>
                     </div>
                 </div>
             </div>
@@ -124,21 +125,28 @@
                         <div class="price-box">
                             <div class="inner-price">
                                 <span class="price">
-                                    <strong>30%</strong> <br> off per kg
+                                    <strong>3 ay</strong> <br> ücretsiz
                                 </span>
                             </div>
                         </div>
-                        <img src="{{asset('template')}}/assets/img/a.jpg" alt="">
+                        <img src="{{asset('images')}}/mechanic.png" style="width: 400px; height: 400px;" alt="">
                     </div>
                 </div>
                 <!--Content Column-->
                 <div class="content-column col-lg-6">
-                    <h3><span class="orange-text">Deal</span> of the month</h3>
-                    <h4>Hikan Strwaberry</h4>
-                    <div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
+                    <h3><span class="orange-text">Bu</span> Ayın Teklifi</h3>
+                    <h4>Apartman Asansörlerinde</h4>
+                    <div class="text">Sadece bu ay geçerli sınırlı teklifimizde, yapacağınz yıllık sözleşmelerde 3 ay bakım ücreti bizden !</div>
                     <!--Countdown Timer-->
-                    <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-                    <a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <div class="time-counter">
+                        <div class="time-countdown clearfix" data-countdown="2023/5/20">
+                            <div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div>
+                            <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>
+                            <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>
+                            <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div>
+                        </div>
+                    </div>
+                    <a href="cart.html" class="cart-btn mt-3"></i> Detaylar</a>
                 </div>
             </div>
         </div>
@@ -153,12 +161,12 @@
                     <div class="testimonial-sliders">
                         <div class="single-testimonial-slider">
                             <div class="client-avater">
-                                <img src="{{asset('template')}}/assets/img/avaters/avatar1.png" alt="">
+                                <img src="{{asset('images')}}/furkanhazar3.jpg" alt="">
                             </div>
                             <div class="client-meta">
-                                <h3>Saira Hakim <span>Local shop owner</span></h3>
+                                <h3>Furkan Hazar <span>Takım Lideri</span></h3>
                                 <p class="testimonial-body">
-                                    " Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+                                    " Merhaba, ben Furkan Hazar Fırat Üniversitesi Yazılım Mühendisliği meznuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>
@@ -167,12 +175,12 @@
                         </div>
                         <div class="single-testimonial-slider">
                             <div class="client-avater">
-                                <img src="{{asset('template')}}/assets/img/avaters/avatar2.png" alt="">
+                                <img src="{{asset('images')}}/muhammed2.jpg" alt="">
                             </div>
                             <div class="client-meta">
-                                <h3>David Niph <span>Local shop owner</span></h3>
+                                <h3>Muhammed Atmaca <span>Takım Üyesi</span></h3>
                                 <p class="testimonial-body">
-                                    " Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+                                    " herkese salam 33 yaşım var reyal amcık ve göt emirem yalıyram gadını dilimlen boşaltıram masaj edirem bütün hidmetler pulsuzdur reyal isteyen hanımlar buyrup vatsap nömreme yaza ve zenk edebilersiniz vatsap nömremi deyirem nul elli bir beş yüz altmış altı kırk beş yetmiş iki bir daha tekrir ediyrem nul elli bir beş yüz altmış altı kırk beş yetmiş iki reyal isteyen hanımlar buyrup yaza ve zenk edebilersiniz hiçbir hanım korkmasın utanmasın bu hagigettir "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>
@@ -181,12 +189,12 @@
                         </div>
                         <div class="single-testimonial-slider">
                             <div class="client-avater">
-                                <img src="{{asset('template')}}/assets/img/avaters/avatar3.png" alt="">
+                                <img src="{{asset('images')}}/yunusemre.jpg" alt="">
                             </div>
                             <div class="client-meta">
-                                <h3>Jacob Sikim <span>Local shop owner</span></h3>
+                                <h3>Yunus Emre Ertürk <span>Takım Üyesi</span></h3>
                                 <p class="testimonial-body">
-                                    " Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+                                    " Merhaba, ben Yunus Emre Ertürk Fırat Üniversitesi Yazılım Mühendisliği meznuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>
@@ -206,16 +214,17 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="abt-bg">
-                        <a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
+                        <img src="{{asset('images')}}/elv1.jpg">
+                        <a href="https://www.youtube.com/watch?v=FFpKUHt6h70" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="abt-text">
-                        <p class="top-sub">Since Year 1999</p>
-                        <h2>We are <span class="orange-text">Fruitkha</span></h2>
-                        <p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
-                        <a href="about.html" class="boxed-btn mt-4">know more</a>
+                        <p class="top-sub">2010'dan beri...</p>
+                        <h2>Aker <span class="orange-text">Asansör</span></h2>
+                        <p>Aker Asansör, ’’Kaliteli Asansör Kabin Üretimi’’ ve ’’Her Zaman Müşteri Memnuniyeti’’ politikalarını daima en üst hedefi olarak görmüştür.</p>
+                            <p>Üretimini gerçekleştirdiği asansör kabini ve asansör aksamları ile yaratmış olduğu kalitesini, vermiş olduğu hizmetle birleştirerek kısa sürede kendi markası olan Aker Asansör markasını dünyaya duyurmayı başarmış ve sektördeki öncü kuruluşlar arasında yerini almıştır.</p>
+                        <a href="{{route('about')}}" class="boxed-btn mt-4">devamı</a>
                     </div>
                 </div>
             </div>
@@ -223,79 +232,79 @@
     </div>
     <!-- end advertisement section -->
 
-    <!-- shop banner -->
-    <section class="shop-banner">
-        <div class="container">
-            <h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
-            <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
-        </div>
-    </section>
-    <!-- end shop banner -->
+{{--    <!-- shop banner -->--}}
+{{--    <section class="shop-banner">--}}
+{{--        <div class="container">--}}
+{{--            <h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>--}}
+{{--            <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>--}}
+{{--            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>--}}
+{{--        </div>--}}
+{{--    </section>--}}
+{{--    <!-- end shop banner -->--}}
 
-    <!-- latest news -->
-    <div class="latest-news pt-150 pb-150">
-        <div class="container">
+{{--    <!-- latest news -->--}}
+{{--    <div class="latest-news pt-150 pb-150">--}}
+{{--        <div class="container">--}}
 
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="section-title">
-                        <h3><span class="orange-text">Our</span> News</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-8 offset-lg-2 text-center">--}}
+{{--                    <div class="section-title">--}}
+{{--                        <h3><span class="orange-text">Our</span> News</h3>--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-latest-news">
-                        <a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
-                        <div class="news-text-box">
-                            <h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
-                            <p class="blog-meta">
-                                <span class="author"><i class="fas fa-user"></i> Admin</span>
-                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-                            </p>
-                            <p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-latest-news">
-                        <a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
-                        <div class="news-text-box">
-                            <h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
-                            <p class="blog-meta">
-                                <span class="author"><i class="fas fa-user"></i> Admin</span>
-                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-                            </p>
-                            <p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-                    <div class="single-latest-news">
-                        <a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
-                        <div class="news-text-box">
-                            <h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
-                            <p class="blog-meta">
-                                <span class="author"><i class="fas fa-user"></i> Admin</span>
-                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-                            </p>
-                            <p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <a href="news.html" class="boxed-btn">More News</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end latest news -->
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-4 col-md-6">--}}
+{{--                    <div class="single-latest-news">--}}
+{{--                        <a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>--}}
+{{--                        <div class="news-text-box">--}}
+{{--                            <h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>--}}
+{{--                            <p class="blog-meta">--}}
+{{--                                <span class="author"><i class="fas fa-user"></i> Admin</span>--}}
+{{--                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>--}}
+{{--                            </p>--}}
+{{--                            <p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>--}}
+{{--                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6">--}}
+{{--                    <div class="single-latest-news">--}}
+{{--                        <a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>--}}
+{{--                        <div class="news-text-box">--}}
+{{--                            <h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>--}}
+{{--                            <p class="blog-meta">--}}
+{{--                                <span class="author"><i class="fas fa-user"></i> Admin</span>--}}
+{{--                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>--}}
+{{--                            </p>--}}
+{{--                            <p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>--}}
+{{--                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">--}}
+{{--                    <div class="single-latest-news">--}}
+{{--                        <a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>--}}
+{{--                        <div class="news-text-box">--}}
+{{--                            <h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>--}}
+{{--                            <p class="blog-meta">--}}
+{{--                                <span class="author"><i class="fas fa-user"></i> Admin</span>--}}
+{{--                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>--}}
+{{--                            </p>--}}
+{{--                            <p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>--}}
+{{--                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-12 text-center">--}}
+{{--                    <a href="news.html" class="boxed-btn">More News</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <!-- end latest news -->--}}
 @endsection
