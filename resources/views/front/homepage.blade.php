@@ -3,7 +3,7 @@
 @section('content')
     <!-- hero area -->
     <div class="hero-area hero-bg">
-        <img src="{{asset('images')}}/elevtor1.jpg" style="width: 100%; height: 100%; position: absolute">
+        <img src="{{asset('images')}}/elevtor1.jpg" style="width: 100%; height: 100%; position: absolute; opacity: 70%; object-fit: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 offset-lg-2 text-center">
@@ -12,7 +12,7 @@
                             <p class="subtitle">Sağlam & Güvenli</p>
                             <h1>Yeni Nesil Asansörler</h1>
                             <div class="hero-btns">
-                                <a href="shop.html" class="boxed-btn">Katalog</a>
+                                <a href="shop.html" class="boxed-btn">Ürünlerimiz</a>
                                 <a href="{{route('contact')}}" class="bordered-btn">İletişime Geçin</a>
                             </div>
                         </div>
@@ -83,9 +83,9 @@
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="single-product-item">
                         <div class="product-image">
-                            <a href="single-product.html"><img src="{{asset('images')}}/elv1.jpg" style="width: 260px; height: 261px; margin-bottom: 20px;" alt=""></a>
+                            <a href="single-product.html"><img src="{{asset('images')}}/elv4.jpg" style="width: 260px; height: 261px; margin-bottom: 20px; object-fit: cover;" alt=""></a>
                         </div>
-                        <h3>İnsan Asansörleri</h3>
+                        <h3>Araç Asansörleri</h3>
                         <p class="product-price"><span>Fiyat</span> 12.000 TL </p>
                         <a href="cart.html" class="cart-btn"><i class="fas fa-search"></i> İncele</a>
                     </div>
@@ -93,7 +93,7 @@
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="single-product-item">
                         <div class="product-image">
-                            <a href="single-product.html"><img src="{{asset('images')}}/elv2.jpg" style="width: 260px; height: 261px; margin-bottom: 20px;" alt=""></a>
+                            <a href="single-product.html"><img src="{{asset('images')}}/elv2.jpg" style="width: 260px; height: 261px; margin-bottom: 20px; object-fit: cover;" alt=""></a>
                         </div>
                         <h3>Yük Asansörleri</h3>
                         <p class="product-price"><span>Fiyat</span> 18.000 TL </p>
@@ -103,7 +103,7 @@
                 <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
                     <div class="single-product-item">
                         <div class="product-image">
-                            <a href="single-product.html"><img src="{{asset('images')}}/elv3.jpg" style="width: 260px; height: 261px; margin-bottom: 20px;" alt=""></a>
+                            <a href="single-product.html"><img src="{{asset('images')}}/elv3.jpg" style="width: 260px; height: 261px; margin-bottom: 20px; object-fit: cover;" alt=""></a>
                         </div>
                         <h3>Hidrolik Asansörler</h3>
                         <p class="product-price"><span>Fiyat</span> 15.000 TL </p>
@@ -166,7 +166,7 @@
                             <div class="client-meta">
                                 <h3>Furkan Hazar <span>Takım Lideri</span></h3>
                                 <p class="testimonial-body">
-                                    " Merhaba, ben Furkan Hazar Fırat Üniversitesi Yazılım Mühendisliği meznuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
+                                    " Merhaba, ben Furkan Hazar Fırat Üniversitesi Yazılım Mühendisliği mezunuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>
@@ -180,7 +180,7 @@
                             <div class="client-meta">
                                 <h3>Muhammed Atmaca <span>Takım Üyesi</span></h3>
                                 <p class="testimonial-body">
-                                    " Merhaba, ben Muhammed Atmaca Fırat Üniversitesi Yazılım Mühendisliği meznuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
+                                    " Merhaba, ben Muhammed Atmaca Fırat Üniversitesi Yazılım Mühendisliği mezunuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>
@@ -194,7 +194,7 @@
                             <div class="client-meta">
                                 <h3>Yunus Emre Ertürk <span>Takım Üyesi</span></h3>
                                 <p class="testimonial-body">
-                                    " Merhaba, ben Yunus Emre Ertürk Fırat Üniversitesi Yazılım Mühendisliği meznuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
+                                    " Merhaba, ben Yunus Emre Ertürk Fırat Üniversitesi Yazılım Mühendisliği mezunuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>
@@ -214,7 +214,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="abt-bg">
-                        <img src="{{asset('images')}}/elv1.jpg">
+                        <img src="{{asset('images')}}/elv1.jpg" style="object-fit: cover;">
                         <a href="https://www.youtube.com/watch?v=FFpKUHt6h70" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
                         <h2>Aker <span class="orange-text">Asansör</span></h2>
                         <p>Aker Asansör, ’’Kaliteli Asansör Kabin Üretimi’’ ve ’’Her Zaman Müşteri Memnuniyeti’’ politikalarını daima en üst hedefi olarak görmüştür.</p>
                             <p>Üretimini gerçekleştirdiği asansör kabini ve asansör aksamları ile yaratmış olduğu kalitesini, vermiş olduğu hizmetle birleştirerek kısa sürede kendi markası olan Aker Asansör markasını dünyaya duyurmayı başarmış ve sektördeki öncü kuruluşlar arasında yerini almıştır.</p>
-                        <a href="{{route('about')}}" class="boxed-btn mt-4">devamı</a>
+                        <a href="{{route('about')}}" class="boxed-btn mt-4">Devamı</a>
                     </div>
                 </div>
             </div>

@@ -2,13 +2,14 @@
 @section('title','İletişim')
 @section('content')
     <!-- breadcrumb-section -->
-    <div class="breadcrumb-section breadcrumb-bg">
+    <div class="breadcrumb-section breadcrumb-bg" style="width: 100%; height: 451px; padding: 0px 0px 0px 0px;">
+        <img src="{{asset('images')}}/contact.jpg" style="width: 100%; height: 100%; position: absolute; opacity: 50%; object-fit: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="breadcrumb-text">
-                        <p>Get 24/7 Support</p>
-                        <h1>Contact us</h1>
+                    <div class="breadcrumb-text" style="margin-top: 200px">
+                        <p>7/24 Destek Al</p>
+                        <h1>Bize ulaş</h1>
                     </div>
                 </div>
             </div>
@@ -22,39 +23,39 @@
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="form-title">
-                        <h2>Have you any question?</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, ratione! Laboriosam est, assumenda. Perferendis, quo alias quaerat aliquid. Corporis ipsum minus voluptate? Dolore, esse natus!</p>
+                        <h2>Herhangi bir sorunuz var mı ?</h2>
+                        <p>Eğer hizmetlerimiz ve ürünlerimiz hakkında ayrıntılı bilgi alabilmek için veya yaşadığınız herhangi bir sorun olursa belirtmek için bizimle iletişime geçebilirsiniz.</p>
                     </div>
                     <div id="form_status"></div>
                     <div class="contact-form">
                         <form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
                             <p>
-                                <input type="text" placeholder="Name" name="name" id="name">
-                                <input type="email" placeholder="Email" name="email" id="email">
+                                <input type="text" placeholder="Ad" name="name" id="name">
+                                <input type="text" placeholder="Soyad" name="surname" id="surname">
                             </p>
                             <p>
-                                <input type="tel" placeholder="Phone" name="phone" id="phone">
-                                <input type="text" placeholder="Subject" name="subject" id="subject">
+                                <input type="email" placeholder="Email" name="email" id="email">
+                                <input type="tel" placeholder="Telefon" name="phone" id="phone">
                             </p>
-                            <p><textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea></p>
+                            <p><textarea name="message" id="message" cols="30" rows="10" placeholder="Mesaj"></textarea></p>
                             <input type="hidden" name="token" value="FsWga4&@f6aw" />
-                            <p><input type="submit" value="Submit"></p>
+                            <p><input type="submit" value="Gönder"></p>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="contact-form-wrap">
                         <div class="contact-form-box">
-                            <h4><i class="fas fa-map"></i> Shop Address</h4>
-                            <p>34/8, East Hukupara <br> Gifirtok, Sadan. <br> Country Name</p>
+                            <h4><i class="fas fa-map"></i> Şube Adresimiz</h4>
+                            <p>34/8, İş Merkezi <br> Merkez, Elazığ. <br> Türkiye</p>
                         </div>
                         <div class="contact-form-box">
-                            <h4><i class="far fa-clock"></i> Shop Hours</h4>
-                            <p>MON - FRIDAY: 8 to 9 PM <br> SAT - SUN: 10 to 8 PM </p>
+                            <h4><i class="far fa-clock"></i> İş Saatleri</h4>
+                            <p>PZT - CUMA: 08:00 - 21:00 <br> CMT - PAZ: 10:00 - 08:00 </p>
                         </div>
                         <div class="contact-form-box">
-                            <h4><i class="fas fa-address-book"></i> Contact</h4>
-                            <p>Phone: +00 111 222 3333 <br> Email: support@fruitkha.com</p>
+                            <h4><i class="fas fa-address-book"></i> İletişim</h4>
+                            <p>Telefon: +90 111 222 3333 <br> Email: support@akerasansor.com</p>
                         </div>
                     </div>
                 </div>
@@ -68,7 +69,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p> <i class="fas fa-map-marker-alt"></i> Find Our Location</p>
+                    <p> <i class="fas fa-map-marker-alt"></i> Bizi Bulun</p>
                 </div>
             </div>
         </div>

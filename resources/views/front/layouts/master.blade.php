@@ -58,7 +58,7 @@
 
                     <!-- menu start -->
                     <nav class="main-menu">
-                        <ul>
+                        <ul  style="padding-top: 13px">
                             <li class="{{ Request::segment(1) == '' ? 'current-list-item' : '' }}"><a href="{{route('homepage')}}">Anasayfa</a></li>
                             <li><a href="#">Ürünlerimiz</a>
                                 <ul class="sub-menu">
@@ -78,7 +78,7 @@
                             <li class="{{ Request::segment(1) == 'contact' ? 'current-list-item' : '' }}"><a href="{{route('contact')}}">İletişim</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="boxed-btn" href="cart.html"><i class="fas fa-globe-americas"></i>&nbsp; Online İşlemler</a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                 </div>
                             </li>
@@ -122,19 +122,19 @@
             <div class="col-lg-12">
                 <div class="logo-carousel-inner">
                     <div class="single-logo-item">
-                        <img src="{{asset('template')}}/assets/img/company-logos/1.png" alt="">
+                        <img src="{{asset('images')}}/sponsor2.png" alt="">
                     </div>
                     <div class="single-logo-item">
-                        <img src="{{asset('template')}}/assets/img/company-logos/2.png" alt="">
+                        <img src="{{asset('images')}}/sponsor13.png" style="margin-top: 30px" alt="">
                     </div>
                     <div class="single-logo-item">
-                        <img src="{{asset('template')}}/assets/img/company-logos/3.png" alt="">
+                        <img src="{{asset('images')}}/sponsor10.png" style="margin-top: 20px"  alt="">
                     </div>
                     <div class="single-logo-item">
-                        <img src="{{asset('template')}}/assets/img/company-logos/4.png" alt="">
+                        <img src="{{asset('images')}}/sponsor12.png" style="margin-top: 20px" alt="">
                     </div>
                     <div class="single-logo-item">
-                        <img src="{{asset('template')}}/assets/img/company-logos/5.png" alt="">
+                        <img src="{{asset('images')}}/sponsor7.png" style="margin-top: 30px" alt="">
                     </div>
                 </div>
             </div>
