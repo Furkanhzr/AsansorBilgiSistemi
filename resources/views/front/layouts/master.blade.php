@@ -60,21 +60,24 @@
                     <nav class="main-menu">
                         <ul  style="padding-top: 13px">
                             <li class="{{ Request::segment(1) == '' ? 'current-list-item' : '' }}"><a href="{{route('homepage')}}">Anasayfa</a></li>
-                            <li><a href="#">Ürünlerimiz</a>
+                            <li class="{{ Request::segment(1) == 'products' ? 'current-list-item' : '' }}"><a href="{{route('products')}}">Ürünlerimiz</a>
                                 <ul class="sub-menu">
-                                    <li><a href="404.html">İnsan Asansörleri</a></li>
-                                    <li><a href="about.html">Yük Asansörleri</a></li>
-                                    <li><a href="cart.html">Hidrolik Asansörler</a></li>
-                                    <li><a href="checkout.html">Otomatik Asansörler</a></li>
-                                    <li><a href="contact.html">Sedye Asansörleri</a></li>
-                                    <li><a href="news.html">Yemek Asansörü</a></li>
-                                    <li><a href="shop.html">Araç Asansörleri</a></li>
+                                    <li><a href="{{route('products')}}">İnsan Asansörleri</a></li>
+                                    <li><a href="{{route('products')}}">Yük Asansörleri</a></li>
+                                    <li><a href="{{route('products')}}">Hidrolik Asansörler</a></li>
+                                    <li><a href="{{route('products')}}">Otomatik Asansörler</a></li>
+                                    <li><a href="{{route('products')}}">Sedye Asansörleri</a></li>
+                                    <li><a href="{{route('products')}}">Yemek Asansörü</a></li>
+                                    <li><a href="{{route('products')}}">Araç Asansörleri</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Referanslarımız</a></li>
-                            <li><a href="#">Hikayelerimiz</a></li>
 
-                            <li class="{{ Request::segment(1) == 'about' ? 'current-list-item' : '' }}"><a href="{{route('about')}}">Hakkımızda</a></li>
+                            <li class="{{ Request::segment(1) == 'about' ? 'current-list-item' : '' }}"><a href="{{route('about')}}">Hakkımızda</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{route('about')}}">Referanslarımız</a></li>
+                                    <li><a href="{{route('about')}}">Hikayelerimiz</a></li>
+                                </ul>
+                            </li>
                             <li class="{{ Request::segment(1) == 'contact' ? 'current-list-item' : '' }}"><a href="{{route('contact')}}">İletişim</a></li>
                             <li>
                                 <div class="header-icons">
@@ -157,9 +160,9 @@
                 <div class="footer-box get-in-touch">
                     <h2 class="widget-title">Bize Ulaş</h2>
                     <ul>
-                        <li>34/8, İş Merkezi, Merkez, Elazığ.</li>
+                        <li>34/8, İş Merkezi, Merkez, Elazığ, Türkiye</li>
                         <li>support@akerasansor.com</li>
-                        <li>+00 111 222 3333</li>
+                        <li>+90 111 222 3333</li>
                     </ul>
                 </div>
             </div>

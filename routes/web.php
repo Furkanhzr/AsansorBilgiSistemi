@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\Front\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,4 @@ use App\Http\Controllers\Front\ContactController;
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 Route::get('/about', [HomepageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/products', [ProductController::class, 'index'])->name('products');

@@ -3,7 +3,7 @@
 @section('content')
     <!-- breadcrumb-section -->
     <div class="breadcrumb-section breadcrumb-bg" style="width: 100%; height: 451px; padding: 0px 0px 0px 0px;">
-        <img src="{{asset('images')}}/elevator-factory3.jpg" style="width: 100%; height: 100%; position: absolute; opacity: 50%; object-fit: cover;">
+        <img src="{{asset('images')}}/company1.jpg" style="width: 100%; height: 100%; position: absolute; opacity: 50%; object-fit: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
@@ -19,6 +19,8 @@
 
     <!-- featured section -->
     <div class="feature-bg">
+        <img src="{{asset('images')}}/aker.png" style="; object-fit: cover; position: absolute; right: 0; top: 0; width: 40%; height: 100%; background-size: cover;
+            background-position: center; border-top-left-radius: 5px; -webkit-box-shadow: 0 0 20px #cacaca; box-shadow: 0 0 20px #cacaca; border-bottom-left-radius: 5px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
@@ -76,16 +78,6 @@
         </div>
     </div>
     <!-- end featured section -->
-
-{{--    <!-- shop banner -->--}}
-{{--    <section class="shop-banner">--}}
-{{--        <div class="container">--}}
-{{--            <h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>--}}
-{{--            <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>--}}
-{{--            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>--}}
-{{--        </div>--}}
-{{--    </section>--}}
-{{--    <!-- end shop banner -->--}}
 
     <!-- team section -->
     <div class="mt-150">
