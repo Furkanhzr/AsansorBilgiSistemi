@@ -39,6 +39,7 @@
 
                                 <form  method="POST" action="{{route('login.post')}}"enctype="multipart/form-data">
                                     @csrf
+                                    <a class="btn  text-white" href="{{route('homepage')}}" style="background-color: #f28123; float: right; margin-top: 14px"><i class="fa fa-home"></i></a>
                                     <div class="d-flex align-items-center mb-3 pb-1">
                                         <i class=" me-3" style="color: #ff6219;"><img src="{{asset('images')}}/aker.png" style=" height: 60px; width: 75px;"></i>
                                         <span class="h1 fw-bold mb-0">Giriş Yap</span>
@@ -67,7 +68,7 @@
                                     </div>
 
                                     <a class="small text-muted" href="#!">Şifremi unuttum</a>
-                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Hesabın var mı? <a href="#!" style="color: #393f81;">Üye ol</a></p>
+                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Hesabın var mı? <a href="#!" style="color: #393f81;">Üye Ol</a></p>
                                     <a href="#!" class="small text-muted">Kullanım şartları.</a>
                                     <a href="#!" class="small text-muted">Gizlilik Politikası</a>
                                 </form>
