@@ -207,6 +207,13 @@
                             <span>Datatable</span>
                         </a>
                     </li>
+
+                    <li class="sidebar-item" style="background: #dc3545; border-radius: 0.5rem;">
+                        <a href="{{route('logOut')}}" class='nav-link'>
+                            <i class="fa-solid fa-sign-out-alt text-white"></i>
+                            <span class="text-white">Çıkış Yap</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

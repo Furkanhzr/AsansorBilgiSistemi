@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('surname');
             $table->string('phone');
             $table->string('email');
-            $table->string('status');
+            $table->string('user_type')->comment('0-kullanıcı, 1-admin');
             $table->string('password');
             $table->timestamps();
         });

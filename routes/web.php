@@ -18,10 +18,23 @@ use App\Http\Controllers\Online\DashboardController;
 |
 */
 
-Route::get('/', [HomepageController::   class, 'index'])->name('homepage');
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::get('/loginPost', [LoginController::class, 'loginPost'])->name('loginPost');
+Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+
+Route::middleware('isLogin')->group(function() {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('logOut', [LoginController::class, 'logOut'])->name('logOut');
+});
+
+
+Route::middleware('isUser')->group(function() {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'loginPost'])->name('login.post');
+});
+
+
+//Route::get('/register', [LoginController::class, 'registerIndex'])->name('register.index');
+//Route::get('/register', [LoginController::class, 'registerPost'])->name('register.post');
+
 Route::get('/about', [HomepageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/products', [ProductController::class, 'index'])->name('products');
