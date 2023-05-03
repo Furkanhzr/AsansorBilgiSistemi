@@ -30,7 +30,26 @@
     <link rel="stylesheet" href="{{asset('template')}}/assets/css/main.css">
     <!-- responsive -->
     <link rel="stylesheet" href="{{asset('template')}}/assets/css/responsive.css">
+    <style>
+        body::-webkit-scrollbar {
+            background-color: #fff;
+            width: 16px;
+        }
 
+        body::-webkit-scrollbar-track {
+            background-color: #fff;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #babac0;
+            border-radius: 16px;
+            border: 4px solid #fff;
+        }
+
+        body::-webkit-scrollbar-button {
+            display:none;
+        }
+    </style>
 </head>
 <body>
 
@@ -81,7 +100,7 @@
                             <li class="{{ Request::segment(1) == 'contact' ? 'current-list-item' : '' }}"><a href="{{route('contact')}}">İletişim</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="boxed-btn" href="cart.html"><i class="fas fa-globe-americas"></i>&nbsp; Online İşlemler</a>
+                                    <a class="boxed-btn" href="{{route('login')}}"><i class="fas fa-globe-americas"></i>&nbsp; Online İşlemler</a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                 </div>
                             </li>
