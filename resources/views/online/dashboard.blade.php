@@ -208,7 +208,7 @@
                         <img src="{{asset('images')}}/furkanhazar3.jpg" alt="Face 1">
                     </div>
                     <div class="ms-3 name">
-                        <h5 class="font-bold">aa</h5>
+                        <h5 class="font-bold">{{$user->name}}</h5>
                     </div>
                 </div>
             </div>
