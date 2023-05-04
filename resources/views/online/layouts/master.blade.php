@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{asset('template2')}}/assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('template2')}}/assets/css/app.css">
     <link rel="shortcut icon" href="{{asset('template')}}/assets/img/favicon.png" type="image/x-icon">
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <style>
         body::-webkit-scrollbar {
             background-color: #fff;
             width: 16px;
@@ -211,7 +211,7 @@
                     <li class="sidebar-item" style="background: #dc3545; border-radius: 0.5rem;">
                         <a href="{{route('logOut')}}" class='nav-link'>
                             <i class="fa-solid fa-sign-out-alt text-white"></i>
-                            <span class="text-white">Çıkış Yap</span>
+                            <span class="text-white">&nbsp&nbspÇıkış Yap</span>
                         </a>
                     </li>
                 </ul>
