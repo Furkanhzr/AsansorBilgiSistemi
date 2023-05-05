@@ -12,7 +12,7 @@
                             <p class="subtitle">Sağlam & Güvenli</p>
                             <h1>Yeni Nesil Asansörler</h1>
                             <div class="hero-btns">
-                                <a href="shop.html" class="boxed-btn">Ürünlerimiz</a>
+                                <a href="{{route('products')}}" class="boxed-btn">Ürünlerimiz</a>
                                 <a href="{{route('contact')}}" class="bordered-btn">İletişime Geçin</a>
                             </div>
                         </div>
