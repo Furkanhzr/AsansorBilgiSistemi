@@ -190,7 +190,7 @@
                     <h2 class="widget-title">Sayfalar</h2>
                     <ul>
                         <li><a href="{{route('homepage')}}">Anasayfa</a></li>
-                        <li><a href="services.html">Ürünlerimiz</a></li>
+                        <li><a href="{{route('products')}}">Ürünlerimiz</a></li>
                         <li><a href="{{route('about')}}">Hakkımızda</a></li>
                         <li><a href="{{route('contact')}}">İletişim</a></li>
                     </ul>
