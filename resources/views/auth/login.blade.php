@@ -68,7 +68,7 @@
                                     </div>
 
                                     <a class="small text-muted" href="#!">Şifremi unuttum</a>
-                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Hesabın var mı? <a href="{{route('login')}}" style="color: #393f81;">Üye Ol</a></p>
+                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Hesabın var mı? <a href="{{route('contact')}}" style="color: #393f81;">İletişime Geç</a></p>
                                     <a href="#!" class="small text-muted">Kullanım şartları.</a>
                                     <a href="#!" class="small text-muted">Gizlilik Politikası</a>
                                 </form>
