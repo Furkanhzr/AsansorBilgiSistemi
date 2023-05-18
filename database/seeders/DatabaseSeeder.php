@@ -16,5 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call(UserSeeder::class);
+        $this->call(CitySeeder::class);
+        $this->call(TownSeeder::class);
+        $this->call(NeighbourhoodSeeder::class);
+        $this->call(StreetSeeder::class);
     }
 }
