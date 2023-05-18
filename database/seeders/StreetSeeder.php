@@ -17,7 +17,7 @@ class StreetSeeder extends Seeder
     public function run()
     {
         Street::unguard();
-        $streetPath = 'public/sql/sokak_cadde.sql';
+        $streetPath = 'public/sql/street.sql';
         ini_set('memory_limit', '-1');
         DB::unprepared(file_get_contents($streetPath));
     }

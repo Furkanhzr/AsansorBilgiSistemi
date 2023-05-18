@@ -17,7 +17,7 @@ class CitySeeder extends Seeder
     public function run()
     {
         City::unguard();
-        $cityPath = 'public/sql/sehir.sql';
+        $cityPath = 'public/sql/city.sql';
         ini_set('memory_limit', '-1');
         DB::unprepared(file_get_contents($cityPath));
     }

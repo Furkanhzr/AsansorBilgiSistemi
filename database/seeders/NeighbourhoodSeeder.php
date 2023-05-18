@@ -17,7 +17,7 @@ class NeighbourhoodSeeder extends Seeder
     public function run()
     {
         Neighbourhood::unguard();
-        $neighbourhoodPath = 'public/sql/mahalle.sql';
+        $neighbourhoodPath = 'public/sql/neighbourhood.sql';
         ini_set('memory_limit', '-1');
         DB::unprepared(file_get_contents($neighbourhoodPath));
     }
