@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Fault extends Model
 {
     use HasFactory;
+
+    public function getUser() {
+        return $this->belongsTo(User::class, 'user_id', 'id')->withTrashed();
+    }
+
+    public function getElevator() {
+        return $this->belongsTo(Elevator::class, 'elevator_id', 'id')->withTrashed();
+    }
+
+    public function getTransaction() {
+        return $this->hasOne(Transaction::class, 'transaction_id', 'id')->withTrashed();
+    }
 }

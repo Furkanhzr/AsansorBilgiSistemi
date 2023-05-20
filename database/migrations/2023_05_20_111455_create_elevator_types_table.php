@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('image_id')->references('id')->on('images');
+
         });
     }
 

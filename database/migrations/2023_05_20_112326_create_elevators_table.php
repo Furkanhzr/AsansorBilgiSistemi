@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('key_code');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('elevator_type_id')->references('id')->on('elevator_types');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

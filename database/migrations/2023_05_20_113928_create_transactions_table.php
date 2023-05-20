@@ -23,6 +23,8 @@ return new class extends Migration
             $table->integer('transaction_type')->comment('0-bakım, 1-arıza, 2-kurulum');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

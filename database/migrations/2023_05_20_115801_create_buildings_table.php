@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('building_title');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('street_id')->references('street_id')->on('street');
         });
     }
 

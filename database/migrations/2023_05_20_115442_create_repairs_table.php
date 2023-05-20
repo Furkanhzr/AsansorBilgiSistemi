@@ -22,6 +22,9 @@ return new class extends Migration
             $table->dateTime('repair_time');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('elevator_id')->references('id')->on('elevators');
+            $table->foreign('transaction_id')->references('id')->on('transactions');
         });
     }
 
