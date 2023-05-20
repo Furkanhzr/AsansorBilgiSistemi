@@ -19,9 +19,13 @@ return new class extends Migration
             $table->string('surname');
             $table->string('phone');
             $table->string('email');
-            $table->string('user_type')->comment('0-kullanıcı, 1-admin');
+            $table->string('address');
+            $table->unsignedBigInteger('payments_id')->nullable();
             $table->string('password');
+            $table->boolean('subscription')->comment('0-abone değil, 1-abone')->default(0);
+            $table->date('date_of_birth')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

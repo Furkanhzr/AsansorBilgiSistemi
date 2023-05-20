@@ -27,14 +27,14 @@ SET time_zone = "+00:00";
 --
 -- Tablo için tablo yapısı `neighbourhood`
 --
-
+/*
 CREATE TABLE `neighbourhood` (
   `neighbourhood_id` int(11) NOT NULL,
   `neighbourhood_title` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
   `neighbourhood_key` int(11) NOT NULL,
   `neighbourhood_town_key` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
+*/
 --
 -- Tablo döküm verisi `neighbourhood`
 --
@@ -49728,19 +49728,19 @@ INSERT INTO `neighbourhood` (`neighbourhood_id`, `neighbourhood_title`, `neighbo
 --
 -- Tablo için indeksler `neighbourhood`
 --
-ALTER TABLE `neighbourhood`
-  ADD PRIMARY KEY (`neighbourhood_id`);
-
+-- ALTER TABLE `neighbourhood`
+--   ADD PRIMARY KEY (`neighbourhood_id`);
 --
--- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
+-- --
+-- -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
+-- --
 --
-
---
--- Tablo için AUTO_INCREMENT değeri `neighbourhood`
---
-ALTER TABLE `neighbourhood`
-  MODIFY `neighbourhood_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49650;
-COMMIT;
+-- --
+-- -- Tablo için AUTO_INCREMENT değeri `neighbourhood`
+-- --
+-- ALTER TABLE `neighbourhood`
+--   MODIFY `neighbourhood_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49650;
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

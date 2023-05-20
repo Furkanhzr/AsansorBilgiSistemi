@@ -27,13 +27,13 @@ SET time_zone = "+00:00";
 --
 -- Tablo için tablo yapısı `city`
 --
-
+/*
 CREATE TABLE `city` (
   `city_id` int(2) NOT NULL,
   `city_title` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
   `city_key` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
+*/
 --
 -- Tablo döküm verisi `city`
 --
@@ -128,19 +128,19 @@ INSERT INTO `city` (`city_id`, `city_title`, `city_key`) VALUES
 --
 -- Tablo için indeksler `city`
 --
-ALTER TABLE `city`
-  ADD PRIMARY KEY (`city_id`);
-
+-- ALTER TABLE `city`
+--   ADD PRIMARY KEY (`city_id`);
 --
--- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
+-- --
+-- -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
+-- --
 --
-
---
--- Tablo için AUTO_INCREMENT değeri `city`
---
-ALTER TABLE `city`
-  MODIFY `city_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
-COMMIT;
+-- --
+-- -- Tablo için AUTO_INCREMENT değeri `city`
+-- --
+-- ALTER TABLE `city`
+--   MODIFY `city_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

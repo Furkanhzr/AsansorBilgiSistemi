@@ -21,7 +21,8 @@ class UserSeeder extends Seeder
             'surname' => 'White',
             'phone' => '5555555555',
             'email' => 'walter@gmail.com',
-            'user_type' => '0',
+            'address' => 'elazığ',
+            'subscription' => 1,
             'password' => Hash::make("123456"),
         ]);
     }
