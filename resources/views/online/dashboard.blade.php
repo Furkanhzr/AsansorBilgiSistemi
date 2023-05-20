@@ -205,9 +205,12 @@
             <div class="card-body py-4 px-5">
                 <div class="d-flex align-items-center">
                     <div class="avatar avatar-xl">
-                        <img src="{{asset('images')}}/furkanhazar3.jpg" alt="Face 1">
+                        <img src="{{asset('images')}}/admin.png" alt="Face 1">
+                        <!--MÜŞTERİ LOGOSU (MÜŞTERİ PANELİ YAZISI İÇİN)
+                        <img src="{{asset('images')}}/customer.png" alt="Face 1">
+                        -->
                     </div>
-                    <div class="ms-3 name">
+                    <div class="ms-3 mt-2 name">
                         <h5 class="font-bold">{{$user->name}}</h5>
                     </div>
                 </div>

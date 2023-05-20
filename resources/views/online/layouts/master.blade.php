@@ -47,7 +47,10 @@
                     <div class="logo">
                         <a href="{{route('dashboard')}}"><img src="{{asset('images')}}/aker.png" style="width: 90px; height: 70px;" alt="Logo" srcset="">
                             <div style="font-size: 18px; float: right; display: flex; justify-content: space-between;  padding-top: 21px;">
+                                <!-- ONLİNE İŞLEMLER (MÜŞTERİ PANELİ YAZISI İÇİN)
                                 <p style="color: #F28123;">Online&nbsp</p><p style="color: black;">İşlemler</p>
+                                -->
+                                <p style="color: #F28123;">Admin&nbsp</p><p style="color: black;">Paneli</p>
                             </div>
                         </a>
 
@@ -59,155 +62,117 @@
             </div>
             <div class="sidebar-menu">
                 <ul class="menu">
-                    <li class="sidebar-title">Menu</li>
+                    <li class="sidebar-title">Admin</li>
 
                     <li class="sidebar-item active ">
                         <a href="index.html" class='sidebar-link'>
-                            <i class="bi bi-grid-fill"></i>
+                            <i class="fa fa-house"></i>
                             <span>Anasayfa</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-stack"></i>
-                            <span>Components</span>
+                            <i class="fa fa-newspaper"></i>
+                            <span>Makaleler</span>
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="component-alert.html">Alert</a>
+                                <a href="component-badge.html">Makaleler</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="component-badge.html">Badge</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-breadcrumb.html">Breadcrumb</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-button.html">Button</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-card.html">Card</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-carousel.html">Carousel</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-dropdown.html">Dropdown</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-list-group.html">List Group</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-modal.html">Modal</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-navs.html">Navs</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-pagination.html">Pagination</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-progress.html">Progress</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-spinner.html">Spinner</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="component-tooltip.html">Tooltip</a>
+                                <a href="component-alert.html">Makale Oluştur</a>
                             </li>
                         </ul>
                     </li>
 
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-collection-fill"></i>
-                            <span>Extra Components</span>
+                            <i class="fa fa-elevator"></i>
+                            <span>Asansörler</span>
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="extra-component-avatar.html">Avatar</a>
+                                <a href="extra-component-avatar.html">Asansörler</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="extra-component-sweetalert.html">Sweet Alert</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="extra-component-toastify.html">Toastify</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="extra-component-rating.html">Rating</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="extra-component-divider.html">Divider</a>
+                                <a href="extra-component-sweetalert.html">Asansör Türleri</a>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="sidebar-item  has-sub">
+                    <li class="sidebar-item">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-grid-1x2-fill"></i>
-                            <span>Layouts</span>
+                            <i class="fa fa-exclamation-circle"></i>
+                            <span>Arızalar</span>
                         </a>
-                        <ul class="submenu ">
-                            <li class="submenu-item ">
-                                <a href="layout-default.html">Default Layout</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="layout-vertical-1-column.html">1 Column</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="layout-vertical-navbar.html">Vertical with Navbar</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="layout-horizontal.html">Horizontal Menu</a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class='sidebar-link'>
+                            <i class="fa fa-screwdriver-wrench"></i>
+                            <span>Bakımlar</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class='sidebar-link'>
+                            <i class="fa fa-address-book"></i>
+                            <span>İletişimler</span>
+                        </a>
+                    </li>
+                    <!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları -->
+                    <!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları -->
+                    <!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları -->
+                    <!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları -->
+                    <!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları --><!-- Müşteri Sayfaları -->
+                    <li class="sidebar-title">Müşteri</li>
+
+                    <li class="sidebar-item">
+                        <a href="index.html" class='sidebar-link'>
+                            <i class="fa fa-house"></i>
+                            <span>Anasayfa</span>
+                        </a>
                     </li>
 
-                    <li class="sidebar-title">Forms &amp; Tables</li>
-
-                    <li class="sidebar-item  ">
+                    <li class="sidebar-item ">
                         <a href="form-layout.html" class='sidebar-link'>
                             <i class="bi bi-file-earmark-medical-fill"></i>
-                            <span>Form Layout</span>
+                            <span>Arıza Taleplerim</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item ">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-pen-fill"></i>
+                            <span>Alınan Hizmetler</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-pen-fill"></i>
-                            <span>Form Editor</span>
+                            <i class="fa fa-money-bill"></i>
+                            <span>Ödeme & Borçlar</span>
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="form-editor-quill.html">Quill</a>
+                                <a href="extra-component-avatar.html">Ödeme & Borçlar</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="form-editor-ckeditor.html">CKEditor</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="form-editor-summernote.html">Summernote</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="form-editor-tinymce.html">TinyMCE</a>
+                                <a href="extra-component-sweetalert.html">Ödeme Yapma</a>
                             </li>
                         </ul>
                     </li>
-
                     <li class="sidebar-item  ">
                         <a href="table.html" class='sidebar-link'>
-                            <i class="bi bi-grid-1x2-fill"></i>
-                            <span>Table</span>
+                            <i class="fa fa-square-poll-horizontal"></i>
+                            <span>Arıza Kontrol Talebi</span>
                         </a>
                     </li>
-
                     <li class="sidebar-item  ">
-                        <a href="table-datatable.html" class='sidebar-link'>
-                            <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                            <span>Datatable</span>
+                        <a href="table.html" class='sidebar-link'>
+                            <i class="fa fa-pen-to-square"></i>
+                            <span>Bilgilerimi Güncelle</span>
                         </a>
                     </li>
-
                     <li class="sidebar-item" style="background: #dc3545; border-radius: 0.5rem;">
                         <a href="{{route('logOut')}}" class='nav-link'>
                             <i class="fa-solid fa-sign-out-alt text-white"></i>
