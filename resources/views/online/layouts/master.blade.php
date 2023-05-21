@@ -38,6 +38,15 @@
             display:none;
         }
     </style>
+    <style>
+        a {
+            color: black;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
@@ -209,8 +218,8 @@
                     <p>2023 &copy; Aker Asansör</p>
                 </div>
                 <div class="float-end">
-                    <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                            href="{{route('dashboard')}}">Furkan, Muhammed, Yunus</a></p>
+                    <p><a href="{{route('dashboard')}}">Furkan, Muhammed, Yunus</a>
+                        <span class="text-danger"><i class="bi bi-heart"></i></span> tarafından oluşturuldu </p>
                 </div>
             </div>
         </footer>

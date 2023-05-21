@@ -77,7 +77,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Profile Visit</h4>
+                        <h4>Yıllık Satışlar</h4>
                     </div>
                     <div class="card-body">
                         <div id="chart-profile-visit"></div>
@@ -86,81 +86,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-xl-4">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Profile Visit</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <svg class="bi text-primary" width="32" height="32" fill="blue"
-                                         style="width:10px">
-                                        <use
-                                            xlink:href="{{asset('template2')}}/assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                    </svg>
-                                    <h5 class="mb-0 ms-3">Europe</h5>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <h5 class="mb-0">862</h5>
-                            </div>
-                            <div class="col-12">
-                                <div id="chart-europe"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <svg class="bi text-success" width="32" height="32" fill="blue"
-                                         style="width:10px">
-                                        <use
-                                            xlink:href="{{asset('template2')}}/assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                    </svg>
-                                    <h5 class="mb-0 ms-3">America</h5>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <h5 class="mb-0">375</h5>
-                            </div>
-                            <div class="col-12">
-                                <div id="chart-america"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <svg class="bi text-danger" width="32" height="32" fill="blue"
-                                         style="width:10px">
-                                        <use
-                                            xlink:href="{{asset('template2')}}/assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                    </svg>
-                                    <h5 class="mb-0 ms-3">Indonesia</h5>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <h5 class="mb-0">1025</h5>
-                            </div>
-                            <div class="col-12">
-                                <div id="chart-indonesia"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-xl-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Latest Comments</h4>
+                        <h4>Son Arızlar</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-hover table-lg">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Comment</th>
+                                    <th>Bildiren</th>
+                                    <th>Asansör Anahtarı</th>
+                                    <th>Arıza Açıklaması</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -170,11 +108,31 @@
                                             <div class="avatar avatar-md">
                                                 <img src="{{asset('template2')}}/assets/images/faces/5.jpg">
                                             </div>
-                                            <p class="font-bold ms-3 mb-0">Si Cantik</p>
+                                            <p class="font-bold ms-3 mb-0">Furkan Hazar</p>
                                         </div>
                                     </td>
                                     <td class="col-auto">
-                                        <p class=" mb-0">Congratulations on your graduation!</p>
+                                        <p class=" mb-0">a23vh91bbı31</p>
+                                    </td>
+                                    <td class="col-auto">
+                                        <p class=" mb-0">Asansör elektrik kesintisi</p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="col-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar avatar-md">
+                                                <img src="{{asset('template2')}}/assets/images/faces/5.jpg">
+                                            </div>
+                                            <p class="font-bold ms-3 mb-0">Yunus Emre Ertürk</p>
+                                        </div>
+                                    </td>
+                                    <td class="col-auto">
+                                        <p class=" mb-0">k83vl51ubı78</p>
+                                    </td>
+                                    <td class="col-auto">
+                                        <p class=" mb-0">Eşya sıkışması</p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -183,13 +141,14 @@
                                             <div class="avatar avatar-md">
                                                 <img src="{{asset('template2')}}/assets/images/faces/2.jpg">
                                             </div>
-                                            <p class="font-bold ms-3 mb-0">Si Ganteng</p>
+                                            <p class="font-bold ms-3 mb-0">Muhammed Atmaca</p>
                                         </div>
                                     </td>
                                     <td class="col-auto">
-                                        <p class=" mb-0">Wow amazing design! Can you make another
-                                            tutorial for
-                                            this design?</p>
+                                        <p class=" mb-0">h494j40b135t</p>
+                                    </td>
+                                    <td class="col-auto">
+                                        <p class=" mb-0">Asansör ışıkları yanmıyor.</p>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -218,7 +177,7 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <h4>Recent Messages</h4>
+                <h4>Son Mesajlar</h4>
             </div>
             <div class="card-content pb-4">
                 <div class="recent-message d-flex px-4 py-3">
@@ -226,8 +185,8 @@
                         <img src="{{asset('template2')}}/assets/images/faces/4.jpg">
                     </div>
                     <div class="name ms-4">
-                        <h5 class="mb-1">Hank Schrader</h5>
-                        <h6 class="text-muted mb-0">@johnducky</h6>
+                        <h5 class="mb-1">Furkan Hazar</h5>
+                        <h6 class="text-muted mb-0">@furkanhzr</h6>
                     </div>
                 </div>
                 <div class="recent-message d-flex px-4 py-3">
@@ -235,8 +194,8 @@
                         <img src="{{asset('template2')}}/assets/images/faces/5.jpg">
                     </div>
                     <div class="name ms-4">
-                        <h5 class="mb-1">Dean Winchester</h5>
-                        <h6 class="text-muted mb-0">@imdean</h6>
+                        <h5 class="mb-1">Yunus Emre Ertürk</h5>
+                        <h6 class="text-muted mb-0">@y.ertürk</h6>
                     </div>
                 </div>
                 <div class="recent-message d-flex px-4 py-3">
@@ -244,19 +203,18 @@
                         <img src="{{asset('template2')}}/assets/images/faces/1.jpg">
                     </div>
                     <div class="name ms-4">
-                        <h5 class="mb-1">John Dodol</h5>
-                        <h6 class="text-muted mb-0">@dodoljohn</h6>
+                        <h5 class="mb-1">Muhammed Atmaca</h5>
+                        <h6 class="text-muted mb-0">@m.atmaca</h6>
                     </div>
                 </div>
                 <div class="px-4">
-                    <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Start
-                        Conversation</button>
+                    <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Tümünü Listele</button>
                 </div>
             </div>
         </div>
         <div class="card">
             <div class="card-header">
-                <h4>Visitors Profile</h4>
+                <h4>Kayıtlı Kullanıcılar</h4>
             </div>
             <div class="card-body">
                 <div id="chart-visitors-profile"></div>
@@ -288,8 +246,11 @@
         }],
         colors: '#f28123',
         xaxis: {
-            categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"],
+            categories: ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz", "Ağustos","Eylül","Ekim","Kasım","Aralık"],
         },
         }
+
+        var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
+        chartProfileVisit.render();
     </script>
 @endsection
