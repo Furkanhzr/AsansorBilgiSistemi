@@ -77,17 +77,13 @@
 
                     <!-- menu start -->
                     <nav class="main-menu">
-                        <ul  style="padding-top: 13px">
+                        <ul  style="padding-top: 13px;">
                             <li class="{{ Request::segment(1) == '' ? 'current-list-item' : '' }}"><a href="{{route('homepage')}}">Anasayfa</a></li>
                             <li class="{{ Request::segment(1) == 'products' ? 'current-list-item' : '' }}"><a href="{{route('products')}}">Ürünlerimiz</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{{route('products')}}">İnsan Asansörleri</a></li>
-                                    <li><a href="{{route('products')}}">Yük Asansörleri</a></li>
-                                    <li><a href="{{route('products')}}">Hidrolik Asansörler</a></li>
-                                    <li><a href="{{route('products')}}">Otomatik Asansörler</a></li>
-                                    <li><a href="{{route('products')}}">Sedye Asansörleri</a></li>
-                                    <li><a href="{{route('products')}}">Yemek Asansörü</a></li>
-                                    <li><a href="{{route('products')}}">Araç Asansörleri</a></li>
+                                    @foreach($products as $product)
+                                        <li><a href="{{route('products.single',$product->id)}}">{{$product->title}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
 

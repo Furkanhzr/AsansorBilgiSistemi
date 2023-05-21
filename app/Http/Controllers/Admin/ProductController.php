@@ -11,8 +11,19 @@ use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
 {
+    public function __construct() {
+        $products = Product::all();
+        view()->share('products',$products);
+    }
+
     public function index() {
-        return view('front.products');
+        $products = Product::all();
+        return view('front.products.products',compact('products'));
+    }
+
+    public function single($id) {
+        $product = Product::find($id);
+        return view('front.products.single',compact('product'));
     }
 
     public function list() {
@@ -22,17 +33,23 @@ class ProductController extends Controller
     public function fetch() {
         $product = Product::query();
         return DataTables::of($product)
+            ->editColumn('description', function ($product) {
+                return strip_tags(Str::limit($product->description,50));
+            })
             ->editColumn('image_id', function ($product) {
                 return '<img style="width: 200px; height: 100px;" src="'.asset($product->getImage->image).'">';
             })
+            ->addColumn('show', function ($product) {
+                return '<a href="'. route('products.single',$product->id) .'" class="btn btn-info" ><i class="fas fa-eye"></i> &nbspGöster</a>';
+            })
             ->addColumn('update', function ($product) {
-                return '<a href="'. route('products.update.index',$product->id) .'" class="btn btn-info" >Güncelle</a>';
+                return '<a href="'. route('products.update.index',$product->id) .'" class="btn btn-warning" ><i class="fas fa-edit"></i> Güncelle</a>';
             })
             ->addColumn('delete', function ($product) {
-                return "<button class='btn btn-danger' onclick='productsDelete(" . $product->id . ")' >Sil</button>";
+                return '<a class="btn btn-danger" onclick="productsDelete(' . $product->id . ')"><i class="fas fa-trash"></i> Sil</a>';
 
             })
-            ->rawColumns(['image_id','update', 'delete'])
+            ->rawColumns(['description','image_id','show','update', 'delete'])
             ->make();
     }
 

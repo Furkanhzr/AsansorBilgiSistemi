@@ -27,6 +27,7 @@
                         <th>Başlık</th>
                         <th>Fotoğraf</th>
                         <th>Açıklama</th>
+                        <th>Detay</th>
                         <th>Güncelleme</th>
                         <th>Silme</th>
                     </tr>
@@ -53,6 +54,7 @@
                 {data: 'title'},
                 {data: 'image_id'},
                 {data: 'description'},
+                {data: 'show', orderable: false, searchable: false},
                 {data: 'update', orderable: false, searchable: false},
                 {data: 'delete', orderable: false, searchable: false},
             ],

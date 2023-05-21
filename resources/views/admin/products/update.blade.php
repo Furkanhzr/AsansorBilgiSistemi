@@ -11,7 +11,8 @@
     </style>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class=" float-left text-primary" style="color: #F28123"><strong>Ürün Güncelle</strong></h6>
+            <h3  style="color: black"><strong>Ürün Güncelleme</strong></h3>
+            <hr style="color: #F28123; width: 240px;height: 2px;">
         </div>
         <div class="card-body">
             @if($errors->any())

@@ -44,11 +44,11 @@ Route::middleware('isUser')->group(function() {
 });
 
 
-
-
 //Route::get('/register', [LoginController::class, 'registerIndex'])->name('register.index');
 //Route::get('/register', [LoginController::class, 'registerPost'])->name('register.post');
 
 Route::get('/about', [HomepageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
 Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products/{id}', [ProductController::class, 'single'])->name('products.single');

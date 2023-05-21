@@ -11,7 +11,9 @@
     </style>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4 class="m-0 font-weight-bold float-left text-primary"><strong>Ürün Oluşturma</strong></h4>
+{{--            <h4 class="m-0 font-weight-bold float-left text-primary"><strong></strong></h4>--}}
+            <h3  style="color: black"><strong>Ürün Oluşturma</strong></h3>
+            <hr style="color: #F28123; width: 225px;height: 2px;">
         </div>
         <div class="card-body">
             @if($errors->any())

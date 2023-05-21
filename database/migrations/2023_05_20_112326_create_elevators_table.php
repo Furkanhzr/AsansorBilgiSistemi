@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('elevator_type_id');
             $table->unsignedBigInteger('user_id');
+            $table->boolean('status')->comment('0-stokta, 1-satıldı')->default(0);
             $table->string('key_code');
             $table->timestamps();
             $table->softDeletes();
