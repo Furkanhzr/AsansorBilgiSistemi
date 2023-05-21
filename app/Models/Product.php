@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class Product extends Model
 {
     use HasFactory;
 
-    public function getProduct() {
-        return $this->belongsTo(Product::class, 'image_id', 'id')->withTrashed();
+    public function getImage() {
+        return $this->hasMany(Image::class, 'image_id', 'id')->withTrashed();
     }
 }

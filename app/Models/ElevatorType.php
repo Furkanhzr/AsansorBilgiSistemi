@@ -13,7 +13,4 @@ class ElevatorType extends Model
         return $this->hasMany(Elevator::class, 'elevator_type_id', 'id')->withTrashed();
     }
 
-    public function getImage() {
-        return $this->hasMany(Image::class, 'image_id', 'id')->withTrashed();
-    }
 }

@@ -14,4 +14,6 @@ class HomepageController extends Controller
     public function about() {
         return view('front.about');
     }
+
+
 }

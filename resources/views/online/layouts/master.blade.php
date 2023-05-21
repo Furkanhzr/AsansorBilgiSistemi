@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('template2')}}/assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('template2')}}/assets/css/app.css">
     <link rel="shortcut icon" href="{{asset('template')}}/assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <style>
         body::-webkit-scrollbar {
             background-color: #fff;
@@ -64,24 +65,24 @@
                 <ul class="menu">
                     <li class="sidebar-title">Admin</li>
 
-                    <li class="sidebar-item active ">
-                        <a href="index.html" class='sidebar-link'>
+                    <li class="sidebar-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }} ">
+                        <a href="{{route('dashboard')}}" class='sidebar-link'>
                             <i class="fa fa-house"></i>
                             <span>Anasayfa</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link'>
+                    <li class="sidebar-item  has-sub {{ Request::segment(1) == 'ürünler' ? 'active' : '' }}">
+                        <a href="" class='sidebar-link'>
                             <i class="fa fa-newspaper"></i>
-                            <span>Makaleler</span>
+                            <span>Ürünler</span>
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="component-badge.html">Makaleler</a>
+                                <a href="{{route('products.index')}}">Ürünler</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="component-alert.html">Makale Oluştur</a>
+                                <a href="{{route('products.create.index')}}">Ürün Oluştur</a>
                             </li>
                         </ul>
                     </li>
@@ -222,6 +223,14 @@
 <script src="{{asset('template2')}}/assets/js/pages/dashboard.js"></script>
 
 <script src="{{asset('template2')}}/assets/js/main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 </body>
 
 </html>

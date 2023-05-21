@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Front\HomepageController;
-use App\Http\Controllers\Front\ContactController;
-use App\Http\Controllers\Front\ProductController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Online\DashboardController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +21,17 @@ use App\Http\Controllers\Online\DashboardController;
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
 Route::middleware('isLogin')->group(function() {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('logOut', [LoginController::class, 'logOut'])->name('logOut');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/logOut', [LoginController::class, 'logOut'])->name('logOut');
+
+
+    Route::prefix('ürünler')->group(function () {
+        Route::get('/index',[ProductController::class, 'list'])->name('products.index');
+        Route::get('/fetch',[ProductController::class, 'fetch'])->name('products.fetch');
+        Route::get('/createIndex',[ProductController::class, 'createIndex'])->name('products.create.index');
+        Route::post('/createPost',[ProductController::class, 'createPost'])->name('products.create.post');
+    });
+
 });
 
 
@@ -30,6 +39,8 @@ Route::middleware('isUser')->group(function() {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'loginPost'])->name('login.post');
 });
+
+
 
 
 //Route::get('/register', [LoginController::class, 'registerIndex'])->name('register.index');
