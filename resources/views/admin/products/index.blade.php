@@ -2,16 +2,23 @@
 @section('title','Admin Paneli')
 @section('title-page','Ürünler')
 @section('content')
+    <style>
+        .page-item.active .page-link {
+            z-index: 3;
+            color: #fff;
+            background-color: #F28123;
+            border-color: #F28123;
+        }
+    </style>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">
                 <span class="float-right">
-{{--                        <a href="" class="btn btn-warning btn-sm"><i class="fa fa-trash"> Silinen Makaleler</i> </a>--}}
                     </span>
-
             </h6>
         </div>
         <div class="card-body">
+                <h3>Ürün Listesi</h3>
             <div class="table-responsive">
                 <table class="table table-bordered" id="productsTable" width="100%" cellspacing="0">
                     <thead>
@@ -53,5 +60,36 @@
                 "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json",
             },
         } );
+    </script>
+    <script>
+        function productsDelete(id){
+            Swal.fire({
+                icon:'warning',
+                title:'Emin Misiniz',
+                text:'Ürünü Silmek İstediğinize Emin Misiniz ?',
+                showCancelButton:true,
+                showConfirmButton:true,
+                confirmButtonText:'Sil',
+                cancelButtonText:'İptal',
+            }).then((res)=>{
+                if(res.isConfirmed){
+                    $.ajax({
+                        url:'{{route('products.delete')}}',
+                        type:'POST',
+                        data: {
+                            id:id,
+                            "_token":'{{csrf_token()}}'
+                        },
+                        success:(response)=>{
+                            Swal.fire({
+                                icon:'success',
+                                title:'Başarılı',
+                            })
+                            table.ajax.reload();
+                        }
+                    })
+                }
+            })
+        }
     </script>
 @endsection

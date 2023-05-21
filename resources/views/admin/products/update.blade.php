@@ -1,17 +1,17 @@
 @extends('online.layouts.master')
 @section('title','Admin Paneli')
-@section('title-page','Ürün Oluştur')
+@section('title-page','Ürün Güncelle')
 @section('content')
     <style>
-    .ck-editor__editable
-    {
-        min-height: 260px !important;
-        max-height: 500px !important;
-    }
+        .ck-editor__editable
+        {
+            min-height: 260px !important;
+            max-height: 500px !important;
+        }
     </style>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4 class="m-0 font-weight-bold float-left text-primary"><strong>Ürün Oluşturma</strong></h4>
+            <h6 class=" float-left text-primary" style="color: #F28123"><strong>Ürün Güncelle</strong></h6>
         </div>
         <div class="card-body">
             @if($errors->any())
@@ -21,25 +21,26 @@
                     @endforeach
                 </div>
             @endif
-            <form method="POST" action="{{route('products.create.post')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('products.update.post',$product->id)}}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label>Ürün Başlığı</label>
-                    <input type="text" name="title" class="form-control" required>
+                    <input type="text" name="title" class="form-control" value="{{$product->title}}" required>
                 </div>
 
                 <div class="form-group">
                     <label>Ürün Fotoğrafı</label>
-                    <input type="file" name="image" class="form-control" required>
+                    <img src="{{asset($product->getImage->image)}}" width="300" class="form-group rounded img-thumbnail">
+                    <input type="file" name="image" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <label>Ürün İçeriği</label>
-                    <textarea id="editor" name="description" class="form-control" rows="4"></textarea>
+                    <textarea id="editor" name="description" class="form-control" rows="4">{!! $product->description !!}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" style="background-color: #F28123; border-color: #F28123;" class="btn btn-primary btn-block">Ürünü Oluştur</button>
+                    <button type="submit" style="background-color: #F28123; border-color: #F28123;" class="btn btn-primary btn-block">Ürünü Güncelle</button>
                 </div>
             </form>
         </div>

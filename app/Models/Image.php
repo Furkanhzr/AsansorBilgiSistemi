@@ -10,6 +10,6 @@ class Image extends Model
     use HasFactory;
 
     public function getProduct() {
-        return $this->belongsTo(Product::class, 'image_id', 'id')->withTrashed();
+        return $this->belongsTo(Product::class, 'image_id', 'id');
     }
 }

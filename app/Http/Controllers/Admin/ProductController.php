@@ -23,13 +23,13 @@ class ProductController extends Controller
         $product = Product::query();
         return DataTables::of($product)
             ->editColumn('image_id', function ($product) {
-                return '<div style="width: 50px; height: 50px;">{{'.$product->getImage->image.'}}</div>';
+                return '<img style="width: 200px; height: 100px;" src="'.asset($product->getImage->image).'">';
             })
             ->addColumn('update', function ($product) {
-                return '<a class="btn btn-info" >Güncelle</a>';
+                return '<a href="'. route('products.update.index',$product->id) .'" class="btn btn-info" >Güncelle</a>';
             })
             ->addColumn('delete', function ($product) {
-                return "<button class='btn btn-danger'>Sil</button>";
+                return "<button class='btn btn-danger' onclick='productsDelete(" . $product->id . ")' >Sil</button>";
 
             })
             ->rawColumns(['image_id','update', 'delete'])
@@ -62,14 +62,15 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
-    public function updateIndex() {
-        return view();
+    public function updateIndex($id) {
+        $product = Product::find($id);
+        return view('admin.products.update',compact('product'));
     }
 
     public function updatePost(Request $request, $id) {
         $request->validate([
             'title'=>'min:3',
-            'image' =>'required|image|mimes:jpeg,jpg,png|max:2048',
+            'image' =>'image|mimes:jpeg,jpg,png|max:2048',
             'description' => 'required',
         ]);
 
@@ -88,7 +89,9 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
-    public function delete($id) {
-
+    public function delete(Request $request) {
+        $product = Product::find($request->id);
+        $product->delete();
+        return response()->json(['Success' => 'success']);
     }
 }
