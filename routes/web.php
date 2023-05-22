@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\FaultController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\LoginController;
@@ -33,6 +34,16 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/updateIndex/{id}',[ProductController::class, 'updateIndex'])->name('products.update.index');
         Route::post('/updatePost/{id}',[ProductController::class, 'updatePost'])->name('products.update.post');
         Route::post('/delete',[ProductController::class, 'delete'])->name('products.delete');
+    });
+    Route::prefix('ariza')->group(function () {
+        Route::get('/index',[FaultController::class, 'index'])->name('fault.index');
+        Route::get('/fetch',[FaultController::class, 'fetch'])->name('faults.fetch');
+        Route::get('/createIndex',[FaultController::class, 'createIndex'])->name('fault.create.index');
+        Route::post('/createPost',[FaultController::class, 'createPost'])->name('fault.create.post');
+        Route::get('/phonecheck',[FaultController::class, 'checkUserPhone'])->name('fault.user.phonecheck');
+        Route::get('/userelevators',[FaultController::class, 'getUserElevator'])->name('fault.user.elevators');
+
+
     });
 
 });

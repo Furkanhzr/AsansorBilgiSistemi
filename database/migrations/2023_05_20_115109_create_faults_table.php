@@ -21,7 +21,7 @@ return new class extends Migration
             $table->boolean('status')->comment('0-çözülmedi, 1-çözüldü')->default(0);
             $table->string('description');
             $table->dateTime('down_time');
-            $table->dateTime('solved_time');
+            $table->dateTime('solved_time')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

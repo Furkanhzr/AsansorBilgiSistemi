@@ -112,17 +112,47 @@
                         </ul>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-exclamation-circle"></i>
                             <span>Arızalar</span>
                         </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{route('fault.index')}}">Arıza Kaydı Liste</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{{route('fault.create.index')}}">Arıza Kaydı Oluştur</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-screwdriver-wrench"></i>
                             <span>Bakımlar</span>
                         </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="extra-component-avatar.html">Bakımlar Liste</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="extra-component-sweetalert.html">Bakım Oluştur</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="fa fa-person"></i>
+                            <span>Kullanıcı</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="extra-component-avatar.html">Kullanıcı Liste</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="extra-component-sweetalert.html">Kullanıcı Oluştur</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="sidebar-item">
                         <a href="#" class='sidebar-link'>
