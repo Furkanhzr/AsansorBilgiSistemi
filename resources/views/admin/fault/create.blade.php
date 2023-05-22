@@ -13,7 +13,7 @@
         <div class="card-header py-3">
 {{--            <h4 class="m-0 font-weight-bold float-left text-primary"><strong></strong></h4>--}}
             <h3  style="color: black"><strong>Arıza Kaydı Oluşturma</strong></h3>
-            <hr style="color: #F28123; width: 225px;height: 2px;">
+            <hr style="color: #F28123; width: 310px;height: 2px;">
         </div>
         <div class="card-body">
             @if($errors->any())
@@ -23,13 +23,23 @@
                     @endforeach
                 </div>
             @endif
-            <input type="text" name="phone" id="phone" placeholder="Telefon Numarası" required>
-                <div id="result"></div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-3">
+                        <input class="form-control" type="text" name="phone" id="phone" placeholder="Telefon Numarası" required>
+                    </div>
+                    <div class="col-9" style="margin-top: 7px;">
+                        <div id="result"></div>
+                    </div>
+                </div>
+            </div>
             <form method="POST" action="{{route('fault.create.post')}}" enctype="multipart/form-data">
                 @csrf
-                <select class="form-group" name="elevator" id="elevator">
-                    <option value="">Önce Telefon Numarasını Giriniz</option>
-                </select>
+                <div class="form-group">
+                    <select class="form-control" name="elevator" id="elevator">
+                        <option value="">Önce Telefon Numarasını Giriniz</option>
+                    </select>
+                </div>
 
                 <div class="form-group">
                     <label>Arıza Açıklaması</label>
