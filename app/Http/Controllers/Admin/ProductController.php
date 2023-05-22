@@ -76,6 +76,7 @@ class ProductController extends Controller
             $product->image_id = $image->id;
         }
         $product->save();
+        toastr()->success('Ürün Başarıyla Oluşturuldu', 'Başarılı');
         return redirect()->route('products.index');
     }
 
@@ -103,6 +104,7 @@ class ProductController extends Controller
             $product->image_id = $image->id;
         }
         $product->save();
+        toastr()->success('Ürün Başarıyla Güncellendi','Başarılı');
         return redirect()->route('products.index');
     }
 

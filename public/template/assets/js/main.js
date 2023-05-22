@@ -2,7 +2,7 @@
     "use strict";
 
     $(document).ready(function($){
-        
+
         // testimonial sliders
         $(".testimonial-sliders").owlCarousel({
             items: 1,
@@ -76,18 +76,18 @@
         });
 
         // count down
-        if($('.time-countdown').length){  
+        if($('.time-countdown').length){
             $('.time-countdown').each(function() {
             var $this = $(this), finalDate = $(this).data('countdown');
             $this.countdown(finalDate, function(event) {
-                var $this = $(this).html(event.strftime('' + '<div class="counter-column"><div class="inner"><span class="count">%D</span>Days</div></div> ' + '<div class="counter-column"><div class="inner"><span class="count">%H</span>Hours</div></div>  ' + '<div class="counter-column"><div class="inner"><span class="count">%M</span>Mins</div></div>  ' + '<div class="counter-column"><div class="inner"><span class="count">%S</span>Secs</div></div>'));
+                var $this = $(this).html(event.strftime('' + '<div class="counter-column"><div class="inner"><span class="count">%D</span>Gün</div></div> ' + '<div class="counter-column"><div class="inner"><span class="count">%H</span>Saat</div></div>  ' + '<div class="counter-column"><div class="inner"><span class="count">%M</span>Dakika</div></div>  ' + '<div class="counter-column"><div class="inner"><span class="count">%S</span>Saniye</div></div>'));
             });
          });
         }
 
         // projects filters isotop
         $(".product-filters li").on('click', function () {
-            
+
             $(".product-filters li").removeClass("active");
             $(this).addClass("active");
 
@@ -96,9 +96,9 @@
             $(".product-lists").isotope({
                 filter: selector,
             });
-            
+
         });
-        
+
         // isotop inner
         $(".product-lists").isotope();
 
@@ -135,7 +135,7 @@
             $(".hero-btns").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.5s'});
         });
 
-       
+
 
         // stikcy js
         $("#sticker").sticky({
@@ -147,7 +147,7 @@
             meanMenuContainer: '.mobile-menu',
             meanScreenWidth: "992"
         });
-        
+
          // search form
         $(".search-bar-icon").on("click", function(){
             $(".search-area").addClass("search-active");
@@ -156,7 +156,7 @@
         $(".close-btn").on("click", function() {
             $(".search-area").removeClass("search-active");
         });
-    
+
     });
 
 

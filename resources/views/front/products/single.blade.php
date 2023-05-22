@@ -18,7 +18,7 @@
     <!-- end breadcrumb section -->
 
     <!-- single article section -->
-    <div class="mt-100 mb-100">
+    <div class="mt-150 mb-150">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">

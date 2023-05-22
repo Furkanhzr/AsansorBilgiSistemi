@@ -13,17 +13,19 @@ class LoginController extends Controller
 
     public function loginPost(Request $request) {
         if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
-//            toastr()->success('Tekrardan Hoşgeldiniz. '.Auth::user()->name,'Başarılı');
+            toastr()->success('Tekrardan Hoşgeldiniz. '.Auth::user()->name,'Başarılı');
             return redirect()->route('dashboard');
         }
 
         else {
+            toastr()->error('Email veya şifreniz hatalı.','Başarısız');
             return redirect()->route('login')->withErrors("Email adresi veya şifre hatalı")->withInput();
         }
     }
 
     public function logOut() {
         Auth::logout();
+        toastr()->success('Çıkış Yapıldı.','Başarılı');
         return redirect()->route('login');
     }
 

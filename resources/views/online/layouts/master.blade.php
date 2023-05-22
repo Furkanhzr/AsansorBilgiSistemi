@@ -41,7 +41,7 @@
     <style>
         a {
             color: black;
-            text-decoration: underline;
+            text-decoration: none;
         }
         a:hover {
             color: black;

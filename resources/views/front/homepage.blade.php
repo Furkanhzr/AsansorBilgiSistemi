@@ -139,11 +139,11 @@
                     <div class="text">Sadece bu ay geçerli sınırlı teklifimizde, yapacağınz yıllık sözleşmelerde 3 ay bakım ücreti bizden !</div>
                     <!--Countdown Timer-->
                     <div class="time-counter">
-                        <div class="time-countdown clearfix" data-countdown="2023/5/20">
-                            <div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div>
-                            <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>
-                            <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>
-                            <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div>
+                        <div class="time-countdown clearfix" data-countdown="2023/5/30">
+                            <div class="counter-column"><div class="inner"><span class="count">00</span>Gün</div></div>
+                            <div class="counter-column"><div class="inner"><span class="count">00</span>Saat</div></div>
+                            <div class="counter-column"><div class="inner"><span class="count">00</span>Dakika</div></div>
+                            <div class="counter-column"><div class="inner"><span class="count">00</span>Saniye</div></div>
                         </div>
                     </div>
                     <a href="cart.html" class="cart-btn mt-3"></i> Detaylar</a>
