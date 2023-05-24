@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
-            $table->integer('street_key');
-            $table->integer('neighbourhood_key');
+            $table->integer('street_key')->nullable();
+            $table->integer('neighbourhood_key')->nullable();
             $table->string('building_title');
             $table->timestamps();
             $table->softDeletes();

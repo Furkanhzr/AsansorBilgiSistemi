@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\FaultController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Online\DashboardController;
@@ -61,6 +62,20 @@ Route::middleware('isLogin')->group(function() {
             Route::post('/update',[ElevatorTypeController::class, 'update'])->name('elevator_types.update');
             Route::post('/delete',[ElevatorTypeController::class, 'delete'])->name('elevator_types.delete');
         });
+
+    });
+
+
+
+    Route::prefix('user')->group(function () {
+        Route::get('/index',[UserController::class, 'index'])->name('user.index');
+        Route::get('/createIndex',[UserController::class, 'createIndex'])->name('user.create.index');
+        Route::post('/createPost',[UserController::class, 'createPost'])->name('user.create.post');
+        Route::get('/getCity',[UserController::class,'getCity'])->name('get.city');
+        Route::get('/getTown',[UserController::class,'getTown'])->name('get.town');
+        Route::get('/getNeighbourhood',[UserController::class,'getNeighbourhood'])->name('get.neighbourhood');
+        Route::get('/getStreet',[UserController::class,'getStreet'])->name('get.street');
+        Route::get('/fetch',[UserController::class, 'fetch'])->name('user.fetch');
 
     });
 

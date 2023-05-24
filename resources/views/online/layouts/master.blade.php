@@ -147,10 +147,10 @@
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="extra-component-avatar.html">Kullanıcı Liste</a>
+                                <a href="{{route('user.index')}}">Kullanıcı Liste</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="extra-component-sweetalert.html">Kullanıcı Oluştur</a>
+                                <a href="{{route('user.create.index')}}">Kullanıcı Oluştur</a>
                             </li>
                         </ul>
                     </li>
