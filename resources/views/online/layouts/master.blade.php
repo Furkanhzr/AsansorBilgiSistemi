@@ -104,7 +104,7 @@
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="extra-component-avatar.html">Asansörler</a>
+                                <a href="{{route('elevators.index')}}">Asansörler</a>
                             </li>
                             <li class="submenu-item ">
                                 <a href="{{route('elevator_types.index')}}">Asansör Türleri</a>
@@ -261,6 +261,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
 <script src="{{asset('template2')}}/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="{{asset('template2')}}/assets/js/bootstrap.bundle.min.js"></script>
 
