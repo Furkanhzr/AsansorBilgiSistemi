@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->integer('street_key');
+            $table->integer('neighbourhood_key');
             $table->string('building_title');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
