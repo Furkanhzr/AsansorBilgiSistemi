@@ -9,8 +9,8 @@ class Elevator extends Model
 {
     use HasFactory;
 
-    public function getUser() {
-        return $this->belongsTo(User::class, 'user_id', 'id')->withTrashed();
+    public function getBuilding() {
+        return $this->belongsTo(Building::class, 'building_id', 'id')->withTrashed();
     }
 
     public function getElevatorType() {

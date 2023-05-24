@@ -43,10 +43,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getElevator() {
-        return $this->hasMany(Elevator::class, 'user_id', 'id')->withTrashed();
-    }
-
     public function getFault() {
         return $this->hasMany(Fault::class, 'user_id', 'id')->withTrashed();
     }
