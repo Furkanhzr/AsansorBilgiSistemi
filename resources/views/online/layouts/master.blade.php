@@ -97,7 +97,7 @@
                         </ul>
                     </li>
 
-                    <li class="sidebar-item  has-sub">
+                    <li class="sidebar-item  has-sub {{ Request::segment(1) == 'asansorler' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-elevator"></i>
                             <span>Asansörler</span>
@@ -107,12 +107,12 @@
                                 <a href="extra-component-avatar.html">Asansörler</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="extra-component-sweetalert.html">Asansör Türleri</a>
+                                <a href="{{route('elevator_types.index')}}">Asansör Türleri</a>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="sidebar-item has-sub">
+                    <li class="sidebar-item has-sub {{ Request::segment(1) == 'ariza' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-exclamation-circle"></i>
                             <span>Arızalar</span>

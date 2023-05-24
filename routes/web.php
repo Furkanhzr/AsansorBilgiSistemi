@@ -7,7 +7,8 @@ use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Online\DashboardController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\ElevatorController;
+use App\Http\Controllers\Admin\ElevatorTypeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,9 +43,27 @@ Route::middleware('isLogin')->group(function() {
         Route::post('/createPost',[FaultController::class, 'createPost'])->name('fault.create.post');
         Route::get('/phonecheck',[FaultController::class, 'checkUserPhone'])->name('fault.user.phonecheck');
         Route::get('/userelevators',[FaultController::class, 'getUserElevator'])->name('fault.user.elevators');
+    });
 
+    Route::prefix('asansorler')->group(function () {
+        Route::get('/index',[ElevatorController::class, 'index'])->name('elevators.index');
+        Route::get('/fetch',[ElevatorController::class, 'fetch'])->name('elevators.fetch');
+        Route::post('/create',[ElevatorController::class, 'create'])->name('elevators.create');
+        Route::get('/edit/{id}',[ElevatorController::class, 'edit'])->name('elevators.edit');
+        Route::post('/update',[ElevatorController::class, 'update'])->name('elevators.update');
+        Route::post('/delete',[ElevatorController::class, 'delete'])->name('elevators.delete');
+
+        Route::prefix('asansor-turleri')->group(function () {
+            Route::get('/index',[ElevatorTypeController::class, 'index'])->name('elevator_types.index');
+            Route::get('/fetch',[ElevatorTypeController::class, 'fetch'])->name('elevator_types.fetch');
+            Route::post('/create',[ElevatorTypeController::class, 'create'])->name('elevator_types.create');
+            Route::get('/edit/{id}',[ElevatorTypeController::class, 'edit'])->name('elevator_types.edit');
+            Route::post('/update',[ElevatorTypeController::class, 'update'])->name('elevator_types.update');
+            Route::post('/delete',[ElevatorTypeController::class, 'delete'])->name('elevator_types.delete');
+        });
 
     });
+
 
 });
 
