@@ -28,16 +28,17 @@
                     </div>
                     <div id="form_status"></div>
                     <div class="contact-form">
-                        <form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
+                        <form method="POST" action="{{route('contacts.create.post')}}" enctype="multipart/form-data">
+                            @csrf
                             <p>
-                                <input type="text" placeholder="Ad" name="name" id="name">
-                                <input type="text" placeholder="Soyad" name="surname" id="surname">
+                                <input type="text" placeholder="Ad" name="name" id="name" required>
+                                <input type="text" placeholder="Soyad" name="surname" id="surname" required>
                             </p>
                             <p>
                                 <input type="email" placeholder="Email" name="email" id="email">
-                                <input type="tel" placeholder="Telefon" name="phone" id="phone">
+                                <input type="tel" placeholder="Telefon" name="phone" id="phone" required>
                             </p>
-                            <p><textarea name="message" id="message" cols="30" rows="10" placeholder="Mesaj"></textarea></p>
+                            <p><textarea name="message" id="message" cols="30" rows="10" placeholder="Mesaj" required></textarea></p>
                             <input type="hidden" name="token" value="FsWga4&@f6aw" />
                             <p><input type="submit" value="Gönder"></p>
                         </form>

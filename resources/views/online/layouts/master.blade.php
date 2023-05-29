@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{asset('template2')}}/assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('template2')}}/assets/css/app.css">
     <link rel="shortcut icon" href="{{asset('template')}}/assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <style>
         body::-webkit-scrollbar {
@@ -154,8 +155,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="sidebar-item">
-                        <a href="#" class='sidebar-link'>
+                    <li class="sidebar-item {{ Request::segment(1) == 'iletisimler' ? 'active' : '' }}">
+                        <a href="{{route('contacts.list')}}" class='sidebar-link'>
                             <i class="fa fa-address-book"></i>
                             <span>İletişimler</span>
                         </a>
@@ -261,6 +262,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
 <script src="{{asset('template2')}}/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="{{asset('template2')}}/assets/js/bootstrap.bundle.min.js"></script>
