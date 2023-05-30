@@ -10,7 +10,7 @@ class Repair extends Model
     use HasFactory;
 
     public function getElevator() {
-        return $this->belongsTo(Elevator::class, 'elevator_id', 'id')->withTrashed();
+        return $this->belongsTo(Elevator::class, 'elevator_id', 'id');
     }
 
     public function getTransaction() {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title','Online İşlemler')</title>
+    <title>@yield('title','Admin Paneli')</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -57,9 +57,9 @@
             <div class="sidebar-header">
                 <div class="d-flex justify-content-between">
                     <div class="logo">
-                        <a href="{{route('customer.dashboard')}}"><img src="{{asset('images')}}/aker.png" style="width: 90px; height: 70px;" alt="Logo" srcset="">
+                        <a href="{{route('dashboard')}}"><img src="{{asset('images')}}/aker.png" style="width: 90px; height: 70px;" alt="Logo" srcset="">
                             <div style="font-size: 18px; float: right; display: flex; justify-content: space-between;  padding-top: 21px;">
-                                <p style="color: #F28123;">Online&nbsp</p><p style="color: black;">İşlemler</p>
+                                <p style="color: #F28123;">Admin&nbsp</p><p style="color: black;">Paneli</p>
                             </div>
                         </a>
 
@@ -73,51 +73,89 @@
                 <ul class="menu">
                     <li class="sidebar-title">Menü</li>
 
-                    <li class="sidebar-item {{request()->is('customer/dashboard')  ? 'active' : '' }}">
-                        <a href="{{route('customer.dashboard')}}" class='sidebar-link'>
+                    <li class="sidebar-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }} ">
+                        <a href="{{route('dashboard')}}" class='sidebar-link'>
                             <i class="fa fa-house"></i>
                             <span>Anasayfa</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item ">
-                        <a href="form-layout.html" class='sidebar-link'>
-                            <i class="bi bi-file-earmark-medical-fill"></i>
-                            <span>Arıza Taleplerim</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item ">
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-pen-fill"></i>
-                            <span>Alınan Hizmetler</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link'>
-                            <i class="fa fa-money-bill"></i>
-                            <span>Ödeme & Borçlar</span>
+                    <li class="sidebar-item  has-sub {{ Request::segment(1) == 'ürünler' ? 'active' : '' }}">
+                        <a href="" class='sidebar-link'>
+                            <i class="fa fa-newspaper"></i>
+                            <span>Ürünler</span>
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="extra-component-avatar.html">Ödeme & Borçlar</a>
+                                <a href="{{route('products.index')}}">Ürünler</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="extra-component-sweetalert.html">Ödeme Yapma</a>
+                                <a href="{{route('products.create.index')}}">Ürün Oluştur</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="sidebar-item  ">
-                        <a href="table.html" class='sidebar-link'>
-                            <i class="fa fa-square-poll-horizontal"></i>
-                            <span>Arıza Kontrol Talebi</span>
+
+                    <li class="sidebar-item  has-sub {{ Request::segment(1) == 'asansorler' ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="fa fa-elevator"></i>
+                            <span>Asansörler</span>
                         </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{route('elevators.index')}}">Asansörler</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{{route('elevator_types.index')}}">Asansör Türleri</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="sidebar-item  ">
-                        <a href="table.html" class='sidebar-link'>
-                            <i class="fa fa-pen-to-square"></i>
-                            <span>Bilgilerimi Güncelle</span>
+
+                    <li class="sidebar-item has-sub {{ Request::segment(1) == 'ariza' ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="fa fa-exclamation-circle"></i>
+                            <span>Arızalar</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{route('fault.index')}}">Arıza Kaydı Liste</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{{route('fault.create.index')}}">Arıza Kaydı Oluştur</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item has-sub {{ Request::segment(1) == 'bakim' ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="fa fa-screwdriver-wrench"></i>
+                            <span>Bakımlar</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{route('repair.index')}}">Bakımlar Liste</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{{route('repair.create.index')}}">Bakım Oluştur</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item has-sub {{ Request::segment(1) == 'user' ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="fa fa-person"></i>
+                            <span>Kullanıcı</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{route('user.index')}}">Kullanıcı Liste</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{{route('user.create.index')}}">Kullanıcı Oluştur</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item {{ Request::segment(1) == 'iletisimler' ? 'active' : '' }}">
+                        <a href="{{route('contacts.list')}}" class='sidebar-link'>
+                            <i class="fa fa-address-book"></i>
+                            <span>İletişimler</span>
                         </a>
                     </li>
                     <br>
@@ -145,7 +183,7 @@
         </div>
         <div class="page-content">
             <section class="row">
-               @yield('content')
+                @yield('content')
             </section>
         </div>
 
@@ -155,7 +193,7 @@
                     <p>2023 &copy; Aker Asansör</p>
                 </div>
                 <div class="float-end">
-                    <p><a href="{{route('customer.dashboard')}}">Furkan, Muhammed, Yunus</a>
+                    <p><a href="{{route('dashboard')}}">Furkan, Muhammed, Yunus</a>
                         <span class="text-danger"><i class="bi bi-heart"></i></span> tarafından oluşturuldu </p>
                 </div>
             </div>

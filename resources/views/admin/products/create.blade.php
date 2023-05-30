@@ -1,4 +1,4 @@
-@extends('online.layouts.master')
+@extends('admin.layouts.master')
 @section('title','Admin Paneli')
 @section('title-page','Ürün Oluştur')
 @section('content')

@@ -204,7 +204,7 @@
                         <input hidden type="text" name="surname" id="surname" value="{{"Bilinmeyen"}}">
                         <input type="email" placeholder="Email" name="email" id="email">
                         <input hidden type="tel" name="phone" id="phone" value="{{"(0000)-000-0000"}}">
-                        <input hidden name="message" id="message" value="{{"Bilinmeyen"}}">
+                        <input hidden name="message" id="message" value="{{"Abonelik Talebi"}}">
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
