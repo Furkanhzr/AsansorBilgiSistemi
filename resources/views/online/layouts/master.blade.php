@@ -134,10 +134,10 @@
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="extra-component-avatar.html">Bakımlar Liste</a>
+                                <a href="{{route('repair.index')}}">Bakımlar Liste</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="extra-component-sweetalert.html">Bakım Oluştur</a>
+                                <a href="{{route('repair.create.index')}}">Bakım Oluştur</a>
                             </li>
                         </ul>
                     </li>

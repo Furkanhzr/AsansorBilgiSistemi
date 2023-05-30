@@ -52,16 +52,6 @@
                     <label>Bina Numarası</label>
                     <input type="text" name="building" class="form-control" required>
 
-                    <label>Abonelik istiyormusunuz?</label>
-                    <div>
-                        <input type="radio" id="eve" name="abonelik" value=1>
-                        <label for="eve">Evet</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="hayir" name="abonelik" value=0>
-                        <label for="0">Hayır</label>
-                    </div>
-
                     <label>Email</label>
                     <input type="text" name="email" class="form-control" required>
 

@@ -1,6 +1,6 @@
 @extends('online.layouts.master')
 @section('title','Admin Paneli')
-@section('title-page','Kullanıcılar')
+@section('title-page','Bakımlar')
 @section('content')
     <style>
         .page-item.active .page-link {
@@ -18,18 +18,19 @@
             </h6>
         </div>
         <div class="card-body">
-                <h3>Kullanı Listesi</h3>
+                <h3>Bakım Listesi</h3>
             <div class="table-responsive">
-                <table class="table table-bordered" id="userTables" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="faultsTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Ad-Soyad</th>
-                        <th>Telefon Numarası</th>
-                        <th>Email</th>
-                        <th>Adress</th>
-                        <th>Doğum Tarihi</th>
-                        <th>Abonelik Durumu</th>
+                        <th>Kullanıcı ID</th>
+                        <th>Asansör ID</th>
+                        <th>Fatura ID</th>
+                        <th>Arıza Durumu</th>
+                        <th>Açıklama</th>
+                        <th>Oluşturulma Saati</th>
+                        <th>Çözülme Tarihi</th>
                         <th>Detay</th>
                         <th>Güncelleme</th>
                         <th>Silme </th>
@@ -42,7 +43,7 @@
 @endsection
 @section('js')
     <script>
-        var table = $('#userTables').DataTable( {
+        var table = $('#faultsTable').DataTable( {
             order: [
                 [0,'DESC']
             ],
@@ -52,15 +53,16 @@
             scrollY: true,
             scrollX: true,
             scrollCollapse: true,
-            ajax: '{{route('user.fetch')}}',
+            ajax: '{{route('faults.fetch')}}',
             columns: [
                 {data: 'id'},
-                {data: 'name'},
-                {data: 'phone'},
-                {data: 'email'},
-                {data: 'address'},
-                {data: 'date_of_birth'},
-                {data: 'subscription'},
+                {data: 'user_id'},
+                {data: 'elevator_id'},
+                {data: 'transaction_id'},
+                {data: 'status'},
+                {data: 'description'},
+                {data: 'down_time'},
+                {data: 'solved_time'},
                 {data: 'show', orderable: false, searchable: false},
                 {data: 'update', orderable: false, searchable: false},
                 {data: 'delete', orderable: false, searchable: false},
@@ -68,6 +70,7 @@
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json",
             },
-        });
+        } );
     </script>
+
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Building;
 use App\Models\City;
+use App\Models\Elevator;
 use App\Models\Neighbourhood;
 use App\Models\Street;
 use App\Models\Town;
@@ -85,7 +86,6 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->address = $city.'/' .$town.' '.$neighbourhood.' '.$street.' Bina Numarası: '.$request->building;
-        $user->subscription = $request->abonelik;
         $user->email = $request->email;
         $user->date_of_birth = $request->date_of_birth;
         $user->password = Hash::make('123456');
