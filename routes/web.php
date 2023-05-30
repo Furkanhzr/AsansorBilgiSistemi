@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\FaultController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\RepairController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\LoginController;
@@ -44,6 +45,14 @@ Route::middleware('isLogin')->group(function() {
         Route::post('/createPost',[FaultController::class, 'createPost'])->name('fault.create.post');
         Route::get('/phonecheck',[FaultController::class, 'checkUserPhone'])->name('fault.user.phonecheck');
         Route::get('/userelevators',[FaultController::class, 'getUserElevator'])->name('fault.user.elevators');
+    });
+
+    Route::prefix('bakim')->group(function () {
+        Route::get('/index',[RepairController::class, 'index'])->name('repair.index');
+        Route::get('/createIndex',[RepairController::class, 'createIndex'])->name('repair.create.index');
+        Route::post('/createPost',[RepairController::class, 'createPost'])->name('repair.create.post');
+
+
     });
 
     Route::prefix('asansorler')->group(function () {
