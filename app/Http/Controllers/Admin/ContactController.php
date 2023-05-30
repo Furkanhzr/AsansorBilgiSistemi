@@ -28,21 +28,25 @@ class ContactController extends Controller
         $contact = Contact::query();
         return DataTables::of($contact)
             ->editColumn('message', function ($contact) {
-                return strip_tags(Str::limit($contact->message,50));
+                return strip_tags(Str::limit($contact->message,30));
             })
             ->addColumn('status', function ($contact) {
                 if ($contact->status == 0) {
                     return '<a onclick="check(' . $contact->id . ')" class="btn btn-info" ><i class="fas fa-check-to-slot"></i> &nbspOnayla</a>';
                 }
                 else {
-                    return '<a onclick="uncheck(' . $contact->id . ')" class="btn btn-success" ><i class="fa-regular fa-circle-check"></i> &nbspOnaylandı</a>';
+                    return '<a onclick="uncheck(' . $contact->id . ')" class="btn btn-success" ><i class="fa-regular fa-circle-check"></i> Onaylandı</a>';
                 }
+            })
+            ->addColumn('detail', function ($contact) {
+                return '<a class="btn btn-primary" onclick="detailModal(' . $contact->id . ')"><i class="fas fa-eye"></i> &nbspDetay</a>';
+
             })
             ->addColumn('delete', function ($contact) {
                 return '<a class="btn btn-danger" onclick="contactsDelete(' . $contact->id . ')"><i class="fas fa-trash"></i> Sil</a>';
 
             })
-            ->rawColumns(['message','status', 'delete'])
+            ->rawColumns(['message','detail','status', 'delete'])
             ->make();
     }
 
@@ -58,15 +62,22 @@ class ContactController extends Controller
         $contact->save();
     }
 
-    public function createIndex() {
-
+    public function detail(Request $request) {
+        $contact = Contact::find($request->id);
+        return response()->json($contact);
     }
+
+    public function createIndex() {
+        return view('online.contacts.create');
+    }
+
     public function createPost(Request $request) {
+        $request->merge(['phone' => str_replace(['-', '(', ')','_'], [''], $request->phone)]);
         $request->validate([
             'name'=>'required',
             'surname'=>'required',
             'email'=>'required',
-            'phone'=>'required',
+            'phone'=>'required|size:11',
             'message'=>'required',
         ]);
 
@@ -74,18 +85,11 @@ class ContactController extends Controller
         $contact->name = $request->name;
         $contact->surname = $request->surname;
         $contact->email = $request->email;
-        $contact->phone = $request->phone;
+        $contact->phone = mb_substr($request->phone, 0);
         $contact->message = $request->message;
         $contact->save();
         toastr()->success('İletişim Başarıyla Gönderildi.', 'Başarılı');
         return redirect()->route('contact');
-    }
-
-    public function updateIndex() {
-
-    }
-    public function updatePost() {
-
     }
 
     public function delete(Request $request) {

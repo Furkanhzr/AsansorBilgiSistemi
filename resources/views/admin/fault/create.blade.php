@@ -66,12 +66,12 @@
                     dataType: "json",
                     success: function (response) {
                         if (response.result) {
-                            $('#result').html('<i class="fas fa-check"></i>');
+                            $('#result').html('<i class="fas fa-check" style="color: limegreen"></i>');
                             var data = new Object();
                             data.phone = document.querySelector('input[name="phone"]').value;;
                             getUserElevator(data)
                         } else {
-                            $('#result').html('<i class="fas fa-times"></i>');
+                            $('#result').html('<i class="fas fa-times" style="color: red"></i>');
                             document.getElementById('elevator').innerHTML='';
                             satir = $("<option>").text('Telefon Numarası Kayıtlı Değil')
                             $("#elevator").append(satir)

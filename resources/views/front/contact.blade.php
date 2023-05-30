@@ -1,6 +1,11 @@
 @extends('front.layouts.master')
 @section('title','İletişim')
 @section('content')
+    <style>
+        input[type="submit"] {
+            color: #ffffff;
+        }
+    </style>
     <!-- breadcrumb-section -->
     <div class="breadcrumb-section breadcrumb-bg" style="width: 100%; height: 451px; padding: 0px 0px 0px 0px;">
         <img src="{{asset('images')}}/contact.jpg" style="width: 100%; height: 100%; position: absolute; opacity: 50%; object-fit: cover;">
@@ -39,7 +44,6 @@
                                 <input type="tel" placeholder="Telefon" name="phone" id="phone" required>
                             </p>
                             <p><textarea name="message" id="message" cols="30" rows="10" placeholder="Mesaj" required></textarea></p>
-                            <input type="hidden" name="token" value="FsWga4&@f6aw" />
                             <p><input type="submit" value="Gönder"></p>
                         </form>
                     </div>
@@ -82,4 +86,13 @@
         <iframe src="https://www.google.com/maps/embed/v1/place?q=Elâzığ,+Elâzığ+Merkez/Elazığ,+Türkiye&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" class="embed-responsive-item"></iframe>
     </div>
     <!-- end google map section -->
+@endsection
+@section('js')
+    <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#phone").inputmask("(0999)-999-9999");
+        });
+
+    </script>
 @endsection

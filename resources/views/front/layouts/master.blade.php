@@ -80,11 +80,13 @@
                         <ul  style="padding-top: 13px;">
                             <li class="{{ Request::segment(1) == '' ? 'current-list-item' : '' }}"><a href="{{route('homepage')}}">Anasayfa</a></li>
                             <li class="{{ Request::segment(1) == 'products' ? 'current-list-item' : '' }}"><a href="{{route('products')}}">Ürünlerimiz</a>
-                                <ul class="sub-menu">
-                                    @foreach($products as $product)
-                                        <li><a href="{{route('products.single',$product->id)}}">{{$product->title}}</a></li>
-                                    @endforeach
-                                </ul>
+                                @if($products->count()!=0)
+                                    <ul class="sub-menu">
+                                        @foreach($products as $product)
+                                            <li><a href="{{route('products.single',$product->id)}}">{{$product->title}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </li>
 
                             <li class="{{ Request::segment(1) == 'about' ? 'current-list-item' : '' }}"><a href="{{route('about')}}">Hakkımızda</a>
@@ -117,7 +119,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <span class="close-btn"><i class="fas fa-window-close"></i></span>
+                <span class="close-btn"><i class="fas fa-times"></i></span>
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Arama Yap:</h3>
@@ -196,8 +198,13 @@
                 <div class="footer-box subscribe">
                     <h2 class="widget-title">Abone Ol</h2>
                     <p>Fırsatlardan haberdar olmak için mail adresinizi giriniz.</p>
-                    <form action="index.html">
-                        <input type="email" placeholder="Email">
+                    <form method="POST" action="{{route('contacts.create.post')}}" enctype="multipart/form-data">
+                        @csrf
+                        <input hidden type="text" name="name" id="name" value="{{"Bilinmeyen"}}">
+                        <input hidden type="text" name="surname" id="surname" value="{{"Bilinmeyen"}}">
+                        <input type="email" placeholder="Email" name="email" id="email">
+                        <input hidden type="tel" name="phone" id="phone" value="{{"(0000)-000-0000"}}">
+                        <input hidden name="message" id="message" value="{{"Bilinmeyen"}}">
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
@@ -263,5 +270,6 @@
 <!-- main js -->
 <script src="{{asset('template')}}/assets/js/main.js"></script>
 
+@yield('js')
 </body>
 </html>

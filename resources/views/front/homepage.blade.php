@@ -139,7 +139,7 @@
                     <div class="text">Sadece bu ay geçerli sınırlı teklifimizde, yapacağınz yıllık sözleşmelerde 3 ay bakım ücreti bizden !</div>
                     <!--Countdown Timer-->
                     <div class="time-counter">
-                        <div class="time-countdown clearfix" data-countdown="2023/5/30">
+                        <div class="time-countdown clearfix" data-countdown="2023/6/15">
                             <div class="counter-column"><div class="inner"><span class="count">00</span>Gün</div></div>
                             <div class="counter-column"><div class="inner"><span class="count">00</span>Saat</div></div>
                             <div class="counter-column"><div class="inner"><span class="count">00</span>Dakika</div></div>
@@ -166,7 +166,7 @@
                             <div class="client-meta">
                                 <h3>Furkan Hazar <span>Takım Lideri</span></h3>
                                 <p class="testimonial-body">
-                                    " Merhaba, ben Furkan Hazar Fırat Üniversitesi Yazılım Mühendisliği mezunuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
+                                    " Merhaba, ben Furkan Hazar Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim . Bu yazı web programlama dersi için yazılmış deneme yazısıdır . "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>
@@ -180,7 +180,7 @@
                             <div class="client-meta">
                                 <h3>Muhammed Atmaca <span>Takım Üyesi</span></h3>
                                 <p class="testimonial-body">
-                                    " Merhaba, ben Muhammed Atmaca Fırat Üniversitesi Yazılım Mühendisliği mezunuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
+                                    " Merhaba, ben Muhammed Atmaca Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim . Bu yazı web programlama dersi için yazılmış deneme yazısıdır . "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>
@@ -194,7 +194,7 @@
                             <div class="client-meta">
                                 <h3>Yunus Emre Ertürk <span>Takım Üyesi</span></h3>
                                 <p class="testimonial-body">
-                                    " Merhaba, ben Yunus Emre Ertürk Fırat Üniversitesi Yazılım Mühendisliği mezunuyum. Biz bu piyasaya ne yeni ne geri geldik. Ben bu adamla geldim bu adamla giderim arkadaş. "
+                                    " Merhaba, ben Yunus Emre Ertürk Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim . Bu yazı web programlama dersi için yazılmış deneme yazısıdır . "
                                 </p>
                                 <div class="last-icon">
                                     <i class="fas fa-quote-right"></i>

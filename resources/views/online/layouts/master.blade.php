@@ -127,7 +127,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="sidebar-item has-sub">
+                    <li class="sidebar-item has-sub {{ Request::segment(1) == 'bakim' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-screwdriver-wrench"></i>
                             <span>Bakımlar</span>
@@ -141,7 +141,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="sidebar-item has-sub">
+                    <li class="sidebar-item has-sub {{ Request::segment(1) == 'user' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-person"></i>
                             <span>Kullanıcı</span>

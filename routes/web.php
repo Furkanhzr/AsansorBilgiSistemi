@@ -94,10 +94,9 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/list',[ContactController::class, 'list'])->name('contacts.list');
         Route::post('/check',[ContactController::class, 'check'])->name('contacts.check');
         Route::post('/uncheck',[ContactController::class, 'uncheck'])->name('contacts.uncheck');
+        Route::get('/detail',[ContactController::class, 'detail'])->name('contacts.detail');
         Route::get('/createIndex',[ContactController::class, 'createIndex'])->name('contacts.create.index');
         Route::post('/createPost',[ContactController::class, 'createPost'])->name('contacts.create.post');
-        Route::get('/updateIndex/{id}',[ContactController::class, 'updateIndex'])->name('contacts.update.index');
-        Route::post('/updatePost/{id}',[ContactController::class, 'updatePost'])->name('contacts.update.post');
         Route::post('/delete',[ContactController::class, 'delete'])->name('contacts.delete');
     });
 

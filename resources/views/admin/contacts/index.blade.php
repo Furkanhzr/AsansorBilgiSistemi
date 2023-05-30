@@ -29,6 +29,7 @@
                         <th>Email</th>
                         <th>Telefon</th>
                         <th>Mesaj</th>
+                        <th>Detay</th>
                         <th>Okundu Bilgisi</th>
                         <th>Silme</th>
                     </tr>
@@ -37,6 +38,54 @@
             </div>
         </div>
     </div>
+
+    <!-- Detail Modal Start -->
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">İletişim Bilgisi Detayı</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row row-cols-1" style="margin-bottom: 30px;border-bottom: 1px solid lightgrey">
+                            <div class="col">
+                                <h6>Ad:</h6>
+                                <p id="name"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Soyad:</h6>
+                                <p id="surname"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Email:</h6>
+                                <p id="email"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Telefon:</h6>
+                                <p id="phone"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Mesaj:</h6>
+                                <p id="message"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-end">
+                        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Kapat</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detail Modal End -->
 @endsection
 @section('js')
     <script>
@@ -57,6 +106,7 @@
                 {data: 'email'},
                 {data: 'phone'},
                 {data: 'message'},
+                {data: 'detail', orderable: false, searchable: false},
                 {data: 'status', orderable: false, searchable: false},
                 {data: 'delete', orderable: false, searchable: false},
             ],
@@ -92,6 +142,26 @@
                 success:()=>{
                     table.ajax.reload();
                     toastr.success('İletişim onayı kaldırıldı.', 'Başarılı');
+                }
+            })
+        }
+
+        function detailModal(id) {
+            $("#detailModal").modal('show')
+            $.ajax({
+                url:'{{route('contacts.detail')}}',
+                type:'GET',
+                data: {
+                    id:id,
+                },
+                success:(response)=>{
+                    table.ajax.reload();
+                    console.log(response);
+                    document.getElementById("name").innerHTML = response.name;
+                    document.getElementById("surname").innerHTML = response.surname;
+                    document.getElementById("email").innerHTML = response.email;
+                    document.getElementById("phone").innerHTML = response.phone;
+                    document.getElementById("message").innerHTML = response.message;
                 }
             })
         }
