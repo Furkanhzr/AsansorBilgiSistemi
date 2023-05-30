@@ -26,10 +26,13 @@ use App\Http\Controllers\Admin\ElevatorTypeController;
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
 Route::middleware('isLogin')->group(function() {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/monthlyProductFetch', [DashboardController::class, 'monthlyProductFetch'])->name('dashboard.monthlyProductFetch');
-    Route::get('/dashboard/getFaultData', [DashboardController::class, 'getFaultData'])->name('dashboard.getFaultData');
-    Route::get('/dashboard/getRepairData', [DashboardController::class, 'getRepairData'])->name('dashboard.getRepairData');
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/monthlyProductFetch', [DashboardController::class, 'monthlyProductFetch'])->name('dashboard.monthlyProductFetch');
+        Route::get('/getFaultData', [DashboardController::class, 'getFaultData'])->name('dashboard.getFaultData');
+        Route::get('/getRepairData', [DashboardController::class, 'getRepairData'])->name('dashboard.getRepairData');
+    });
+
     Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
     Route::get('/logOut', [LoginController::class, 'logOut'])->name('logOut');
 

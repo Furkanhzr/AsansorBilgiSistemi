@@ -2,6 +2,17 @@
 @section('title','Admin Paneli')
 @section('title-page','Anasayfa')
 @section('content')
+    <style>
+        .page-item.active .page-link {
+            z-index: 3;
+            color: #fff;
+            background-color: #F28123;
+            border-color: #F28123;
+        }
+        .page-link {
+            color: black;
+        }
+    </style>
     <div class="col-12 col-lg-9">
         <div class="row">
             <div class="col-6 col-lg-3 col-md-6">
@@ -213,7 +224,7 @@
 
             $(document).on('click', '.pagination a', function(event){
                 event.preventDefault();
-                var page = $(this).attr('href').split('fault=')[1];
+                var page = $(this).attr('href').split('repair=')[1];
                 fetch_user_data(page);
             });
 
