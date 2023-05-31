@@ -41,20 +41,20 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
                     <div class="row">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 text-center">
-                                    <div class="pagination-wrap">
-                                        <ul>
-                                            <li><a href="#">Önceki</a></li>
-                                            <li><a class="active" href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">Sonraki</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                        <div class="col-lg-12 text-center">
+                            <div class="pagination-wrap">
+                                <ul>
+                                    <li><a href="">Önceki</a></li>
+                                    <li><a class="active" href="">1</a></li>
+                                    <li><a href="">2</a></li>
+                                    <li><a href="">3</a></li>
+                                    <li><a href="">Sonraki</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
