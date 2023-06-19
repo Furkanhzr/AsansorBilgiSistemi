@@ -40,6 +40,99 @@
             </div>
         </div>
     </div>
+
+    <!-- Update Modal -->
+    <div class="modal fade" id="faultsUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Asansör Güncelleme</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="formUpdate" name="formUpdate" class="form-horizontal">
+                        <div class="form-group">
+                            <label>Arıza Durumu</label> <br>
+                            <input type="radio" name="durum" value="0">
+                            <label>Devam Ediyor</label>
+                            <input type="radio" name="durum" value="1">
+                            <label>Çözüldü</label><br>
+                        </div>
+                        <div class="form-group">
+                            <label>Arıza Açıklaması</label>
+                            <textarea id="editor" name="description" class="form-control" rows="4"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">
+                                <i class="bx bx-x d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Kapat</span>
+                            </button>
+                            <button type="button" id="updateButton" onclick="updateFault()" class="btn ml-1 text-white" style="background-color: #F28123;" data-bs-dismiss="modal">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block" >Güncelle</span>
+                            </button>
+                        </div>
+                    </form>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Update Modal End -->
+
+    <!-- Detail Modal Start -->
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">İletişim Bilgisi Detayı</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row row-cols-1" style="margin-bottom: 30px;border-bottom: 1px solid lightgrey">
+                            <div class="col">
+                                <h6>Ad:</h6>
+                                <p id="name"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Soyad:</h6>
+                                <p id="surname"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Email:</h6>
+                                <p id="email"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Telefon:</h6>
+                                <p id="phone"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Adres:</h6>
+                                <p id="adress"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Açıklama:</h6>
+                                <p id="message"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-end">
+                        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Kapat</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detail Modal End -->
 @endsection
 @section('js')
     <script>
@@ -72,5 +165,65 @@
             },
         } );
     </script>
-
+    <script>
+        function detailModal(id) {
+            console.log(id)
+            $("#detailModal").modal('show')
+            $.ajax({
+                url:'{{route('fault.detail')}}',
+                type:'GET',
+                data: {
+                    id:id,
+                },
+                success:(response)=>{
+                    table.ajax.reload();
+                    console.log(response);
+                    document.getElementById("name").innerHTML = response[1].user.name;
+                    document.getElementById("surname").innerHTML = response[1].user.surname;
+                    document.getElementById("email").innerHTML = response[1].user.email;
+                    document.getElementById("phone").innerHTML = response[1].user.phone;
+                    document.getElementById("adress").innerHTML = response[1].user.address;
+                    document.getElementById("message").innerHTML = response[0].fault_description;
+                }
+            })
+        }
+    </script>
+    <script>
+        function updateFault(){
+            var form = document.getElementById('formUpdate');
+            var formData = new FormData(form);
+            var fault = document.getElementById('fault-id').value
+            formData.append('fault_id', fault);
+            $.ajax({
+                type: 'POST',
+                url: '{{route('faults.update')}}',
+                data: formData,
+                headers: {'X-CSRF-TOKEN': "{{csrf_token()}} "},
+                dataType: "json",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    table.ajax.reload();
+                    var elements = document.getElementById("formUpdate").elements;
+                    for (var i = 0, element; element = elements[i++];) {
+                        element.value = "";
+                    }
+                    $('#faultsUpdateModal').modal("toggle");
+                    dataTable.ajax.reload();
+                },
+                error: function (data) {
+                    var errors = '';
+                    for (datas in data.responseJSON.errors) {
+                        errors += data.responseJSON.errors[datas] + '\n';
+                    }
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Başarısız',
+                        html: 'Bilinmeyen bir hata oluştu.\n' + errors,
+                    });
+                }
+            });
+        }
+    </script>
 @endsection

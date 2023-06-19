@@ -53,6 +53,9 @@ Route::middleware('isLogin')->group(function() {
         Route::post('/createPost',[FaultController::class, 'createPost'])->name('fault.create.post');
         Route::get('/phonecheck',[FaultController::class, 'checkUserPhone'])->name('fault.user.phonecheck');
         Route::get('/userelevators',[FaultController::class, 'getUserElevator'])->name('fault.user.elevators');
+        Route::post('/update',[FaultController::class, 'update'])->name('faults.update');
+        Route::get('/detail',[FaultController::class, 'detail'])->name('fault.detail');
+
     });
 
     Route::prefix('bakim')->group(function () {

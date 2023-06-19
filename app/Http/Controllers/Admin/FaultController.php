@@ -49,10 +49,11 @@ class FaultController extends Controller
                 return  $fault->solved_time ;
             })
             ->addColumn('show', function ($fault) {
-                return '<a href="'. route('products.single',$fault->id) .'" class="btn btn-info" ><i class="fas fa-eye"></i> &nbspGöster</a>';
+                return '<a class="btn btn-primary" onclick="detailModal(' . $fault->id . ')"><i class="fas fa-eye"></i> &nbspDetay</a>';
             })
             ->addColumn('update', function ($fault) {
-                return '<a href="'. route('products.update.index',$fault->id) .'" class="btn btn-warning" ><i class="fas fa-edit"></i> Güncelle</a>';
+                return '<button title="Güncelle" class="btn btn-warning updateElevatorsModal" data-bs-toggle="modal"
+                        data-bs-target="#faultsUpdateModal" id ="fault-id" value="'.$fault->id.'"><i class="fas fa-edit"></i> Güncelle</button>';
             })
             ->addColumn('delete', function ($fault) {
                 return '<a class="btn btn-danger" onclick="productsDelete(' . $fault->id . ')"><i class="fas fa-trash"></i> Sil</a>';
@@ -97,5 +98,29 @@ class FaultController extends Controller
 
         toastr()->success('Arıza Kaydı Başarıyla Oluşturuldu', 'Başarılı');
         return redirect()->route('fault.index');
+    }
+    public function update(Request $request){
+        $request->validate([
+            'fault_id' => 'required|exists:faults,id',
+            'description' => 'required',
+            'durum' => 'required|in:0,1',
+        ]);
+        $user = Auth::user();
+        $fault = Fault::where('id',$request->fault_id)->first();
+        $fault->status = $request->durum;
+        $fault->description = $fault->description.' '.$user->name.' '.$user->surname.' Yanıt => '.$request->description ;
+        $fault->save();
+        return response()->json(['Success' => 'success']);
+
+    }
+    public function detail(Request $request){
+        $fault = Fault::where('id',$request->id)->first();
+        $elevator = Elevator::where('id',$fault->elevator_id)->first();
+        $user = User::where('id',$elevator->user_id)->first();
+        $data =[
+            ['fault_description' => $fault->description],
+            ['user' => $user]
+        ];
+        return response()->json($data);
     }
 }
