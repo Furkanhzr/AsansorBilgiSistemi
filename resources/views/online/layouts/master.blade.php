@@ -80,8 +80,8 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item ">
-                        <a href="form-layout.html" class='sidebar-link'>
+                    <li class="sidebar-item {{request()->is('customer/fault/index')  ? 'active' : '' }}">
+                        <a href="{{route('customer.faults.index')}}" class='sidebar-link'>
                             <i class="bi bi-file-earmark-medical-fill"></i>
                             <span>Arıza Taleplerim</span>
                         </a>

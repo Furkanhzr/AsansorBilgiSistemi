@@ -9,6 +9,7 @@ use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Online\CustomerDashboardController;
+use App\Http\Controllers\Online\CustomerFaultController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ElevatorController;
 use App\Http\Controllers\Admin\ElevatorTypeController;
@@ -109,6 +110,15 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/createIndex',[ContactController::class, 'createIndex'])->name('contacts.create.index');
         Route::post('/createPost',[ContactController::class, 'createPost'])->name('contacts.create.post');
         Route::post('/delete',[ContactController::class, 'delete'])->name('contacts.delete');
+    });
+
+    Route::prefix('customer')->group(function () {
+        Route::prefix('fault')->group(function () {
+            Route::get('/index',[CustomerFaultController::class, 'index'])->name('customer.faults.index');
+            Route::get('/fetch',[CustomerFaultController::class, 'fetch'])->name('customer.faults.fetch');
+            Route::get('/detail',[CustomerFaultController::class, 'detail'])->name('customer.faults.detail');
+        });
+
     });
 
 
