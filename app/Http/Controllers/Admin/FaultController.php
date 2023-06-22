@@ -123,4 +123,9 @@ class FaultController extends Controller
         ];
         return response()->json($data);
     }
+    public function delete(Request $request){
+        $delete = Fault::where('id',$request->id)->first();
+        $delete->delete();
+        return response()->json(['Success' => 'success']);
+    }
 }

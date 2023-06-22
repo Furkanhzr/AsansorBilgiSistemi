@@ -226,4 +226,35 @@
             });
         }
     </script>
+    <script>
+        function productsDelete(id){
+            Swal.fire({
+                icon:'warning',
+                title:'Emin Misiniz',
+                text:'Ürünü Silmek İstediğinize Emin Misiniz ?',
+                showCancelButton:true,
+                showConfirmButton:true,
+                confirmButtonText:'Sil',
+                cancelButtonText:'İptal',
+            }).then((res)=>{
+                if(res.isConfirmed){
+                    $.ajax({
+                        url:'{{route('fault.delete')}}',
+                        type:'POST',
+                        data: {
+                            id:id,
+                            "_token":'{{csrf_token()}}'
+                        },
+                        success:(response)=>{
+                            Swal.fire({
+                                icon:'success',
+                                title:'Başarılı',
+                            })
+                            table.ajax.reload();
+                        }
+                    })
+                }
+            })
+        }
+    </script>
 @endsection

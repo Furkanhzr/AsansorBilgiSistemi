@@ -20,17 +20,15 @@
         <div class="card-body">
                 <h3>Bakım Listesi</h3>
             <div class="table-responsive">
-                <table class="table table-bordered" id="faultsTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="repairsTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Kullanıcı ID</th>
                         <th>Asansör ID</th>
                         <th>Fatura ID</th>
-                        <th>Arıza Durumu</th>
+                        <th>Bakım Durumu</th>
                         <th>Açıklama</th>
-                        <th>Oluşturulma Saati</th>
-                        <th>Çözülme Tarihi</th>
+                        <th>Bakım Tarihi</th>
                         <th>Detay</th>
                         <th>Güncelleme</th>
                         <th>Silme </th>
@@ -40,10 +38,103 @@
             </div>
         </div>
     </div>
+
+    <!-- Update Modal -->
+    <div class="modal fade" id="repairsUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Asansör Güncelleme</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="formUpdate" name="formUpdate" class="form-horizontal">
+                        <div class="form-group">
+                            <label>Bakım Durumu</label> <br>
+                            <input type="radio" name="durum" value="0">
+                            <label>Bakım Yapılmadı</label>
+                            <input type="radio" name="durum" value="1">
+                            <label>Bakım Yapıldı</label><br>
+                        </div>
+                        <div class="form-group">
+                            <label>Bakım Açıklaması</label>
+                            <textarea id="editor" name="description" class="form-control" rows="4"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">
+                                <i class="bx bx-x d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Kapat</span>
+                            </button>
+                            <button type="button" id="updateButton" onclick="updateRepair()" class="btn ml-1 text-white" style="background-color: #F28123;" data-bs-dismiss="modal">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block" >Güncelle</span>
+                            </button>
+                        </div>
+                    </form>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Update Modal End -->
+
+    <!-- Detail Modal Start -->
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">İletişim Bilgisi Detayı</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row row-cols-1" style="margin-bottom: 30px;border-bottom: 1px solid lightgrey">
+                            <div class="col">
+                                <h6>Ad:</h6>
+                                <p id="name"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Soyad:</h6>
+                                <p id="surname"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Email:</h6>
+                                <p id="email"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Telefon:</h6>
+                                <p id="phone"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Adres:</h6>
+                                <p id="adress"></p>
+                                <hr>
+                            </div>
+                            <div class="col">
+                                <h6>Açıklama:</h6>
+                                <p id="message"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-end">
+                        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Kapat</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detail Modal End -->
 @endsection
 @section('js')
     <script>
-        var table = $('#faultsTable').DataTable( {
+        var table = $('#repairsTable').DataTable( {
             order: [
                 [0,'DESC']
             ],
@@ -53,16 +144,14 @@
             scrollY: true,
             scrollX: true,
             scrollCollapse: true,
-            ajax: '{{route('faults.fetch')}}',
+            ajax: '{{route('repair.fetch')}}',
             columns: [
                 {data: 'id'},
-                {data: 'user_id'},
                 {data: 'elevator_id'},
                 {data: 'transaction_id'},
                 {data: 'status'},
                 {data: 'description'},
-                {data: 'down_time'},
-                {data: 'solved_time'},
+                {data: 'repair_time'},
                 {data: 'show', orderable: false, searchable: false},
                 {data: 'update', orderable: false, searchable: false},
                 {data: 'delete', orderable: false, searchable: false},
@@ -73,4 +162,97 @@
         } );
     </script>
 
+    <script>
+        function updateRepair(){
+            var form = document.getElementById('formUpdate');
+            var formData = new FormData(form);
+            var fault = document.getElementById('repair-id').value
+            formData.append('repair_id', fault);
+            $.ajax({
+                type: 'POST',
+                url: '{{route('repair.update')}}',
+                data: formData,
+                headers: {'X-CSRF-TOKEN': "{{csrf_token()}} "},
+                dataType: "json",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    table.ajax.reload();
+                    var elements = document.getElementById("formUpdate").elements;
+                    for (var i = 0, element; element = elements[i++];) {
+                        element.value = "";
+                    }
+                    $('#repairsUpdateModal').modal("toggle");
+                    table.ajax.reload();
+                },
+                error: function (data) {
+                    var errors = '';
+                    for (datas in data.responseJSON.errors) {
+                        errors += data.responseJSON.errors[datas] + '\n';
+                    }
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Başarısız',
+                        html: 'Bilinmeyen bir hata oluştu.\n' + errors,
+                    });
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function detailModal(id) {
+            console.log(id)
+            $("#detailModal").modal('show')
+            $.ajax({
+                url:'{{route('repair.detail')}}',
+                type:'GET',
+                data: {
+                    id:id,
+                },
+                success:(response)=>{
+                    table.ajax.reload();
+                    console.log(response);
+                    document.getElementById("name").innerHTML = response[1].user.name;
+                    document.getElementById("surname").innerHTML = response[1].user.surname;
+                    document.getElementById("email").innerHTML = response[1].user.email;
+                    document.getElementById("phone").innerHTML = response[1].user.phone;
+                    document.getElementById("adress").innerHTML = response[1].user.address;
+                    document.getElementById("message").innerHTML = response[0].repair_description;
+                }
+            })
+        }
+    </script>
+    <script>
+        function productsDelete(id){
+            Swal.fire({
+                icon:'warning',
+                title:'Emin Misiniz',
+                text:'Ürünü Silmek İstediğinize Emin Misiniz ?',
+                showCancelButton:true,
+                showConfirmButton:true,
+                confirmButtonText:'Sil',
+                cancelButtonText:'İptal',
+            }).then((res)=>{
+                if(res.isConfirmed){
+                    $.ajax({
+                        url:'{{route('repair.delete')}}',
+                        type:'POST',
+                        data: {
+                            id:id,
+                            "_token":'{{csrf_token()}}'
+                        },
+                        success:(response)=>{
+                            Swal.fire({
+                                icon:'success',
+                                title:'Başarılı',
+                            })
+                            table.ajax.reload();
+                        }
+                    })
+                }
+            })
+        }
+    </script>
 @endsection

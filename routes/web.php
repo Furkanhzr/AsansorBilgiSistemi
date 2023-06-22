@@ -56,14 +56,18 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/userelevators',[FaultController::class, 'getUserElevator'])->name('fault.user.elevators');
         Route::post('/update',[FaultController::class, 'update'])->name('faults.update');
         Route::get('/detail',[FaultController::class, 'detail'])->name('fault.detail');
-
+        Route::post('/delete',[FaultController::class, 'delete'])->name('fault.delete');
     });
 
     Route::prefix('bakim')->group(function () {
         Route::get('/index',[RepairController::class, 'index'])->name('repair.index');
+        Route::get('/fetch',[RepairController::class, 'fetch'])->name('repair.fetch');
+
         Route::get('/createIndex',[RepairController::class, 'createIndex'])->name('repair.create.index');
         Route::post('/createPost',[RepairController::class, 'createPost'])->name('repair.create.post');
-
+        Route::post('/update',[RepairController::class, 'update'])->name('repair.update');
+        Route::get('/detail',[RepairController::class, 'detail'])->name('repair.detail');
+        Route::post('/delete',[RepairController::class, 'delete'])->name('repair.delete');
 
     });
 
@@ -97,6 +101,10 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/getNeighbourhood',[UserController::class,'getNeighbourhood'])->name('get.neighbourhood');
         Route::get('/getStreet',[UserController::class,'getStreet'])->name('get.street');
         Route::get('/fetch',[UserController::class, 'fetch'])->name('user.fetch');
+        Route::post('/update',[UserController::class, 'update'])->name('user.update');
+        Route::post('/delete',[UserController::class, 'delete'])->name('user.delete');
+        Route::get('/userget',[UserController::class, 'userget'])->name('user.get');
+
 
     });
 
@@ -110,6 +118,7 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/createIndex',[ContactController::class, 'createIndex'])->name('contacts.create.index');
         Route::post('/createPost',[ContactController::class, 'createPost'])->name('contacts.create.post');
         Route::post('/delete',[ContactController::class, 'delete'])->name('contacts.delete');
+
     });
 
     Route::prefix('customer')->group(function () {

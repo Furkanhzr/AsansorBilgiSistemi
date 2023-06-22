@@ -10,6 +10,7 @@ use App\Models\Neighbourhood;
 use App\Models\Street;
 use App\Models\Town;
 use App\Models\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
@@ -32,16 +33,13 @@ class UserController extends Controller
                 }
                 return  $user->subscription = 'Abone';
             })
-            ->addColumn('show', function ($user) {
-                return '<a href="'. route('products.single',$user->id) .'" class="btn btn-info" ><i class="fas fa-eye"></i> &nbspGöster</a>';
-            })
             ->addColumn('update', function ($user) {
-                return '<a href="'. route('products.update.index',$user->id) .'" class="btn btn-warning" ><i class="fas fa-edit"></i> Güncelle</a>';
+                return "<button onclick='updateUserForm(" . $user->id . ")' class='btn btn-warning'>Güncelle</button>";
             })
             ->addColumn('delete', function ($user) {
                 return '<a class="btn btn-danger" onclick="productsDelete(' . $user->id . ')"><i class="fas fa-trash"></i> Sil</a>';
             })
-            ->rawColumns(['name','subscription','show','update', 'delete'])
+            ->rawColumns(['description','status','solved_time','transaction_id','update', 'delete'])
             ->make();
     }
 
@@ -101,5 +99,52 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('user.index');
     }
-
+    public function userget(Request $request){
+        $user = User::where('id',$request->id)->first();
+        if(!is_null($user)){
+            return response()->json($user);
+        }
+        dd($request);
+    }
+    public function update(Request $request){
+        $user = User::where('id',$request->user_id)->first();
+        if(!is_null($user)){
+            $request->validate([
+                'phoneUpdate'=>'unique:users,phone,'. $request->user_id,
+                'ilUpdate' =>'required',
+                'ilceUpdate' =>'required',
+                'mahalleUpdate' =>'required',
+            ]);
+            $city = (City::where('city_key',$request->ilUpdate)->first())->city_title;
+            $town = (Town::where('town_key',$request->ilceUpdate)->first())->town_title;
+            $neighbourhood =(Neighbourhood::where('neighbourhood_key',$request->mahalleUpdate)->first())->neighbourhood_title;
+            if (!is_null($request->sokakUpdate)){
+                $street = (Street::where('street_id',$request->sokakUpdate)->first())->street_title;
+            }
+            $street = null;
+            $user->phone = $request->phoneUpdate;
+            $user->name = $request->nameUpdate;
+            $user->surname = $request->surnameUpdate;
+            $user->address = $city.'/' .$town.' '.$neighbourhood.' '.$street.' Bina Numarası: '.$request->buildingUpdate;
+            $user->email = $request->emailUpdate;
+            $user->date_of_birth = $request->date_of_birthUpdate;
+            $user->password = Hash::make('123456');
+            $building = new Building();
+            $building->building_title = $request->buildingUpdate;
+            if(is_null($request->sokakUpdate)){
+                $building->neighbourhood_key = $request->mahalleUpdate;
+            }
+            else{
+                $building->street_key = $request->sokakUpdate;
+            }
+            $building->save();
+            $user->save();
+            return response()->json(['Success' => 'success']);
+        }
+    }
+    public function delete(Request $request){
+        $delete = User::where('id',$request->id)->first();
+        $delete->delete();
+        return response()->json(['Success' => 'success']);
+    }
 }
