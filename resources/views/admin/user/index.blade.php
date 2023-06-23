@@ -140,7 +140,6 @@
                     for (var i = 0, element; element = elements[i++];) {
                         element.value = "";
                     }
-                    $('#usersUpdateModal').modal("toggle");
                     table.ajax.reload();
                 },
                 error: function (data) {
