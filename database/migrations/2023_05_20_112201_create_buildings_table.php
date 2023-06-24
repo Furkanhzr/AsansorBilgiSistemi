@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('street_key')->nullable();
             $table->integer('neighbourhood_key')->nullable();
             $table->string('building_title');
+            $table->integer('user_key')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

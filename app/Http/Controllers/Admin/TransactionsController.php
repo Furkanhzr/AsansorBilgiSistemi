@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fault;
+use App\Models\Repair;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -52,9 +53,17 @@ class TransactionsController extends Controller
         return view('admin.transactions.create');
     }
 
-    public function createPost() {
+    public function createPost(Request $request) {
+        $user = User::where('phone',$request->phone)->first();
+        $transaction = new Transaction();
+        $transaction->user_id = $user->id;
+        $transaction->cost = $request->cost;
+        $transaction->status = 0;
+        $transaction->description = $request->description;
+        $transaction->transaction_type = 0;
+        $transaction->save();
+        return $this->index();
     }
-
     public function phonecheck(Request $request) {
         $phone = User::where('phone',$request->phone)->first();
         if (isset($phone)){
@@ -65,9 +74,23 @@ class TransactionsController extends Controller
 
     public function delete(Request $request){
         $delete = Transaction::where('id',$request->id)->first();
-        $fault = Fault::where('transaction_id','=',$delete->id)->first();
-        $fault->transaction_id = null;
-        $delete->delete();
-        return response()->json(['Success' => 'success']);
+        if($delete->transaction_type == 0){
+            $delete->delete();
+            return response()->json(['Success' => 'success']);
+        }
+        elseif ($delete->transaction_type == 1){
+            $fault = Fault::where('transaction_id','=',$delete->id)->first();
+            $fault->transaction_id = null;
+            $fault->save();
+            $delete->delete();
+            return response()->json(['Success' => 'success']);
+        }
+        elseif ($delete->transaction_type == 2){
+            $repair = Repair::where('transaction_id','=',$delete->id)->first();
+            $repair->transaction_id = null;
+            $repair->save();
+            $delete->delete();
+            return response()->json(['Success' => 'success']);
+        }
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Elevator;
 use App\Models\Fault;
 use App\Models\Repair;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,11 +31,13 @@ class RepairController extends Controller
                 }
                 return  $repair->status = 'Bakım Yapıldı';
             })
-            ->editColumn('transaction_id', function ($repair) {
-                if($repair->transaction_id == null){
-                    return $repair->transaction_id = 'Henüz Fatura Oluşturulmadı';
+            ->addColumn('transaction', function ($repair) {
+                if (isset($repair->transaction_id)) {
+                    return '<button class="btn btn-success" disabled><i class="fas fa-money-bill"></i> &nbspFaturalandırlı</button>';
                 }
-                return  $repair->transaction_id ;
+                else {
+                    return '<a class="btn btn-info" onclick="billModal(' . $repair->id . ')"><i class="fas fa-money-bill"></i> &nbspFaturalandır</a>';
+                }
             })
             ->addColumn('show', function ($repair) {
                 return '<a class="btn btn-primary" onclick="detailModal(' . $repair->id . ')"><i class="fas fa-eye"></i> &nbspDetay</a>';
@@ -46,7 +49,7 @@ class RepairController extends Controller
             ->addColumn('delete', function ($repair) {
                 return '<a class="btn btn-danger" onclick="productsDelete(' . $repair->id . ')"><i class="fas fa-trash"></i> Sil</a>';
             })
-            ->rawColumns(['description','status','solved_time','transaction_id', 'show','update', 'delete'])
+            ->rawColumns(['description','status','solved_time','transaction', 'show','update', 'delete'])
             ->make();
     }
 
@@ -68,7 +71,7 @@ class RepairController extends Controller
             $repair->save();
         }
         toastr()->success('Bakım Kaydı Başarıyla Oluşturuldu', 'Başarılı');
-        return redirect()->route('repair.index');
+        return $this->index();
     }
     public function update(Request $request){
         $request->validate([
@@ -80,6 +83,19 @@ class RepairController extends Controller
         $repair = Repair::where('id',$request->repair_id)->first();
         $repair->status = $request->durum;
         $repair->description = $repair->description.' '.$user->name.' '.$user->surname.' Yanıt => '.$request->description ;
+        $repair->save();
+        return response()->json(['Success' => 'success']);
+    }
+    public function createBill(Request $request) {
+        $transaction = new Transaction();
+        $transaction->cost = $request->cost;
+        $transaction->description = $request->description;
+        $transaction->transaction_type = $request->transaction_type;
+        $repair = Repair::where('id','=',$request->repair_id)->first();
+        $elevator = Elevator::where('id',$repair->elevator_id)->first();
+        $transaction->user_id = $elevator->user_id;
+        $transaction->save();
+        $repair->transaction_id = $transaction->id;
         $repair->save();
         return response()->json(['Success' => 'success']);
     }
@@ -99,4 +115,6 @@ class RepairController extends Controller
         $delete->delete();
         return response()->json(['Success' => 'success']);
     }
+
+
 }

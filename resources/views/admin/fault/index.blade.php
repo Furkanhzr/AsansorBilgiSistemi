@@ -132,7 +132,7 @@
     <!-- Detail Modal End -->
 
 
-    <!-- Detail Modal Start -->
+    <!-- Transaction Modal Start -->
     <div class="modal fade" id="billModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -168,7 +168,7 @@
             </div>
         </div>
     </div>
-    <!-- Detail Modal End -->
+    <!-- Transaction Modal End -->
 @endsection
 @section('js')
     <script>

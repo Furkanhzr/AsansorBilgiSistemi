@@ -97,7 +97,7 @@
                     var satir = $("<label>").text('Lütfen Asansörleri Seçiniz')
                     $("#elevatordiv").append(satir)
                     for(var i = 0; i < response.length; i++){
-                        satir = $("<input type='checkbox' name='elevators[]' multiple>").val(response[i].key_code)
+                        satir = $("<br><input type='checkbox' name='elevators[]' multiple>").val(response[i].key_code)
                         $("#elevatordiv").append(satir)
                         satir = $("<label>").text(response[i].key_code)
                         $("#elevatordiv").append(satir)

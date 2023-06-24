@@ -69,7 +69,6 @@
         $(document).ready(function () {
             $('#phone').on('input', function () {
                 var phone = $(this).val();
-
                 $.ajax({
                     type: "GET",
                     url: "{{route('transactions.user.phonecheck')}}",
@@ -78,21 +77,8 @@
                     success: function (response) {
                         if (response.result) {
                             $('#result').html('<i class="fas fa-check" style="color: limegreen"></i>');
-                            var data = new Object();
-                            data.phone = document.querySelector('input[name="phone"]').value;;
-                            getUserElevator(data)
                         } else {
                             $('#result').html('<i class="fas fa-times" style="color: red"></i>');
-                            document.getElementById('elevator').innerHTML='';
-                            satir = $("<option>").text('Telefon Numarası Kayıtlı Değil')
-                            $("#elevator").append(satir)
-                            if (phone.length === 0) {
-                                document.getElementById('elevator').innerHTML='';
-                                satir = $("<option>").text('Önce Telefon Numarasını Giriniz')
-                                $("#elevator").append(satir)
-                                document.getElementById('result').innerHTML='';
-
-                            }
                         }
                     }
                 });

@@ -73,7 +73,7 @@ Route::middleware('isLogin')->group(function() {
         Route::post('/update',[RepairController::class, 'update'])->name('repair.update');
         Route::get('/detail',[RepairController::class, 'detail'])->name('repair.detail');
         Route::post('/delete',[RepairController::class, 'delete'])->name('repair.delete');
-
+        Route::post('/transaction',[RepairController::class, 'createBill'])->name('repair.transaction');
     });
 
     Route::prefix('asansorler')->group(function () {
