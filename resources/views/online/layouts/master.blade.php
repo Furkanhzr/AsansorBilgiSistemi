@@ -94,20 +94,13 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link'>
+                    <li class="sidebar-item {{request()->is('bills')  ? 'active' : '' }}">
+                        <a href="{{route('bills.index')}}" class='sidebar-link'>
                             <i class="fa fa-money-bill"></i>
                             <span>Ödeme & Borçlar</span>
                         </a>
-                        <ul class="submenu ">
-                            <li class="submenu-item ">
-                                <a href="extra-component-avatar.html">Ödeme & Borçlar</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="extra-component-sweetalert.html">Ödeme Yapma</a>
-                            </li>
-                        </ul>
                     </li>
+
                     <li class="sidebar-item  ">
                         <a href="table.html" class='sidebar-link'>
                             <i class="fa fa-square-poll-horizontal"></i>

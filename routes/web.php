@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ElevatorController;
 use App\Http\Controllers\Admin\ElevatorTypeController;
 use App\Http\Controllers\Admin\TransactionsController;
+use App\Http\Controllers\Online\BillsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -130,6 +131,13 @@ Route::middleware('isLogin')->group(function() {
         Route::post('/create/post', [TransactionsController::class, 'createPost'])->name('transactions.create.post');
         Route::get('/phonecheck', [TransactionsController::class, 'phonecheck'])->name('transactions.user.phonecheck');
         Route::post('/delete', [TransactionsController::class, 'delete'])->name('transactions.delete');
+    });
+
+    Route::prefix('bills')->group(function () {
+        Route::get('/', [BillsController::class, 'index'])->name('bills.index');
+        Route::get('/create', [BillsController::class, 'createIndex'])->name('bills.create.index');
+        Route::get('/fetch', [BillsController::class, 'fetch'])->name('bills.fetch');
+        Route::post('/pay/post', [BillsController::class, 'pay'])->name('bills.pay.post');
     });
 
     Route::prefix('role')->group(function () {
