@@ -35,7 +35,7 @@ class DashboardController extends Controller
             $date = Carbon::create(date('Y'), $month);
             $date_end = $date->copy()->endOfMonth();
 
-            $elevatorCount = Transaction::where('transaction_type','=',2)->where('status','=',1)->where('payment_time', '>=', $date)->where('payment_time', '<=', $date_end)->count();
+            $elevatorCount = Transaction::where('transaction_type','=',0)->where('status','=',1)->where('payment_time', '>=', $date)->where('payment_time', '<=', $date_end)->count();
             array_push($monthlyArr, $elevatorCount);
         }
         return response()->json($monthlyArr);

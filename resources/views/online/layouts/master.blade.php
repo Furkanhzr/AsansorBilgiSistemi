@@ -108,8 +108,8 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item  ">
-                        <a href="table.html" class='sidebar-link'>
+                    <li class="sidebar-item {{request()->is('userCustomer')  ? 'active' : '' }}">
+                        <a href="{{route('userCustomer.index')}}" class='sidebar-link'>
                             <i class="fa fa-pen-to-square"></i>
                             <span>Bilgilerimi Güncelle</span>
                         </a>

@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\TransactionsController;
 use App\Http\Controllers\Online\BillsController;
 use App\Http\Controllers\Online\ServicesController;
 use App\Http\Controllers\Online\FaultRequestController;
+use App\Http\Controllers\Online\CustomerUpdateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -165,6 +166,11 @@ Route::middleware('isLogin')->group(function() {
     Route::prefix('faultRequest')->group(function () {
         Route::get('/', [FaultRequestController::class, 'index'])->name('faultRequest.index');
         Route::post('/create', [FaultRequestController::class, 'create'])->name('faultRequest.create');
+    });
+
+    Route::prefix('userCustomer')->group(function () {
+        Route::get('/', [CustomerUpdateController::class, 'index'])->name('userCustomer.index');
+        Route::post('/update', [CustomerUpdateController::class, 'update'])->name('userCustomer.update');
     });
 
 });
