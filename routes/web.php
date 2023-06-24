@@ -14,6 +14,7 @@ use App\Http\Controllers\Online\CustomerFaultController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ElevatorController;
 use App\Http\Controllers\Admin\ElevatorTypeController;
+use App\Http\Controllers\Admin\TransactionsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,6 +60,7 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/phonecheck',[FaultController::class, 'checkUserPhone'])->name('fault.user.phonecheck');
         Route::get('/userelevators',[FaultController::class, 'getUserElevator'])->name('fault.user.elevators');
         Route::post('/update',[FaultController::class, 'update'])->name('faults.update');
+        Route::post('/transaction',[FaultController::class, 'createBill'])->name('fault.transaction');
         Route::get('/detail',[FaultController::class, 'detail'])->name('fault.detail');
         Route::post('/delete',[FaultController::class, 'delete'])->name('fault.delete');
     });
@@ -119,6 +121,15 @@ Route::middleware('isLogin')->group(function() {
         Route::post('/createPost',[ContactController::class, 'createPost'])->name('contacts.create.post');
         Route::post('/delete',[ContactController::class, 'delete'])->name('contacts.delete');
 
+    });
+
+    Route::prefix('transactions')->group(function () {
+        Route::get('/', [TransactionsController::class, 'index'])->name('transactions.index');
+        Route::get('/create', [TransactionsController::class, 'createIndex'])->name('transactions.create.index');
+        Route::get('/fetch', [TransactionsController::class, 'fetch'])->name('transactions.fetch');
+        Route::post('/create/post', [TransactionsController::class, 'createPost'])->name('transactions.create.post');
+        Route::get('/phonecheck', [TransactionsController::class, 'phonecheck'])->name('transactions.user.phonecheck');
+        Route::post('/delete', [TransactionsController::class, 'delete'])->name('transactions.delete');
     });
 
     Route::prefix('role')->group(function () {

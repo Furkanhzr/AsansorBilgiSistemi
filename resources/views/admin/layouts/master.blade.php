@@ -95,6 +95,21 @@
                         </ul>
                     </li>
 
+                    <li class="sidebar-item  has-sub {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="fa fa-money-bill"></i>
+                            <span>Faturalar</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{route('transactions.index')}}">Faturalar</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{{route('transactions.create.index')}}">Fatura Oluştur</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="sidebar-item  has-sub {{ Request::segment(1) == 'asansorler' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-elevator"></i>

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->float('cost');
             $table->string('description');
-            $table->dateTime('payment_time');
+            $table->dateTime('payment_time')->nullable();
             $table->boolean('status')->comment('0-ödenmedi, 1-ödendi')->default(0);
-            $table->integer('transaction_type')->comment('0-bakım, 1-arıza, 2-kurulum');
+            $table->integer('transaction_type')->comment('0-kurulum, 1-arıza, 2-bakım')->default(0);
             $table->timestamps();
             $table->softDeletes();
 

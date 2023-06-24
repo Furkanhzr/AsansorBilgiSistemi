@@ -26,11 +26,11 @@
                         <th>ID</th>
                         <th>Kullanıcı ID</th>
                         <th>Asansör ID</th>
-                        <th>Fatura ID</th>
                         <th>Arıza Durumu</th>
                         <th>Açıklama</th>
                         <th>Oluşturulma Saati</th>
                         <th>Çözülme Tarihi</th>
+                        <th>Faturalandırma</th>
                         <th>Detay</th>
                         <th>Güncelleme</th>
                         <th>Silme </th>
@@ -72,9 +72,6 @@
                             </button>
                         </div>
                     </form>
-
-
-
                 </div>
             </div>
         </div>
@@ -133,6 +130,45 @@
         </div>
     </div>
     <!-- Detail Modal End -->
+
+
+    <!-- Detail Modal Start -->
+    <div class="modal fade" id="billModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Fatura Oluştur</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="formCreate" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Fiyat</label>
+                            <input class="form-control" type="number" name="cost" id="cost" placeholder="00" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            <input class="form-control" type="text" name="description" id="description" placeholder="Açıklama" required>
+                        </div>
+
+                        <input hidden name="transaction_type" id="transaction_type" value="1">
+                        <input hidden name="fault_id" id="fault_id">
+                    </form>
+                    <div class="float-end">
+                        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Kapat</span>
+                        </button>
+                        <button onclick="createBill()" type="submit" style="background-color: #F28123; border-color: #F28123;" class="btn btn-secondary text-white" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Kaydet</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detail Modal End -->
 @endsection
 @section('js')
     <script>
@@ -151,11 +187,11 @@
                 {data: 'id'},
                 {data: 'user_id'},
                 {data: 'elevator_id'},
-                {data: 'transaction_id'},
                 {data: 'status'},
                 {data: 'description'},
                 {data: 'down_time'},
                 {data: 'solved_time'},
+                {data: 'transaction', orderable: false, searchable: false},
                 {data: 'show', orderable: false, searchable: false},
                 {data: 'update', orderable: false, searchable: false},
                 {data: 'delete', orderable: false, searchable: false},
@@ -165,6 +201,54 @@
             },
         } );
     </script>
+    <script>
+        function billModal(id) {
+            $("#billModal").modal('show')
+            document.getElementById('fault_id').value = id
+        }
+
+        function createBill() {
+            console.log("aa");
+            $.ajax({
+                url: '{{route('fault.transaction')}}',
+                method: 'POST',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    fault_id: document.getElementById('fault_id').value,
+                    cost: document.getElementById('cost').value,
+                    description: document.getElementById('description').value,
+                    transaction_type: document.getElementById('transaction_type').value,
+                },
+                success: function (data) {
+                    if (data.Error != null) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Başarısız',
+                            html: data.Error,
+                            showConfirmButton: true,
+                            confirmButtonText: "Tamam",
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Başarılı',
+                            html: 'Fatura Başarıyla Oluşturuldu!',
+                            showConfirmButton: true,
+                            confirmButtonText: "Tamam",
+                        });
+                    }
+                    table.ajax.reload();
+                    $('#formCreate').trigger("reset");
+                    $('#billModal').modal('hide');
+                },
+                error: function (data) {
+                }
+            });
+        }
+
+    </script>
+
     <script>
         function detailModal(id) {
             console.log(id)

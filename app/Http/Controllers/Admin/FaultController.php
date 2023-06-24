@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Elevator;
 use App\Models\Image;
 use App\Models\Fault;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,6 +49,14 @@ class FaultController extends Controller
                 }
                 return  $fault->solved_time ;
             })
+            ->addColumn('transaction', function ($fault) {
+                if (isset($fault->transaction_id)) {
+                    return '<button class="btn btn-success" disabled><i class="fas fa-money-bill"></i> &nbspFaturalandırlı</button>';
+                }
+                else {
+                    return '<a class="btn btn-info" onclick="billModal(' . $fault->id . ')"><i class="fas fa-money-bill"></i> &nbspFaturalandır</a>';
+                }
+            })
             ->addColumn('show', function ($fault) {
                 return '<a class="btn btn-primary" onclick="detailModal(' . $fault->id . ')"><i class="fas fa-eye"></i> &nbspDetay</a>';
             })
@@ -58,8 +67,22 @@ class FaultController extends Controller
             ->addColumn('delete', function ($fault) {
                 return '<a class="btn btn-danger" onclick="productsDelete(' . $fault->id . ')"><i class="fas fa-trash"></i> Sil</a>';
             })
-            ->rawColumns(['description','status','solved_time','transaction_id', 'show','update', 'delete'])
+            ->rawColumns(['description','status','solved_time','transaction_id','transaction', 'show','update', 'delete'])
             ->make();
+    }
+
+    public function createBill(Request $request) {
+        $transaction = new Transaction();
+        $transaction->cost = $request->cost;
+        $transaction->description = $request->description;
+        $transaction->transaction_type = $request->transaction_type;
+        $fault = Fault::where('id','=',$request->fault_id)->first();
+        $elevator = Elevator::where('id',$fault->elevator_id)->first();
+        $transaction->user_id = $elevator->user_id;
+        $transaction->save();
+        $fault->transaction_id = $transaction->id;
+        $fault->save();
+        return response()->json(['Success' => 'success']);
     }
 
     public function createIndex() {
