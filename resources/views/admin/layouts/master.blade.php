@@ -158,9 +158,9 @@
                             <span>İletişimler</span>
                         </a>
                     </li>
-                    <li class="sidebar-item  has-sub {{ Request::segment(1) == 'ürünler' ? 'active' : '' }}">
+                    <li class="sidebar-item  has-sub {{ Request::segment(1) == 'role' ? 'active' : '' }}">
                         <a href="" class='sidebar-link'>
-                            <i class="fa fa-newspaper"></i>
+                            <i class="fa fa-user-edit"></i>
                             <span>Roller</span>
                         </a>
                         <ul class="submenu ">

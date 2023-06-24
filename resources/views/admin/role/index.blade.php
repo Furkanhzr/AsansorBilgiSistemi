@@ -2,40 +2,43 @@
 @section('title','Admin Paneli')
 @section('title-page','Roller')
 @section('content')
-    <div class="content-page">
-        <div class="content">
-            <div class="container-fluid pt-5">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title justify-content-center">
-                            <i class="fas fa-newspaper mr-1"></i>
-                            Roller
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <table id="role-table" class="display nowrap dataTable cell-border" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>id</th>
-                                <th>Adı</th>
-                                <th>Oluşturulma Tarihi</th>
-                                <th>Güncellenme Tarihi</th>
-                                <th>Güncelle</th>
-                                <th>Sil</th>
-                            </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>
+    <style>
+        .page-item.active .page-link {
+            z-index: 3;
+            color: #fff;
+            background-color: #F28123;
+            border-color: #F28123;
+        }
+    </style>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                <span class="float-right">
+                    </span>
+            </h6>
+        </div>
+        <div class="card-body">
+            <h3>Roller</h3>
+            <table class="table table-bordered dataTable" id="role-table" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Adı</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>Güncellenme Tarihi</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 
 @endsection
-
 @section('js')
     <script type="text/javascript">
         var table = $('#role-table').DataTable( {
+            "dom": "<'row'<'col mt-1'l><'col-9 mt-1'f><'col 'tr>> <'row'<'col 'i><'col mt-1'p>>",
             processing: true,
             serverSide: true,
             scrollY:  true,
@@ -48,7 +51,10 @@
                 {data: 'updated_at'},
                 {data: 'update'},
                 {data: 'delete'}
-            ]
+            ],
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json",
+            },
         });
 
     </script>

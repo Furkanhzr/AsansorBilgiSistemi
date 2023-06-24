@@ -35,7 +35,10 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/getRepairData', [DashboardController::class, 'getRepairData'])->name('dashboard.getRepairData');
     });
 
-    Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
+    Route::prefix('customer')->group(function () {
+        Route::get('/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
+        Route::get('/getFaultData', [CustomerDashboardController::class, 'getFaultData'])->name('customer.dashboard.getFaultData');
+    });
     Route::get('/logOut', [LoginController::class, 'logOut'])->name('logOut');
 
 
