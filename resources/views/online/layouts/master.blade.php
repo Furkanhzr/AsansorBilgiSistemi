@@ -80,13 +80,6 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item {{request()->is('customer/fault/index')  ? 'active' : '' }}">
-                        <a href="{{route('customer.faults.index')}}" class='sidebar-link'>
-                            <i class="bi bi-file-earmark-medical-fill"></i>
-                            <span>Arıza Taleplerim</span>
-                        </a>
-                    </li>
-
                     <li class="sidebar-item {{request()->is('services')  ? 'active' : '' }}">
                         <a href="{{route('services.index')}}" class='sidebar-link'>
                             <i class="bi bi-pen-fill"></i>
@@ -101,12 +94,20 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item  ">
-                        <a href="table.html" class='sidebar-link'>
+                    <li class="sidebar-item {{request()->is('customer/fault/index')  ? 'active' : '' }}">
+                        <a href="{{route('customer.faults.index')}}" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-medical-fill"></i>
+                            <span>Arıza Taleplerim</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item  {{request()->is('faultRequest')  ? 'active' : '' }}">
+                        <a href="{{route('faultRequest.index')}}" class='sidebar-link'>
                             <i class="fa fa-square-poll-horizontal"></i>
                             <span>Arıza Kontrol Talebi</span>
                         </a>
                     </li>
+
                     <li class="sidebar-item  ">
                         <a href="table.html" class='sidebar-link'>
                             <i class="fa fa-pen-to-square"></i>

@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\ElevatorTypeController;
 use App\Http\Controllers\Admin\TransactionsController;
 use App\Http\Controllers\Online\BillsController;
 use App\Http\Controllers\Online\ServicesController;
+use App\Http\Controllers\Online\FaultRequestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -161,7 +162,10 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/fetch', [ServicesController::class, 'fetch'])->name('services.fetch');
     });
 
-
+    Route::prefix('faultRequest')->group(function () {
+        Route::get('/', [FaultRequestController::class, 'index'])->name('faultRequest.index');
+        Route::post('/create', [FaultRequestController::class, 'create'])->name('faultRequest.create');
+    });
 
 });
 

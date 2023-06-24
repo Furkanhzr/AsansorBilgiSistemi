@@ -8,6 +8,7 @@ use App\Models\Image;
 use App\Models\Fault;
 use App\Models\Transaction;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -115,8 +116,7 @@ class FaultController extends Controller
         $fault->user_id = Auth::id();
         $fault->elevator_id = (Elevator::where('key_code',$request->elevator)->first())->id;
         $fault->description = $request->description;
-        $fault->down_time = now();
-        $fault->solved_time= now();
+        $fault->down_time = Carbon::now('Europe/Istanbul')->toDateTimeString();
         $fault->save();
 
         toastr()->success('Arıza Kaydı Başarıyla Oluşturuldu', 'Başarılı');
@@ -131,7 +131,8 @@ class FaultController extends Controller
         $user = Auth::user();
         $fault = Fault::where('id',$request->fault_id)->first();
         $fault->status = $request->durum;
-        $fault->description = $fault->description.' '.$user->name.' '.$user->surname.' Yanıt => '.$request->description ;
+        $fault->description = $fault->description.' '.$user->name.' '.$user->surname.' Yanıt => '.$request->description;
+        $fault->solved_time= Carbon::now('Europe/Istanbul')->toDateTimeString();
         $fault->save();
         return response()->json(['Success' => 'success']);
 
