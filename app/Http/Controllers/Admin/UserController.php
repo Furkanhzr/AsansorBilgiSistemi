@@ -13,6 +13,7 @@ use App\Models\User;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
@@ -39,11 +40,32 @@ class UserController extends Controller
             ->addColumn('delete', function ($user) {
                 return '<a class="btn btn-danger" onclick="productsDelete(' . $user->id . ')"><i class="fas fa-trash"></i> Sil</a>';
             })
-            ->rawColumns(['description','status','solved_time','transaction_id','update', 'delete'])
+            ->addColumn('yetki', function ($user){
+                $rols = Role::all();
+                $html = '<div > <div style="display:flex; justify-content: space-between">
+                <select class="form-control guncelle" id="selected_staff' . $user->id . '" style="width: 200px">';
+                foreach ($rols as $rol){
+                    if ($user->getRoleNames()->first() == $rol->name) {
+                        $html .= '<option selected id="select"  value="' . $rol->id . '">' . $rol->name . '</option>';
+                    }
+                    else {
+                        $html .= '<option   value="' . $rol->id . '">' . $rol->name . '</option>';
+                    }
+                }
+                if ($user->getRoleNames()->first()==null) {
+                    $html .= '<option selected id="select" value="' . "0" . '">' . "Yetkisiz" . '</option>';
+
+                } else {
+                    $html .= '<option  id="select" value="' . "0" . '">' . "Yetkisiz" . '</option>';
+                }
+                $html .= '</select>';
+                $html .= '<button onclick="yetkiUpdate(' . $user->id . ')" class="btn btn-xs btn-success" style="padding: 10px 15px; font-size: 12px; color: white; margin-right: 2px">Güncelle</button>';
+                '</div> </div>';
+                return $html;
+            })
+            ->rawColumns(['description','status','solved_time','transaction_id','update', 'delete','yetki'])
             ->make();
     }
-
-
     public function createIndex(Request $request){
         return view('admin.user.create');
     }

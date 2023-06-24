@@ -32,6 +32,7 @@
                         <th>Abonelik Durumu</th>
                         <th>Güncelleme</th>
                         <th>Silme </th>
+                        <th>Yetki </th>
                     </tr>
                     </thead>
                 </table>
@@ -114,6 +115,8 @@
                 {data: 'subscription'},
                 {data: 'update', orderable: false, searchable: false},
                 {data: 'delete', orderable: false, searchable: false},
+                {data: 'yetki'},
+
             ],
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json",
@@ -326,6 +329,39 @@
                         title: 'Başarısız',
 
                         html: 'Bilinmeyen bir hata oluştu.\n' + errors,
+                    });
+                }
+            });
+        }
+    </script>
+    <script>
+        function yetkiUpdate(id){
+            var secilen_yetki = $('#selected_staff'+id).val();
+            $.ajax({
+                type: "POST",
+                dataType: 'JSON',
+                url: "{{route("role.update")}}",
+                headers: {'X-CSRF-TOKEN': "{{csrf_token()}} "},
+                data: {
+                    "user_id" : id,
+                    'staff_id': secilen_yetki
+                },
+                success: function (){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Başarılı',
+                        html: 'Güncelleme Başarılı!'
+                    });
+                    dataTable.ajax.reload();
+                },error: function (data){
+                    var errors = '';
+                    for(datas in data.responseJSON.errors){
+                        errors += data.responseJSON.errors[datas] + '\n';
+                    }
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Başarısız',
+                        html: 'Bilinmeyen bir hata oluştu.\n'+errors,
                     });
                 }
             });

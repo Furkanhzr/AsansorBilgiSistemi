@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\FaultController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RepairController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\LoginController;
@@ -62,7 +63,6 @@ Route::middleware('isLogin')->group(function() {
     Route::prefix('bakim')->group(function () {
         Route::get('/index',[RepairController::class, 'index'])->name('repair.index');
         Route::get('/fetch',[RepairController::class, 'fetch'])->name('repair.fetch');
-
         Route::get('/createIndex',[RepairController::class, 'createIndex'])->name('repair.create.index');
         Route::post('/createPost',[RepairController::class, 'createPost'])->name('repair.create.post');
         Route::post('/update',[RepairController::class, 'update'])->name('repair.update');
@@ -78,7 +78,6 @@ Route::middleware('isLogin')->group(function() {
         Route::get('/edit/{id}',[ElevatorController::class, 'edit'])->name('elevators.edit');
         Route::post('/update',[ElevatorController::class, 'update'])->name('elevators.update');
         Route::post('/delete',[ElevatorController::class, 'delete'])->name('elevators.delete');
-
         Route::prefix('asansor-turleri')->group(function () {
             Route::get('/index',[ElevatorTypeController::class, 'index'])->name('elevator_types.index');
             Route::get('/fetch',[ElevatorTypeController::class, 'fetch'])->name('elevator_types.fetch');
@@ -104,8 +103,6 @@ Route::middleware('isLogin')->group(function() {
         Route::post('/update',[UserController::class, 'update'])->name('user.update');
         Route::post('/delete',[UserController::class, 'delete'])->name('user.delete');
         Route::get('/userget',[UserController::class, 'userget'])->name('user.get');
-
-
     });
 
     Route::prefix('iletisimler')->group(function () {
@@ -121,6 +118,15 @@ Route::middleware('isLogin')->group(function() {
 
     });
 
+    Route::prefix('role')->group(function () {
+        Route::get('/index',[RoleController::class, 'index'])->name('role.index');
+        Route::get('/fetch',[RoleController::class, 'fetch'])->name('fetch.index');
+        Route::get('/create',[RoleController::class, 'create'])->name('role.create');
+        Route::post('/create.post',[RoleController::class, 'createPost'])->name('role.create.post');
+        Route::post('/delete',[RoleController::class, 'delete'])->name('role.delete');
+        Route::post('/update',[RoleController::class, 'update'])->name('role.update');
+
+    });
     Route::prefix('customer')->group(function () {
         Route::prefix('fault')->group(function () {
             Route::get('/index',[CustomerFaultController::class, 'index'])->name('customer.faults.index');
@@ -129,6 +135,7 @@ Route::middleware('isLogin')->group(function() {
         });
 
     });
+
 
 
 });

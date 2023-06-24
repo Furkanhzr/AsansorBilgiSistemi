@@ -158,6 +158,20 @@
                             <span>İletişimler</span>
                         </a>
                     </li>
+                    <li class="sidebar-item  has-sub {{ Request::segment(1) == 'ürünler' ? 'active' : '' }}">
+                        <a href="" class='sidebar-link'>
+                            <i class="fa fa-newspaper"></i>
+                            <span>Roller</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{route('role.index')}}">Roller</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="{{route('role.create')}}">Rol Oluştur</a>
+                            </li>
+                        </ul>
+                    </li>
                     <br>
                     <li class="sidebar-item" style="background: #dc3545; border-radius: 0.5rem;">
                         <a href="{{route('logOut')}}" class='nav-link'>
