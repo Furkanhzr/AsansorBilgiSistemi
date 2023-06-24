@@ -20,11 +20,15 @@ class RoleController extends Controller
     public function fetch(){
         $roles = Role::all();
         return DataTables::of($roles)->editColumn('content', function ($data){
+        })->addColumn('created_at', function ($data){
+            return $data->created_at;
+        })->addColumn('updated_at', function ($data){
+            return $data->updated_at;
         })->addColumn('update', function ($data){
             return '<a href="" class="btn btn-warning">Güncelle</a>';
         })->addColumn('delete', function ($data){
             return '<a data-toggle="tooltip" onclick="deleted('.$data->id.')" data-target="#detail_modal" class="btn btn-danger">Sil</a>';
-        })->rawColumns(['delete','update','content'])->make();
+        })->rawColumns(['delete','created_at','updated_at','update','content'])->make();
     }
 
     public function create(){
