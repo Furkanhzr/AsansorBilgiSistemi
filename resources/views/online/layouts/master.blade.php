@@ -87,8 +87,8 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item ">
-                        <a href="#" class='sidebar-link'>
+                    <li class="sidebar-item {{request()->is('services')  ? 'active' : '' }}">
+                        <a href="{{route('services.index')}}" class='sidebar-link'>
                             <i class="bi bi-pen-fill"></i>
                             <span>Alınan Hizmetler</span>
                         </a>

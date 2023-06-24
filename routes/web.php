@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ElevatorController;
 use App\Http\Controllers\Admin\ElevatorTypeController;
 use App\Http\Controllers\Admin\TransactionsController;
 use App\Http\Controllers\Online\BillsController;
+use App\Http\Controllers\Online\ServicesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -95,8 +96,6 @@ Route::middleware('isLogin')->group(function() {
 
     });
 
-
-
     Route::prefix('user')->group(function () {
         Route::get('/index',[UserController::class, 'index'])->name('user.index');
         Route::get('/createIndex',[UserController::class, 'createIndex'])->name('user.create.index');
@@ -155,7 +154,11 @@ Route::middleware('isLogin')->group(function() {
             Route::get('/fetch',[CustomerFaultController::class, 'fetch'])->name('customer.faults.fetch');
             Route::get('/detail',[CustomerFaultController::class, 'detail'])->name('customer.faults.detail');
         });
+    });
 
+    Route::prefix('services')->group(function () {
+        Route::get('/', [ServicesController::class, 'index'])->name('services.index');
+        Route::get('/fetch', [ServicesController::class, 'fetch'])->name('services.fetch');
     });
 
 
