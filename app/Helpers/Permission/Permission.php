@@ -11,6 +11,7 @@ class Permission {
         'kullanici' => 'Kullanıcılar',
         'iletisim' => 'İletişimler',
         'admin' => 'Admin İşlemleri',
+        'fatura' => 'Fatura Ayarları',
         'roller' => 'Rol Ayarları',
     ];
 

@@ -79,7 +79,7 @@
                             <span>Anasayfa</span>
                         </a>
                     </li>
-
+                    @if (auth()->user()->can('read urunler'))
                     <li class="sidebar-item  has-sub {{ Request::segment(1) == 'ürünler' ? 'active' : '' }}">
                         <a href="" class='sidebar-link'>
                             <i class="fa fa-newspaper"></i>
@@ -89,12 +89,15 @@
                             <li class="submenu-item ">
                                 <a href="{{route('products.index')}}">Ürünler</a>
                             </li>
+                            @if (auth()->user()->can('create urunler'))
                             <li class="submenu-item ">
                                 <a href="{{route('products.create.index')}}">Ürün Oluştur</a>
                             </li>
+                            @endif
                         </ul>
                     </li>
-
+                    @endif
+                    @if (auth()->user()->can('read fatura'))
                     <li class="sidebar-item  has-sub {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-money-bill"></i>
@@ -104,12 +107,15 @@
                             <li class="submenu-item ">
                                 <a href="{{route('transactions.index')}}">Faturalar</a>
                             </li>
+                            @if (auth()->user()->can('create fatura'))
                             <li class="submenu-item ">
                                 <a href="{{route('transactions.create.index')}}">Fatura Oluştur</a>
                             </li>
+                            @endif
                         </ul>
                     </li>
-
+                    @endif
+                    @if (auth()->user()->can('read asansorler'))
                     <li class="sidebar-item  has-sub {{ Request::segment(1) == 'asansorler' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-elevator"></i>
@@ -124,7 +130,8 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endif
+                    @if (auth()->user()->can('read arizalar'))
                     <li class="sidebar-item has-sub {{ Request::segment(1) == 'ariza' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-exclamation-circle"></i>
@@ -134,11 +141,15 @@
                             <li class="submenu-item ">
                                 <a href="{{route('fault.index')}}">Arıza Kaydı Liste</a>
                             </li>
+                            @if (auth()->user()->can('create arizalar'))
                             <li class="submenu-item ">
                                 <a href="{{route('fault.create.index')}}">Arıza Kaydı Oluştur</a>
                             </li>
+                            @endif
                         </ul>
                     </li>
+                    @endif
+                    @if (auth()->user()->can('read bakimlar'))
                     <li class="sidebar-item has-sub {{ Request::segment(1) == 'bakim' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-screwdriver-wrench"></i>
@@ -148,11 +159,15 @@
                             <li class="submenu-item ">
                                 <a href="{{route('repair.index')}}">Bakımlar Liste</a>
                             </li>
+                            @if (auth()->user()->can('create bakimlar'))
                             <li class="submenu-item ">
                                 <a href="{{route('repair.create.index')}}">Bakım Oluştur</a>
                             </li>
+                            @endif
                         </ul>
                     </li>
+                    @endif
+                    @if (auth()->user()->can('read kullanici'))
                     <li class="sidebar-item has-sub {{ Request::segment(1) == 'user' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="fa fa-person"></i>
@@ -162,17 +177,23 @@
                             <li class="submenu-item ">
                                 <a href="{{route('user.index')}}">Kullanıcı Liste</a>
                             </li>
+                            @if (auth()->user()->can('create kullanici'))
                             <li class="submenu-item ">
                                 <a href="{{route('user.create.index')}}">Kullanıcı Oluştur</a>
                             </li>
+                            @endif
                         </ul>
                     </li>
+                    @endif
+                    @if (auth()->user()->can('read iletisim'))
                     <li class="sidebar-item {{ Request::segment(1) == 'iletisimler' ? 'active' : '' }}">
                         <a href="{{route('contacts.list')}}" class='sidebar-link'>
                             <i class="fa fa-address-book"></i>
                             <span>İletişimler</span>
                         </a>
                     </li>
+                    @endif
+                    @if (auth()->user()->can('read roller'))
                     <li class="sidebar-item  has-sub {{ Request::segment(1) == 'role' ? 'active' : '' }}">
                         <a href="" class='sidebar-link'>
                             <i class="fa fa-user-edit"></i>
@@ -182,11 +203,15 @@
                             <li class="submenu-item ">
                                 <a href="{{route('role.index')}}">Roller</a>
                             </li>
+                            @if (auth()->user()->can('create roller'))
                             <li class="submenu-item ">
                                 <a href="{{route('role.create')}}">Rol Oluştur</a>
                             </li>
+                            @endif
                         </ul>
                     </li>
+                    @endif
+
                     <br>
                     <li class="sidebar-item" style="background: #dc3545; border-radius: 0.5rem;">
                         <a href="{{route('logOut')}}" class='nav-link'>

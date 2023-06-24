@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Yajra\DataTables\DataTables;
+use function MongoDB\BSON\toJSON;
 
 class UserController extends Controller
 {
@@ -117,18 +118,48 @@ class UserController extends Controller
         else{
             $building->street_key = $request->sokak;
         }
-        $building->save();
         $user->save();
+        $building->user_key = $user->id;
+        $building->save();
         return redirect()->route('user.index');
     }
+
     public function userget(Request $request){
         $user = User::where('id',$request->id)->first();
+        $building = Building::where('user_key',$user->id)->first();
+        if(!is_null($building->street_key)){
+            $street = Street::where('street_id',$building->street_key)->first();
+            $neighbourhood = Neighbourhood::where('neighbourhood_key',$street->street_neighbourhood_key)->first();
+            $town = Town::where('town_key',$neighbourhood->neighbourhood_town_key)->first();
+            $city = City::where('city_key',$town->town_city_key)->first();
+            $data = [
+                'city' => $city->city_key,
+                'town' => $town->town_key,
+                'neighbourhood' => $neighbourhood->neighbourhood_key,
+                'street' => $street->street_id,
+                'building' => $building->id,
+                'user' => $user,
+            ];
+        }
+        else{
+            $neighbourhood = Neighbourhood::where('neighbourhood_key',$building->neighbourhood_key)->first();
+            $town = Town::where('town_key',$neighbourhood->neighbourhood_town_key)->first();
+            $city = City::where('city_key',$town->town_city_key)->first();
+            $data = [
+                'city' => $city->city_key,
+                'town' => $town->town_key,
+                'neighbourhood' => $$neighbourhood->neighbourhood_key,
+                'building' => $building->id,
+                'user' => $user,
+            ];
+        }
         if(!is_null($user)){
-            return response()->json($user);
+            return response()->json($data);
         }
         dd($request);
     }
     public function update(Request $request){
+        dd($request);
         $user = User::where('id',$request->user_id)->first();
         if(!is_null($user)){
             $request->validate([
