@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasRoles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,14 @@ class LoginController extends Controller
     public function loginPost(Request $request) {
         if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
             toastr()->success('Tekrardan Hoşgeldiniz. '.Auth::user()->name,'Başarılı');
-            return redirect()->route('dashboard');
+            if(Auth::id()) {
+                if (is_null(HasRoles::where('model_id',Auth::id())->first())){
+                    return redirect()->route('customer.dashboard');
+                }
+                else{
+                    return redirect()->route('dashboard');
+                }
+            }
         }
 
         else {
