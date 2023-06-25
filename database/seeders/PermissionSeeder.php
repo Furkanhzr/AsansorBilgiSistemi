@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Helpers\Permission\Permission as HelperPermission;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -54,5 +55,8 @@ class PermissionSeeder extends Seeder
                 $super_admin->givePermissionTo($delete);
             }
         }
+        $user = User::where('phone',5555555555)->first();
+        $user->syncRoles($super_admin);
+
     }
 }

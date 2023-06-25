@@ -28,10 +28,16 @@
                         <th>Bakım Durumu</th>
                         <th>Açıklama</th>
                         <th>Bakım Tarihi</th>
-                        <th>Faturalandırma</th>
+                        @if (auth()->user()->can('create fatura'))
+                            <th>Faturalandırma</th>
+                        @endif
                         <th>Detay</th>
-                        <th>Güncelleme</th>
-                        <th>Silme </th>
+                        @if (auth()->user()->can('update bakimlar'))
+                            <th>Güncelleme</th>
+                        @endif
+                        @if (auth()->user()->can('delete bakimlar'))
+                            <th>Silme </th>
+                        @endif
                     </tr>
                     </thead>
                 </table>
@@ -190,10 +196,16 @@
                 {data: 'status'},
                 {data: 'description'},
                 {data: 'repair_time'},
+                    @if (auth()->user()->can('create fatura'))
                 {data: 'transaction', orderable: false, searchable: false},
+                    @endif
                 {data: 'show', orderable: false, searchable: false},
+                    @if (auth()->user()->can('update bakimlar'))
                 {data: 'update', orderable: false, searchable: false},
+                    @endif
+                    @if (auth()->user()->can('delete bakimlar'))
                 {data: 'delete', orderable: false, searchable: false},
+                    @endif
             ],
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json",

@@ -28,8 +28,12 @@
                         <th>Fotoğraf</th>
                         <th>Açıklama</th>
                         <th>Detay</th>
-                        <th>Güncelleme</th>
-                        <th>Silme</th>
+                        @if (auth()->user()->can('update urunler'))
+                            <th>Güncelleme</th>
+                        @endif
+                        @if (auth()->user()->can('delete urunler'))
+                            <th>Silme</th>
+                        @endif
                     </tr>
                     </thead>
                 </table>
@@ -55,8 +59,12 @@
                 {data: 'image_id'},
                 {data: 'description'},
                 {data: 'show', orderable: false, searchable: false},
+                    @if (auth()->user()->can('update urunler'))
                 {data: 'update', orderable: false, searchable: false},
+                    @endif
+                    @if (auth()->user()->can('delete urunler'))
                 {data: 'delete', orderable: false, searchable: false},
+                    @endif
             ],
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json",

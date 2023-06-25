@@ -17,11 +17,13 @@
                     <div class="col">
                         <h3>Asansörler</h3>
                     </div>
+                    @if (auth()->user()->can('create asansorler'))
                     <div class="col">
                         <span>
                             <a class="btn float-end text-white" style="background-color: #F28123;" lass="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#elevatorsCreateModal" >Asansör Oluştur</a>
                         </span>
                     </div>
+                    @endif
                 </div>
             </h6>
         </div>
@@ -35,8 +37,12 @@
                         <th>Müşteri</th>
                         <th>Satış Durumu</th>
                         <th>Anahtar Kodu</th>
+                        @if (auth()->user()->can('update asansorler'))
                         <th>Güncelleme</th>
+                        @endif
+                        @if (auth()->user()->can('create asansorler'))
                         <th>Silme</th>
+                        @endif
                     </tr>
                     </thead>
                 </table>
@@ -161,8 +167,12 @@
                 {data: 'user_id'},
                 {data: 'status'},
                 {data: 'key_code'},
+                @if (auth()->user()->can('update asansorler'))
                 {data: 'update', orderable: false, searchable: false},
+                @endif
+                @if (auth()->user()->can('create asansorler'))
                 {data: 'delete', orderable: false, searchable: false},
+                @endif
             ],
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json",

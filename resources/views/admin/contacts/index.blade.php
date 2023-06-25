@@ -30,8 +30,12 @@
                         <th>Telefon</th>
                         <th>Mesaj</th>
                         <th>Detay</th>
+                        @if (auth()->user()->can('update iletisim'))
                         <th>Okundu Bilgisi</th>
+                        @endif
+                        @if (auth()->user()->can('delete iletisim'))
                         <th>Silme</th>
+                        @endif
                     </tr>
                     </thead>
                 </table>
@@ -107,8 +111,12 @@
                 {data: 'phone'},
                 {data: 'message'},
                 {data: 'detail', orderable: false, searchable: false},
+                @if (auth()->user()->can('update iletisim'))
                 {data: 'status', orderable: false, searchable: false},
+                @endif
+                @if (auth()->user()->can('delete iletisim'))
                 {data: 'delete', orderable: false, searchable: false},
+                @endif
             ],
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json",

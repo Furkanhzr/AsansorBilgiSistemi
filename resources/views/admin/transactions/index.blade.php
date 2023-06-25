@@ -30,7 +30,9 @@
                         <th>Ücret</th>
                         <th>Durum</th>
                         <th>Ödenme Tarihi</th>
-                        <th>Silme</th>
+                        @if (auth()->user()->can('delete fatura'))
+                            <th>Silme</th>
+                        @endif
                     </tr>
                     </thead>
                 </table>
@@ -59,7 +61,9 @@
                 {data: 'cost'},
                 {data: 'status'},
                 {data: 'payment_time'},
+                    @if (auth()->user()->can('delete arizalar'))
                 {data: 'delete', orderable: false, searchable: false},
+                    @endif
             ],
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json",

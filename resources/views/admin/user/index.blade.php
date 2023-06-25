@@ -304,18 +304,22 @@
                 url: '{{route('user.get')}}',
                 data: {id: id},
                 success: function (data) {
-
+                    console.log(data)
                     $('[name="user_id"]').val(id);
-                    phone.val(data.phone);
-                    name.val(data.name);
-                    surname.val(data.surname);
-                    il.val(data.il);
-                    ilce.val(data.ilce);
-                    mahalle.val(data.mahalle);
-                    sokak.val(data.sokak);
-                    bina.val(data.bina);
-                    mail.val(data.email);
-                    date_of_birth.val(data.date_of_birth);
+                    phone.val(data.user.phone);
+                    name.val(data.user.name);
+                    surname.val(data.user.surname);
+                    var selectElement = document.getElementById('il');
+                    var options = selectElement.options;
+                    for (var i = 0; i < options.length; i++) {
+                        if (parseInt(options[i].value) === parseInt(data.city)) {
+                            options[i].selected = true;
+                            break;
+                        }
+                    }
+                    bina.val(data.building);
+                    mail.val(data.user.email);
+                    date_of_birth.val(data.user.date_of_birth);
                     $('#usersUpdateModal').modal("toggle");
 
                 },
