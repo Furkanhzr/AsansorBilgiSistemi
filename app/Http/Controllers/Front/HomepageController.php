@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class HomepageController extends Controller
 {
     public function __construct() {
-        $products = Product::all();
+        $products = Product::take(3)->get();
         view()->share('products',$products);
     }
 

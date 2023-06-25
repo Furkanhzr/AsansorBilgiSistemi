@@ -78,39 +78,32 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="{{asset('images')}}/elv4.jpg" style="width: 260px; height: 261px; margin-bottom: 20px; object-fit: cover;" alt=""></a>
+            @if(isset($products))
+                <div class="row">
+                    @foreach($products as $product)
+                        <div class="col-lg-4 col-md-6 text-center">
+                            <div class="single-product-item">
+                                <div class="product-image">
+                                    <a href="{{route('products.single',$product->id)}}"><img src="{{$product->getImage->image}}" style="width: 260px; height: 261px; margin-bottom: 20px; object-fit: cover;" alt=""></a>
+                                </div>
+                                <h3>{{$product->title}}</h3>
+                                <p class="product-price"><span>Fiyat</span> {{$product->price}} TL </p>
+                                <a href="{{route('products.single',$product->id)}}" class="cart-btn"><i class="fas fa-search"></i> İncele</a>
+                            </div>
                         </div>
-                        <h3>Araç Asansörleri</h3>
-                        <p class="product-price"><span>Fiyat</span> 12.000 TL </p>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-search"></i> İncele</a>
+                    @endforeach
+                </div>
+            @else
+                <div class="latest-news">
+                    <div class="container">
+                        <div class="row">
+                            <div class="alert" style="margin-left: 290px; background-color: whitesmoke;">
+                                <h3>Ürünlerimiz yakında eklenecektir.</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="{{asset('images')}}/elv2.jpg" style="width: 260px; height: 261px; margin-bottom: 20px; object-fit: cover;" alt=""></a>
-                        </div>
-                        <h3>Yük Asansörleri</h3>
-                        <p class="product-price"><span>Fiyat</span> 18.000 TL </p>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-search"></i> İncele</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="{{asset('images')}}/elv3.jpg" style="width: 260px; height: 261px; margin-bottom: 20px; object-fit: cover;" alt=""></a>
-                        </div>
-                        <h3>Hidrolik Asansörler</h3>
-                        <p class="product-price"><span>Fiyat</span> 15.000 TL </p>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-search"></i> İncele</a>
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
     </div>
     <!-- end product section -->
@@ -139,7 +132,7 @@
                     <div class="text">Sadece bu ay geçerli sınırlı teklifimizde, yapacağınz yıllık sözleşmelerde 3 ay bakım ücreti bizden !</div>
                     <!--Countdown Timer-->
                     <div class="time-counter">
-                        <div class="time-countdown clearfix" data-countdown="2023/6/15">
+                        <div class="time-countdown clearfix" data-countdown="2023/7/15">
                             <div class="counter-column"><div class="inner"><span class="count">00</span>Gün</div></div>
                             <div class="counter-column"><div class="inner"><span class="count">00</span>Saat</div></div>
                             <div class="counter-column"><div class="inner"><span class="count">00</span>Dakika</div></div>

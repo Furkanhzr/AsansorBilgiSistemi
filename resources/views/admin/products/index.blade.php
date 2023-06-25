@@ -27,6 +27,7 @@
                         <th>Başlık</th>
                         <th>Fotoğraf</th>
                         <th>Açıklama</th>
+                        <th>Fiyat</th>
                         <th>Detay</th>
                         @if (auth()->user()->can('update urunler'))
                             <th>Güncelleme</th>
@@ -58,6 +59,7 @@
                 {data: 'title'},
                 {data: 'image_id'},
                 {data: 'description'},
+                {data: 'price'},
                 {data: 'show', orderable: false, searchable: false},
                     @if (auth()->user()->can('update urunler'))
                 {data: 'update', orderable: false, searchable: false},

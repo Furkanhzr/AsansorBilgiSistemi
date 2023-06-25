@@ -31,6 +31,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Ürün Fiyatı</label>
+                    <input type="number" name="price" class="form-control" required>
+                </div>
+
+                <div class="form-group">
                     <label>Ürün Fotoğrafı</label>
                     <input type="file" name="image" class="form-control" required>
                 </div>

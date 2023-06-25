@@ -39,6 +39,9 @@ class ProductController extends Controller
             ->editColumn('image_id', function ($product) {
                 return '<img style="width: 200px; height: 100px;" src="'.asset($product->getImage->image).'">';
             })
+            ->editColumn('price', function ($product) {
+                return $product->price." TL";
+            })
             ->addColumn('show', function ($product) {
                 return '<a href="'. route('products.single',$product->id) .'" class="btn btn-info" ><i class="fas fa-eye"></i> &nbspGöster</a>';
             })
@@ -62,10 +65,12 @@ class ProductController extends Controller
             'title'=>'min:3',
             'image' =>'required|image|mimes:jpeg,jpg,png|max:2048',
             'description' => 'required',
+            'price' => 'required',
         ]);
 
         $product = new Product();
         $product->title = $request->title;
+        $product->price = $request->price;
         $product->description = $request->description;
         $image = new Image();
         if ($request->hasFile('image')) {
@@ -90,10 +95,12 @@ class ProductController extends Controller
             'title'=>'min:3',
             'image' =>'image|mimes:jpeg,jpg,png|max:2048',
             'description' => 'required',
+            'price' => 'required',
         ]);
 
         $product = Product::find($id);
         $product->title = $request->title;
+        $product->price = $request->price;
         $product->description = $request->description;
         $image = new Image();
         if ($request->hasFile('image')) {
