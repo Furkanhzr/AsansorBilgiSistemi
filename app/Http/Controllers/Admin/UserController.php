@@ -42,27 +42,31 @@ class UserController extends Controller
                 return '<a class="btn btn-danger" onclick="productsDelete(' . $user->id . ')"><i class="fas fa-trash"></i> Sil</a>';
             })
             ->addColumn('yetki', function ($user){
-                $rols = Role::all();
-                $html = '<div > <div style="display:flex; justify-content: space-between">
+                if (auth()->user()->can('update roller')) {
+                    $rols = Role::all();
+                    $html = '<div > <div style="display:flex; justify-content: space-between">
                 <select class="form-control guncelle" id="selected_staff' . $user->id . '" style="width: 200px">';
-                foreach ($rols as $rol){
-                    if ($user->getRoleNames()->first() == $rol->name) {
-                        $html .= '<option selected id="select"  value="' . $rol->id . '">' . $rol->name . '</option>';
+                    foreach ($rols as $rol) {
+                        if ($user->getRoleNames()->first() == $rol->name) {
+                            $html .= '<option selected id="select"  value="' . $rol->id . '">' . $rol->name . '</option>';
+                        } else {
+                            $html .= '<option   value="' . $rol->id . '">' . $rol->name . '</option>';
+                        }
                     }
-                    else {
-                        $html .= '<option   value="' . $rol->id . '">' . $rol->name . '</option>';
-                    }
-                }
-                if ($user->getRoleNames()->first()==null) {
-                    $html .= '<option selected id="select" value="' . "0" . '">' . "Yetkisiz" . '</option>';
+                    if ($user->getRoleNames()->first() == null) {
+                        $html .= '<option selected id="select" value="' . "0" . '">' . "Yetkisiz" . '</option>';
 
-                } else {
-                    $html .= '<option  id="select" value="' . "0" . '">' . "Yetkisiz" . '</option>';
+                    } else {
+                        $html .= '<option  id="select" value="' . "0" . '">' . "Yetkisiz" . '</option>';
+                    }
+                    $html .= '</select>';
+                    $html .= '<button onclick="yetkiUpdate(' . $user->id . ')" class="btn btn-xs btn-success" style="padding: 10px 15px; font-size: 12px; color: white; margin-right: 2px">Güncelle</button>';
+                    '</div> </div>';
+                    return $html;
                 }
-                $html .= '</select>';
-                $html .= '<button onclick="yetkiUpdate(' . $user->id . ')" class="btn btn-xs btn-success" style="padding: 10px 15px; font-size: 12px; color: white; margin-right: 2px">Güncelle</button>';
-                '</div> </div>';
-                return $html;
+                else{
+                  return   $user->getRoleNames()->first();
+                }
             })
             ->rawColumns(['description','status','solved_time','transaction_id','update', 'delete','yetki'])
             ->make();
@@ -159,38 +163,44 @@ class UserController extends Controller
         dd($request);
     }
     public function update(Request $request){
-        dd($request);
         $user = User::where('id',$request->user_id)->first();
         if(!is_null($user)){
             $request->validate([
                 'phoneUpdate'=>'unique:users,phone,'. $request->user_id,
-                'ilUpdate' =>'required',
-                'ilceUpdate' =>'required',
-                'mahalleUpdate' =>'required',
             ]);
-            $city = (City::where('city_key',$request->ilUpdate)->first())->city_title;
-            $town = (Town::where('town_key',$request->ilceUpdate)->first())->town_title;
-            $neighbourhood =(Neighbourhood::where('neighbourhood_key',$request->mahalleUpdate)->first())->neighbourhood_title;
-            if (!is_null($request->sokakUpdate)){
-                $street = (Street::where('street_id',$request->sokakUpdate)->first())->street_title;
+            if (!is_null($request->ilceUpdate)){
+                $request->validate([
+                    'ilceUpdate' =>'required',
+                    'mahalleUpdate' =>'required',
+                ]);
+                $city = (City::where('city_key',$request->ilUpdate)->first())->city_title;
+                $town = (Town::where('town_key',$request->ilceUpdate)->first())->town_title;
+                $neighbourhood =(Neighbourhood::where('neighbourhood_key',$request->mahalleUpdate)->first())->neighbourhood_title;
+                if (!is_null($request->sokakUpdate)){
+                    $street = (Street::where('street_id',$request->sokakUpdate)->first())->street_title;
+                }
+                $street = null;
             }
-            $street = null;
             $user->phone = $request->phoneUpdate;
             $user->name = $request->nameUpdate;
             $user->surname = $request->surnameUpdate;
-            $user->address = $city.'/' .$town.' '.$neighbourhood.' '.$street.' Bina Numarası: '.$request->buildingUpdate;
+            if (!is_null($request->ilceUpdate)){
+                $user->address = $city.'/' .$town.' '.$neighbourhood.' '.$street.' Bina Numarası: '.$request->buildingUpdate;
+            }
             $user->email = $request->emailUpdate;
             $user->date_of_birth = $request->date_of_birthUpdate;
             $user->password = Hash::make('123456');
-            $building = new Building();
-            $building->building_title = $request->buildingUpdate;
-            if(is_null($request->sokakUpdate)){
-                $building->neighbourhood_key = $request->mahalleUpdate;
+            if(!is_null($request->ilceUpdate)){
+                $building = new Building();
+                $building->building_title = $request->buildingUpdate;
+                if(is_null($request->sokakUpdate)){
+                    $building->neighbourhood_key = $request->mahalleUpdate;
+                }
+                else{
+                    $building->street_key = $request->sokakUpdate;
+                }
+                $building->save();
             }
-            else{
-                $building->street_key = $request->sokakUpdate;
-            }
-            $building->save();
             $user->save();
             return response()->json(['Success' => 'success']);
         }

@@ -30,8 +30,12 @@
                         <th>Adress</th>
                         <th>Doğum Tarihi</th>
                         <th>Abonelik Durumu</th>
-                        <th>Güncelleme</th>
-                        <th>Silme </th>
+                        @if (auth()->user()->can('update kullanici'))
+                            <th>Güncelleme</th>
+                        @endif
+                        @if (auth()->user()->can('create kullanici'))
+                            <th>Silme </th>
+                        @endif
                         <th>Yetki </th>
                     </tr>
                     </thead>
@@ -58,6 +62,8 @@
                             <input type="text" name="nameUpdate" class="form-control" required>
                             <label>Soyisim</label>
                             <input type="text" name="surnameUpdate" class="form-control" required>
+                            <label>Adres</label>
+                            <input type="text" name="adress" class="form-control" disabled>
                             <label>İl</label>
                             <select class="form-control" name="ilUpdate" id="il">
                                 <option value="">İli Seçin</option>
@@ -113,8 +119,12 @@
                 {data: 'address'},
                 {data: 'date_of_birth'},
                 {data: 'subscription'},
+                @if (auth()->user()->can('update kullanici'))
                 {data: 'update', orderable: false, searchable: false},
+                @endif
+                @if (auth()->user()->can('create kullanici'))
                 {data: 'delete', orderable: false, searchable: false},
+                @endif
                 {data: 'yetki'},
 
             ],
@@ -292,11 +302,7 @@
             var phone = $('[name="phoneUpdate"]');
             var name = $('[name="nameUpdate"]');
             var surname = $('[name="surnameUpdate"]');
-            var il = $('[name="ilUpdate"]');
-            var ilce = $('[name="ilceUpdate"]');
-            var mahalle = $('[name="mahalleUpdate"]');
-            var sokak = $('[name="sokakUpdate"]');
-            var bina = $('[name="buildingUpdate"]');
+            var adress = $('[name="adress"]');
             var mail = $('[name="emailUpdate"]');
             var date_of_birth = $('[name="date_of_birthUpdate"]');
             $.ajax({
@@ -309,15 +315,7 @@
                     phone.val(data.user.phone);
                     name.val(data.user.name);
                     surname.val(data.user.surname);
-                    var selectElement = document.getElementById('il');
-                    var options = selectElement.options;
-                    for (var i = 0; i < options.length; i++) {
-                        if (parseInt(options[i].value) === parseInt(data.city)) {
-                            options[i].selected = true;
-                            break;
-                        }
-                    }
-                    bina.val(data.building);
+                    adress.val(data.user.address);
                     mail.val(data.user.email);
                     date_of_birth.val(data.user.date_of_birth);
                     $('#usersUpdateModal').modal("toggle");

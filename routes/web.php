@@ -128,7 +128,6 @@ Route::middleware('isUser')->group(function() {
             Route::post('/create.post',[RoleController::class, 'createPost'])->name('role.create.post');
             Route::post('/delete',[RoleController::class, 'delete'])->name('role.delete');
             Route::post('/update',[RoleController::class, 'update'])->name('role.update');
-
         });
     });
     Route::middleware('')->group(function(){
