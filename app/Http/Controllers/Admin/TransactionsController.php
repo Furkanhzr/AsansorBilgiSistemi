@@ -20,6 +20,9 @@ class TransactionsController extends Controller
     public function fetch() {
         $transaction = Transaction::all();
         return DataTables::of($transaction)
+            ->editColumn('cost', function ($transaction) {
+                return $transaction->cost." TL";
+            })
             ->editColumn('description', function ($transaction) {
                 return strip_tags(Str::limit($transaction->description,50));
             })

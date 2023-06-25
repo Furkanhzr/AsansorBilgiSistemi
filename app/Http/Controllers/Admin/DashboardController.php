@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $elevatorsCount = Elevator::count();
         $usersCount = User::where('id','!=',1)->count();
         $faultsCount = Fault::where('solved_time','=',null)->count();
-        $repairsCount = Repair::where('repair_time','=',null)->count();
+        $repairsCount = Repair::where('status','=',0)->count();
         $contacts = Contact::orderBy('created_at','DESC')->select('name','surname','phone')->take(3)->get();
 
         $today = Carbon::today();

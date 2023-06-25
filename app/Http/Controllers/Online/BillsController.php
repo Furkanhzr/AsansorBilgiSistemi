@@ -22,6 +22,9 @@ class BillsController extends Controller
             ->editColumn('description', function ($transaction) {
                 return strip_tags(Str::limit($transaction->description,50));
             })
+            ->editColumn('cost', function ($transaction) {
+                return $transaction->cost." TL";
+            })
             ->editColumn('status', function ($transaction) {
                 if($transaction->status == 0) {
                     return 'Ödenmedi';
@@ -55,7 +58,7 @@ class BillsController extends Controller
                     return '<button class="btn btn-success" disabled><i class="fas fa-money-bill"></i> &nbspÖdendi</a>';
                 }
             })
-            ->rawColumns(['description','status', 'pay','payment_time','transaction_type'])
+            ->rawColumns(['description','status','cost','pay','payment_time','transaction_type'])
             ->make();
     }
 
