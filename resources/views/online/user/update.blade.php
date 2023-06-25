@@ -32,7 +32,8 @@
                     <input type="text" name="name" class="form-control" required value="{{$user->name}}">
                     <label>Soyisim</label>
                     <input type="text" name="surname" class="form-control" required value="{{$user->surname}}">
-
+                    <label>Adres</label>
+                    <input type="text" name="adress" class="form-control" value="{{$user->address}}" disabled>
                     <label>İl</label>
                     <select class="form-control" name="il" id="il">
                         <option value="">İli Seçin</option>
@@ -50,7 +51,7 @@
                         <option value="">Sokak-Cadde Seçin</option>
                     </select>
                     <label>Bina Numarası</label>
-                    <input type="text" name="building" class="form-control" required>
+                    <input type="text" name="building" class="form-control" >
 
                     <label>Email</label>
                     <input type="text" name="email" class="form-control" required value="{{$user->email}}">

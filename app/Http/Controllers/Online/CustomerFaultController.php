@@ -8,6 +8,7 @@ use App\Models\Fault;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
 
@@ -18,7 +19,14 @@ class CustomerFaultController extends Controller
     }
 
     public function fetch() {
-        $fault = Fault::where('user_id','=',Auth::id())->get();
+        $elevators  = Elevator::where('user_id','=',Auth::id())->get();
+        $array = [];
+        foreach ($elevators as $elevator){
+            array_push($array,$elevator->id);
+        }
+        $fault = DB::table('faults')
+            ->whereIn('elevator_id', $array)
+            ->get();
         return DataTables::of($fault)
             ->editColumn('description', function ($fault) {
                 return strip_tags(Str::limit($fault->description,50));

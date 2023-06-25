@@ -172,6 +172,7 @@ class UserController extends Controller
                 $request->validate([
                     'ilceUpdate' =>'required',
                     'mahalleUpdate' =>'required',
+                    'buildingUpdate' =>'required',
                 ]);
                 $city = (City::where('city_key',$request->ilUpdate)->first())->city_title;
                 $town = (Town::where('town_key',$request->ilceUpdate)->first())->town_title;
@@ -179,7 +180,9 @@ class UserController extends Controller
                 if (!is_null($request->sokakUpdate)){
                     $street = (Street::where('street_id',$request->sokakUpdate)->first())->street_title;
                 }
-                $street = null;
+                else{
+                    $street = null;
+                }
             }
             $user->phone = $request->phoneUpdate;
             $user->name = $request->nameUpdate;
