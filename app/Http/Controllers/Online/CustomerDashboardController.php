@@ -19,7 +19,7 @@ class CustomerDashboardController extends Controller
         foreach ($elevators as $elevator) {
             array_push($array,$elevator->id);
         }
-        $faults = Fault::where('solved_time','=',null)->where('elevator_id','=',$array)->orderBy('down_time','DESC')->paginate(3, ['*'], 'fault');
+        $faults = Fault::where('solved_time','=',null)->whereIn('elevator_id',$array)->orderBy('down_time','DESC')->paginate(3, ['*'], 'fault');
         $repairsArray = [];
         $repairs = Repair::where('elevator_id','=',$array)->where('status','=',0)->get();
         foreach ($repairs as $repair) {
@@ -44,7 +44,7 @@ class CustomerDashboardController extends Controller
             foreach ($elevators as $elevator) {
                 array_push($array,$elevator->id);
             }
-            $faults = Fault::where('solved_time','=',null)->where('elevator_id','=',$array)->orderBy('down_time','DESC')->paginate(3, ['*'], 'fault');
+            $faults = Fault::where('solved_time','=',null)->whereIn('elevator_id','=',$array)->orderBy('down_time','DESC')->paginate(3, ['*'], 'fault');
             return view('admin.tables.fault_table', compact('faults'))->render();
         }
     }
