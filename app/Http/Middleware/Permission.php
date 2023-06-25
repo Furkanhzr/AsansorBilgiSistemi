@@ -15,7 +15,6 @@ class Permission
     }
 
     public function handle(Request $request, Closure $next, $permission, $guard = null){
-        dd($request);
         if(app('auth')->user()->can($permission)) {
             return $next($request);
         } else {

@@ -32,7 +32,7 @@ use App\Http\Controllers\Online\CustomerUpdateController;
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
-Route::middleware('isUser')->group(function() {
+Route::middleware('isLogin')->group(function() {
     Route::middleware('')->group(function(){
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -165,7 +165,7 @@ Route::middleware('isUser')->group(function() {
 });
 
 
-Route::middleware('isUser')->group(function() {
+Route::middleware('isLogin')->group(function() {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'loginPost'])->name('login.post');
 });
