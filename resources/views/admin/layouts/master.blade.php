@@ -1,6 +1,6 @@
+@if (auth()->user()->can('read admin'))
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -231,7 +231,6 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-
         <div class="page-heading">
             <h3>@yield('title-page')</h3>
         </div>
@@ -274,3 +273,4 @@
 </body>
 
 </html>
+@endif
