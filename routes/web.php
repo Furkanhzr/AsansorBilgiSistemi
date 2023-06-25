@@ -32,8 +32,8 @@ use App\Http\Controllers\Online\CustomerUpdateController;
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
-Route::middleware('isLogin')->group(function() {
-    Route::middleware('isUser')->group(function(){
+Route::middleware('isUser')->group(function() {
+    Route::middleware('')->group(function(){
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
             Route::get('/monthlyProductFetch', [DashboardController::class, 'monthlyProductFetch'])->name('dashboard.monthlyProductFetch');
@@ -131,7 +131,7 @@ Route::middleware('isLogin')->group(function() {
 
         });
     });
-    Route::middleware('isUser')->group(function(){
+    Route::middleware('')->group(function(){
         Route::prefix('customer')->group(function () {
             Route::get('/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
             Route::get('/getFaultData', [CustomerDashboardController::class, 'getFaultData'])->name('customer.dashboard.getFaultData');

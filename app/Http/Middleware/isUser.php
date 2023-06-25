@@ -19,11 +19,11 @@ class isUser
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()) {
-            if (!is_null(HasRoles::where('model_id',Auth::id())->first())){
-                return redirect()->route('dashboard');
+            if (is_null(HasRoles::where('model_id',Auth::id())->first())){
+                return redirect()->route('customer.dashboard');
             }
             else{
-                return redirect()->route('customer.dashboard');
+                return redirect()->route('dashboard');
             }
         }
         return $next($request);
