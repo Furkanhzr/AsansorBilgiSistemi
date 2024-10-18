@@ -1,0 +1,14 @@
+{
+    "extends": ["config:base"],
+    "labels": ["dependencies"],
+    "packageRules": [
+      {
+        "packagePatterns": ["*"],
+        "automerge": true,
+        "groupName": "all dependencies",
+        "semanticCommitType": "chore"
+      }
+    ],
+    "timezone": "Europe/Istanbul",
+    "schedule": ["before 5am on monday"]
+  }
